@@ -18,6 +18,8 @@ CREATE TABLE landmarks (
     CONSTRAINT PK_landmark PRIMARY KEY (landmark_id)
 );
 
+
+
 --TODO: Create remaining tables for application (images, itinerary, reviews)
 
 COMMIT TRANSACTION;
