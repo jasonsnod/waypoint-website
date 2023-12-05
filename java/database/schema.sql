@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS users, landmarks;
 
 CREATE TABLE users (
 	user_id SERIAL,
@@ -16,6 +16,8 @@ CREATE TABLE landmarks (
     landmark_address varchar(100) NOT NULL,
     landmark_details varchar(1000),
     CONSTRAINT PK_landmark PRIMARY KEY (landmark_id)
-)
+);
+
+--TODO: Create remaining tables for application (images, itinerary, reviews)
 
 COMMIT TRANSACTION;
