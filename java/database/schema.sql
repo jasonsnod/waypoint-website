@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users, landmarks;
+DROP TABLE IF EXISTS users, landmarks, itineraries;
 
 CREATE TABLE users (
 	user_id SERIAL,
@@ -18,8 +18,17 @@ CREATE TABLE landmarks (
     CONSTRAINT PK_landmark PRIMARY KEY (landmark_id)
 );
 
+CREATE TABLE itineraries (
+    itinerary_id SERIAL,
+    user_id int NOT NULL,
+    itinerary_name varchar(50) NOT NULL,
+    starting_point_address varchar(100) NOT NULL,
+    CONSTRAINT PK_itinerary PRIMARY KEY (itinerary_id),
+    CONSTRAINT FK_user_id FOREIGN KEY (user_id) references final_capstone_user (user_id)
+)
 
 
---TODO: Create remaining tables for application (images, itinerary, reviews)
+
+--TODO: Create remaining tables for application (images, reviews)
 
 COMMIT TRANSACTION;
