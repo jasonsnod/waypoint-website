@@ -24,8 +24,8 @@ public class JdbcLandmarkDao implements LandmarkDao {
 
     // Methods
     @Override
-    public List<Landmark> getAllLandmarks() {
-        List<Landmark> listOfAllLandmarks = new ArrayList<>();
+    public List<LandmarkDto> getAllLandmarks() {
+        List<LandmarkDto> listOfAllLandmarks = new ArrayList<>();
 
         String sqlSelectQuery = (
                 "SELECT landmark_id, landmark_name, landmark_address, landmark_details \n" +
@@ -35,7 +35,7 @@ public class JdbcLandmarkDao implements LandmarkDao {
         try {
             SqlRowSet resultsFromQuery = jdbcTemplate.queryForRowSet(sqlSelectQuery);
             while(resultsFromQuery.next()) {
-                listOfAllLandmarks.add(mapRowToLandmark(resultsFromQuery));
+                listOfAllLandmarks.add(mapRowToLandmarkDto(resultsFromQuery));
             }
         }
         catch (CannotGetJdbcConnectionException e) {
@@ -67,6 +67,8 @@ public class JdbcLandmarkDao implements LandmarkDao {
 
         return resultingLandmark;
     }
+
+
 
     @Override
     public Landmark addLandmark(Landmark landmarkToBeAdded) {
@@ -104,15 +106,20 @@ public class JdbcLandmarkDao implements LandmarkDao {
      * @param resultsToMap
      * @return
      */
-    private Landmark mapRowToLandmark(SqlRowSet resultsToMap) {
-        Landmark landmarkToCreate = new Landmark();
+    private LandmarkDto mapRowToLandmarkDto(SqlRowSet resultsToMap) {
+        LandmarkDto landmarkToCreate = new LandmarkDto();
 
         landmarkToCreate.setLandmarkId(resultsToMap.getInt("landmark_id"));
         landmarkToCreate.setLandmarkName(resultsToMap.getString("landmark_name"));
         landmarkToCreate.setLandmarkAddress(resultsToMap.getString("landmark_address"));
         landmarkToCreate.setLandmarkDetails(resultsToMap.getString("landmark_details"));
 
-        //TODO: Need to create methods to fill list of Images and Reviews, for now they are null
         return landmarkToCreate;
+    }
+
+    private Landmark mapRowToLandmark(SqlRowSet resultsFromQuery) {
+
+        
+        return null;
     }
 }

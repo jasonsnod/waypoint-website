@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface LandmarkDao {
 
-    List<Landmark> getAllLandmarks();
+    List<LandmarkDto> getAllLandmarks();
     Landmark getLandmarkById(int landmarkId);
     Landmark addLandmark(Landmark landmarkToBeAdded);
 }

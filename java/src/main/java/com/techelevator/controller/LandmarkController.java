@@ -25,7 +25,7 @@ public class LandmarkController {
 
     // Handler Methods
     @RequestMapping(method= RequestMethod.GET)
-    public List<Landmark> getLandmarks() {
+    public List<LandmarkDto> getLandmarks() {
         return landmarkDao.getAllLandmarks();
     }
 
