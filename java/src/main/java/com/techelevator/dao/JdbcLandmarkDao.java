@@ -2,6 +2,7 @@ package com.techelevator.dao;
 
 import com.techelevator.exception.DaoException;
 import com.techelevator.model.Landmark;
+import com.techelevator.model.LandmarkDto;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -46,8 +47,8 @@ public class JdbcLandmarkDao implements LandmarkDao {
     }
 
     @Override
-    public Landmark getLandmarkById(int landmarkId) {
-        Landmark resultingLandmark = null;
+    public LandmarkDto getLandmarkById(int landmarkId) {
+        LandmarkDto resultingLandmark = null;
 
         String sqlSelectQuery = (
                 "SELECT landmark_id, landmark_name, landmark_address, landmark_details \n" +
@@ -58,7 +59,7 @@ public class JdbcLandmarkDao implements LandmarkDao {
         try {
             SqlRowSet resultsFromQuery = jdbcTemplate.queryForRowSet(sqlSelectQuery, landmarkId);
             if(resultsFromQuery.next()) {
-                resultingLandmark = mapRowToLandmark(resultsFromQuery);
+                resultingLandmark = mapRowToLandmarkDto(resultsFromQuery);
             }
         }
         catch (CannotGetJdbcConnectionException e) {
@@ -71,8 +72,8 @@ public class JdbcLandmarkDao implements LandmarkDao {
 
 
     @Override
-    public Landmark addLandmark(Landmark landmarkToBeAdded) {
-        Landmark landmarkCreated = null;
+    public LandmarkDto addLandmark(LandmarkDto landmarkToBeAdded) {
+        LandmarkDto landmarkCreated = null;
 
         String sqlAddQuery = (
                 "INSERT INTO landmarks (landmark_name, landmark_address, landmark_details) " +
