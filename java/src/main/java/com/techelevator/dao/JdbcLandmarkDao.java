@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -25,7 +26,7 @@ public class JdbcLandmarkDao implements LandmarkDao {
     // Methods
     @Override
     public List<Landmark> getAllLandmarks() {
-        List<Landmark> listOfAllLandmarks = null;
+        List<Landmark> listOfAllLandmarks = new ArrayList<>();
 
         String sqlSelectQuery = (
                 "SELECT landmark_id, landmark_name, landmark_address, landmark_details \n" +

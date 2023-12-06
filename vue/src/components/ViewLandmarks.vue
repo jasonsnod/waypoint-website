@@ -95,4 +95,6 @@ img {
   flex-direction: row;
   justify-content: space-around;
 }
+
+/* Add a no repeat */
 </style>
