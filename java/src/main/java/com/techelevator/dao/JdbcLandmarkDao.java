@@ -120,7 +120,7 @@ public class JdbcLandmarkDao implements LandmarkDao {
 
     private Landmark mapRowToLandmark(SqlRowSet resultsFromQuery) {
 
-        
+
         return null;
     }
 }
