@@ -1,16 +1,20 @@
 /* Global Styles */
 
+/* 
+Colors I am using 
+  Blue = #295A7c
+*/
+
 * {
   box-sizing: border-box;
 }
 
-/* body,
+body,
 html {
   margin: 0;
   padding: 0;
-} */
+}
 
-body{
-  /* background-color: #295A7c; */
-  background: linear-gradient(to bottom, #295A7c , #7fb0d3 )
+body {
+  background: linear-gradient(to bottom, #295a7c, #7fb0d3);
 }
