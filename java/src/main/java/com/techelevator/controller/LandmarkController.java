@@ -5,9 +5,11 @@ import com.techelevator.exception.DaoException;
 import com.techelevator.model.Landmark;
 import com.techelevator.model.LandmarkDto;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -29,25 +31,29 @@ public class LandmarkController {
         return landmarkDao.getAllLandmarks();
     }
 
-    @RequestMapping(path = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/{landmarkId}", method = RequestMethod.GET)
     public LandmarkDto getLandmarkById(@PathVariable int landmarkId) {
-        LandmarkDto landmarkToBeTransferred = null;
+        LandmarkDto resultingLandmark = null;
 
         try {
-            Landmark resultingLandmark = landmarkDao.getLandmarkById(landmarkId);
-            landmarkToBeTransferred = new LandmarkDto(
-                    resultingLandmark.getLandmarkId(),
-                    resultingLandmark.getLandmarkName(),
-                    resultingLandmark.getLandmarkAddress(),
-                    resultingLandmark.getLandmarkDetails()
-            );
+            resultingLandmark = landmarkDao.getLandmarkById(landmarkId);
+
         }
         catch(DaoException e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Landmark not found");
         }
 
-        return landmarkToBeTransferred;
+        return resultingLandmark;
     }
 
-
+    //@PreAuthorize("hasRole('ROLE_ADMIN')")
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(method = RequestMethod.POST)
+    public LandmarkDto addNewLandmark(@Valid @RequestBody LandmarkDto newLandmark) {
+        try {
+            return landmarkDao.addLandmark(newLandmark);
+        } catch(DaoException e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

@@ -24,8 +24,8 @@ CREATE TABLE itineraries (
     itinerary_name varchar(50) NOT NULL,
     starting_point_address varchar(100) NOT NULL,
     CONSTRAINT PK_itinerary PRIMARY KEY (itinerary_id),
-    CONSTRAINT FK_user_id FOREIGN KEY (user_id) references final_capstone_user (user_id)
-)
+    CONSTRAINT FK_user_id FOREIGN KEY (user_id) references users (user_id)
+);
 
 
 

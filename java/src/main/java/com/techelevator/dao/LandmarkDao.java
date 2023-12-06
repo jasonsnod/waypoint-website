@@ -8,6 +8,6 @@ import java.util.List;
 public interface LandmarkDao {
 
     List<LandmarkDto> getAllLandmarks();
-    Landmark getLandmarkById(int landmarkId);
-    Landmark addLandmark(LandmarkDto landmarkToBeAdded);
+    LandmarkDto getLandmarkById(int landmarkId);
+    LandmarkDto addLandmark(LandmarkDto landmarkToBeAdded);
 }
