@@ -25,8 +25,8 @@ public class JdbcLandmarkDao implements LandmarkDao {
 
     // Methods
     @Override
-    public List<Landmark> getAllLandmarks() {
-        List<Landmark> listOfAllLandmarks = new ArrayList<>();
+    public List<LandmarkDto> getAllLandmarks() {
+        List<LandmarkDto> listOfAllLandmarks = new ArrayList<>();
 
         String sqlSelectQuery = (
                 "SELECT landmark_id, landmark_name, landmark_address, landmark_details \n" +
@@ -105,8 +105,8 @@ public class JdbcLandmarkDao implements LandmarkDao {
      * @param resultsToMap
      * @return
      */
-    private Landmark mapRowToLandmark(SqlRowSet resultsToMap) {
-        Landmark landmarkToCreate = new Landmark();
+    private LandmarkDto mapRowToLandmark(SqlRowSet resultsToMap) {
+        LandmarkDto landmarkToCreate = new LandmarkDto();
 
         landmarkToCreate.setLandmarkId(resultsToMap.getInt("landmark_id"));
         landmarkToCreate.setLandmarkName(resultsToMap.getString("landmark_name"));

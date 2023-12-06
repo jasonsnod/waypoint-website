@@ -12,6 +12,10 @@ public class LandmarkDto {
     private String landmarkDetails;
 
     // Constructors
+    public LandmarkDto() {
+        
+    }
+
     public LandmarkDto(int landmarkId, String landmarkName, String landmarkAddress, String landmarkDetails) {
         this.landmarkId = landmarkId;
         this.landmarkName = landmarkName;
