@@ -1,10 +1,11 @@
 <template>
   <div class="home">
     <global-header />
-    <search-landmarks />
-    <view-landmark />
+    
     <h1>City Tours</h1>
     <p>Welcome to the homepage</p>
+    <search-landmarks />
+    <view-landmarks />
   </div>
 </template>
 
@@ -16,8 +17,8 @@ export default {
   components: {
     GlobalHeader,
     SearchLandmarks,
-    // ViewLandmarks,
-  },
+    ViewLandmarks
+  }
 };
 </script>
 <style scoped>
