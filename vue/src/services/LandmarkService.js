@@ -10,5 +10,11 @@ const http = axios.create({
 export default{
     getAllLandmarks(){
         return http.get("/landmark")
+    },
+    getLandmark(id){
+        return http.get(`/landmark/${id}`)
+    },
+    addLandmark(landmark){
+        return http.post("/landmark", landmark)
     }
 }
