@@ -29,7 +29,7 @@ public class LandmarkController {
         return landmarkDao.getAllLandmarks();
     }
 
-    @RequestMapping(path = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/{landmarkId}", method = RequestMethod.GET)
     public LandmarkDto getLandmarkById(@PathVariable int landmarkId) {
         LandmarkDto landmarkToBeTransferred = null;
 
@@ -49,5 +49,13 @@ public class LandmarkController {
         return landmarkToBeTransferred;
     }
 
-
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(method = RequestMethod.POST)
+    public Landmark addNewLandmark(@RequestBody Landmark newLandmark) {
+        try {
+            return landmarkDao.addLandmark(newLandmark);
+        } catch(DaoException e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

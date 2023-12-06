@@ -2,7 +2,6 @@ package com.techelevator.dao;
 
 import com.techelevator.exception.DaoException;
 import com.techelevator.model.Landmark;
-import com.techelevator.model.LandmarkDto;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -70,12 +69,12 @@ public class JdbcLandmarkDao implements LandmarkDao {
     }
 
     @Override
-    public Landmark addLandmark(LandmarkDto landmarkToBeAdded) {
+    public Landmark addLandmark(Landmark landmarkToBeAdded) {
         Landmark landmarkCreated = null;
 
         String sqlAddQuery = (
-                "INSERT INTO landmarks (landmark_name, landmark_address, landmark_details) \n" +
-                "VALUES (?, ?, ?) \n" +
+                "INSERT INTO landmarks (landmark_name, landmark_address, landmark_details) " +
+                "VALUES (?, ?, ?) " +
                 "RETURNING landmark_id;"
         );
 
