@@ -48,7 +48,7 @@ public class JdbcLandmarkDao implements LandmarkDao {
 
     @Override
     public Landmark getLandmarkById(int landmarkId) {
-        Landmark resultingLandmark = null;
+        LandmarkDto resultingLandmark = null;
 
         String sqlSelectQuery = (
                 "SELECT landmark_id, landmark_name, landmark_address, landmark_details \n" +

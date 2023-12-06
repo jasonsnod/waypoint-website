@@ -13,7 +13,7 @@ public class LandmarkDto {
 
     // Constructors
     public LandmarkDto() {
-        
+
     }
 
     public LandmarkDto(int landmarkId, String landmarkName, String landmarkAddress, String landmarkDetails) {
