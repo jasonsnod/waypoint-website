@@ -32,6 +32,7 @@ public class ItineraryController {
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(method = RequestMethod.POST)
     public Itinerary addNewItinerary(@Valid @RequestBody Itinerary newItinerary) {
+        //TODO: Possibly need to Link Itinerary/Landmark Table to add landmarks
         try {
             return itineraryDao.createItinerary(newItinerary);
         } catch(DaoException e) {
@@ -41,9 +42,8 @@ public class ItineraryController {
 
     @RequestMapping(path = "/{itineraryId}", method = RequestMethod.PUT)
     public Itinerary editItinerary(@PathVariable int itineraryId, @RequestBody Itinerary dataItinerary) {
-        //Itinerary updatedItinerary;
+        //TODO: Decide on and Implement a way to alter landmarks in an itinerary
         try {
-            //updatedItinerary = itineraryDao.getItineraryById(itineraryId);
             return itineraryDao.updateItinerary(dataItinerary);
         } catch (DaoException e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);

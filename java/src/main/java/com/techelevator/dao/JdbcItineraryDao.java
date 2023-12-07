@@ -107,6 +107,7 @@ public class JdbcItineraryDao implements ItineraryDao{
 
     @Override
     public void deleteItinerary(int itineraryId) {
+        // TODO: Maybe link the itinerary/landmark table here too?
         String sqlQuery = "DELETE * FROM itineraries WHERE itinerary_id = ?";
         jdbcTemplate.update(sqlQuery, itineraryId);
     }
