@@ -1,5 +1,6 @@
 <template>
-  <footer class="bg-white fixed-bottom py-3">
+  <hr class="line-under-image" />
+  <footer class="bg-#1d366f fixed-bottom py-2 mt-4">
     <div class="container">
       <div class="row">
         <div class="col-md-4">
@@ -50,10 +51,9 @@
         </div>
       </div>
     </div>
-    <span id="waypoint" class="text-black">&copy; 2023 Waypoint</span>
+    <span id="waypoint" class="text-black py-2 mt-4">&copy; 2023 Waypoint</span>
   </footer>
 </template>
-
 <script>
 export default {
   data() {
@@ -65,39 +65,44 @@ export default {
     };
   },
   computed: {
-    isAdminUser() {
-      // Add actual properties to match authentication and admin rights
-      return this.user.authenticated && this.user.isAdmin;
+    isAdmin() {
+      return this.$store.getters.isAdmin;
     },
   },
 };
 </script>
-
 <style scoped>
 #waypoint {
   display: flexbox;
-  padding: 5%;
   justify-content: space-around;
 }
-
 a {
   text-decoration: none;
-  color: #1d366f;
+  color: black;
   transition: color 0.3s ease;
 }
-
 a:hover {
   text-decoration: underline;
-  color: #08c076;
+  color: #08C076;
 }
-
 ul {
   list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
-
 footer {
   margin-top: auto;
-  padding: 20;
-  border-top: 1px solid #1d366f;
+  position: relative;
+}
+h6 {
+  color: #08C076
+}
+span {
+  color: black
+}
+.line-under-image {
+  width: 40%;
+  margin: 20px auto;
+  border-bottom: 2px solid #234D80;
 }
 </style>

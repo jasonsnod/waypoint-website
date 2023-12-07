@@ -28,7 +28,7 @@ export default {
     GlobalHeader,
     SearchLandmarks,
     // ViewLandmarks,
-    // GlobalFooter,
+    GlobalFooter,
   },
 };
 </script>

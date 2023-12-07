@@ -16,5 +16,6 @@ html {
 }
 
 body {
-  background: linear-gradient(to bottom, #295a7c, #7fb0d3);
+  /* background: linear-gradient(to bottom, #295a7c, #7fb0d3); */
+  background-color: #7fb0d3;
 }
