@@ -1,8 +1,9 @@
 <template>
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/@geoapify/geocoder-autocomplete@^1/styles/minimal-dark.css">
   <div class="search-landmarks">
     <h1 id="search-landmarks-header">Search Landmarks</h1>
     <form @submit.prevent="searchLandmarks">
-      <input type="text" v-model="searchTerm" placeholder="Enter Location" />
+      <div ref="autocomplete" class="autocomplete-container"></div>
 
       <!-- 
         used this link for the idea, adding in case we need a reference later
@@ -21,6 +22,8 @@
 </template>
 
 <script>
+import { GeocoderAutocomplete } from '@geoapify/geocoder-autocomplete';
+
 export default {
   data() {
     return {
@@ -34,9 +37,42 @@ export default {
       //Assuming logic cannot be built out until API is up and running on backend
     },
   },
+  mounted: function() {
+    const GEOAPIFY_API_KEY = 'b5532f224fd24fc596a0409ecc5466cf';
+
+    const autocomplete = new GeocoderAutocomplete(
+                          this.$refs.autocomplete, 
+                          GEOAPIFY_API_KEY, 
+                          { /* Geocoder options */ });
+
+    autocomplete.on('select', (location) => {
+        // check selected location here 
+    });
+
+    autocomplete.on('suggestions', (suggestions) => {
+        // process suggestions here
+    });
+  }
 };
 </script>
 
 <style scoped>
 /* Add component specific styles here */
+.autocomplete-container {
+    position: relative;
+}
+
+.input-container {
+  display: flex;
+}
+
+.input-container input {
+  flex: 1;
+  outline: none;
+  
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  padding-right: 31px;
+  font-size: 16px;
+}
 </style>
