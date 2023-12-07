@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
     <global-header />
     <div>
         <landmark-search /> 
@@ -10,6 +11,20 @@
         <landmark-card v-bind:landmark="landmark"/>
     </div>
     <global-footer />
+=======
+  <global-header />
+  <landmark-search />
+  <map-of-landmarks />
+  <div
+    class="landmark-card-list"
+    v-for="landmark in landmarks"
+    v-bind:key="landmark.landmarkId"
+  >
+    <landmark-card v-bind:landmark="landmark" />
+  </div>
+  <router-link v-bind:to="{ name: landmarks }">View Landmarks</router-link>
+  <global-footer />
+>>>>>>> da82fb2 (router-link update in LandmarkViews)
 </template>
 
 <script>

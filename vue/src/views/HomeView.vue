@@ -9,7 +9,20 @@
     <hr class="line-under-image" />
 
     <div class="image-with-paragraphs">
-      <div class="image-with-text"></div>
+      <div class="image-with-text">
+        <img
+          src="https://oyster.ignimgs.com/mediawiki/apis.ign.com/pokemon-blue-version/8/89/Pikachu.jpg?width=325"
+          alt="Itinerary Graphic"
+        />
+        <p>Use our website to build an itinerary and share with friends.</p>
+      </div>
+      <div class="image-with-text">
+        <img
+          src="https://oyster.ignimgs.com/mediawiki/apis.ign.com/pokemon-blue-version/8/89/Pikachu.jpg?width=325"
+          alt="Landmark Graphic"
+        />
+        <p>Check out the landmarks in Cincinnati</p>
+      </div>
     </div>
 
     <search-landmarks />
@@ -55,6 +68,18 @@ export default {
   width: 40%;
   margin: 20px auto;
   border-bottom: 2px solid #234d80;
+}
+
+/* Placeholder images for now */
+img {
+  width: 200px;
+  border-radius: 50px;
+}
+
+/* Styles for itinerary and graphic */
+
+.image-with-paragraphs {
+  display: flex;
 }
 </style>
 
