@@ -70,16 +70,18 @@ export default {
   border-bottom: 2px solid #234d80;
 }
 
-/* Placeholder images for now */
-img {
-  width: 200px;
-  border-radius: 50px;
-}
-
 /* Styles for itinerary and graphic */
 
 .image-with-paragraphs {
   display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.image-with-text img {
+  width: 200px;
+  height: auto;
+  border-radius: 40px;
 }
 </style>
 

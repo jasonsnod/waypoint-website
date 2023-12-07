@@ -1,17 +1,20 @@
 <template>
-<<<<<<< HEAD
-    <global-header />
-    <div>
-        <landmark-search /> 
-    </div>
-    <div>
-        <map-of-landmarks />
-    </div>
-    <div class="landmark-card-list" v-for="landmark in landmarks" v-bind:key="landmark.landmarkId">
-        <landmark-card v-bind:landmark="landmark"/>
-    </div>
-    <global-footer />
-=======
+  <global-header />
+  <div>
+    <landmark-search />
+  </div>
+  <div>
+    <map-of-landmarks />
+  </div>
+  <div
+    class="landmark-card-list"
+    v-for="landmark in landmarks"
+    v-bind:key="landmark.landmarkId"
+  >
+    <landmark-card v-bind:landmark="landmark" />
+  </div>
+  <global-footer />
+
   <global-header />
   <landmark-search />
   <map-of-landmarks />
@@ -24,7 +27,6 @@
   </div>
   <router-link v-bind:to="{ name: landmarks }">View Landmarks</router-link>
   <global-footer />
->>>>>>> da82fb2 (router-link update in LandmarkViews)
 </template>
 
 <script>
@@ -67,36 +69,34 @@ export default {
       }
     },
     method: {
-        getLandmarks() {
-            landmarkService.getAllLandmarks()
-                .then(response => {
-                    this.landmarks = response.data;
-                })
-                .catch(error => {
-                    this.handleErrorResponse(error);
-                })
-        },
-        handleErrorResponse(error) {
-            if (error.response.status == 404) {
-                alert(`${error.response.status}: No landmarks found`);
-            }
-            else {
-                alert(`An unknown error occurred while searching for landmarks.`)
-            }
+      getLandmarks() {
+        landmarkService
+          .getAllLandmarks()
+          .then((response) => {
+            this.landmarks = response.data;
+          })
+          .catch((error) => {
+            this.handleErrorResponse(error);
+          });
+      },
+      handleErrorResponse(error) {
+        if (error.response.status == 404) {
+          alert(`${error.response.status}: No landmarks found`);
+        } else {
+          alert(`An unknown error occurred while searching for landmarks.`);
         }
+      },
     },
     created() {
-        this.getLandmarks();
-    }
-  }
-}
-
+      this.getLandmarks();
+    },
+  },
+};
 </script>
 
 <style>
 .landmark-card-list {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 </style>
-
