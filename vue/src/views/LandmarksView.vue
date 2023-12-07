@@ -51,26 +51,7 @@ export default {
         alert(`An unknown error occurred while searching for landmarks.`);
       }
     },
-    method: {
-        getLandmarks() {
-            landmarkService.getAllLandmarks()
-                .then(response => {
-                    this.landmarks = response.data;
-                })
-                .catch(error => {
-                    this.handleErrorResponse(error);
-                })
-        },
-        handleErrorResponse(error) {
-            if (error.response.status == 404) {
-                alert(`${error.response.status}: No landmarks found`);
-            }
-            else {
-                alert(`An unknown error occurred while searching for landmarks.`)
-            }
-        }
-    },
-    created() {
+        created() {
         this.getLandmarks();
     }
   }
