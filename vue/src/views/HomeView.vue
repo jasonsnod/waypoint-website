@@ -26,7 +26,7 @@
     </div>
 
     <search-landmarks />
-    <router-link v-bind:to="{ name: landmarks }">View Landmarks</router-link>
+    <router-link v-bind:to="{ name: 'landmarks' }">View Landmarks</router-link>
     <global-footer />
   </div>
 </template>
