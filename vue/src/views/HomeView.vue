@@ -1,47 +1,42 @@
 <template>
   <div class="home">
     <global-header />
-    <h1 class="homeview-header">City Tours</h1>
+    <h1 class="homeview-header">Welcome to Waypoint, where to next?</h1>
     <img
       class="homeview-image"
-      src="https://i.icanvas.com/WDA757?d=2&sh=h&p=1&bg=g"
+      src="img\logo-large.png"
     />
     <hr class="line-under-image" />
 
-    <div class="image-with-paragraphs">
-      <div class="image-with-text">
-        <img
-          src="https://oyster.ignimgs.com/mediawiki/apis.ign.com/pokemon-blue-version/8/89/Pikachu.jpg?width=325"
-          alt="Itinerary Graphic"
-        />
-        <p>Use our website to build an itinerary and share with friends.</p>
+    <div class="image-with-paragraphs ">
+      <div class="image-container mx-auto mb-4">
+        <img src="img\itinerary-logo.png" alt="Image 1" class="rounded mr-3">
+        <img src="img\landmarks-logo.png" alt="Image 2" class="rounded mr-3">
+        <p>
+          Your paragraph text goes here. This is an example paragraph.
+        </p>
+        
       </div>
-      <div class="image-with-text">
-        <img
-          src="https://oyster.ignimgs.com/mediawiki/apis.ign.com/pokemon-blue-version/8/89/Pikachu.jpg?width=325"
-          alt="Landmark Graphic"
-        />
-        <p>Check out the landmarks in Cincinnati</p>
-      </div>
+      
     </div>
 
-    <search-landmarks />
-    <router-link v-bind:to="{ name: 'landmarks' }">View Landmarks</router-link>
-    <!-- <global-footer /> -->
+  
+
+    <global-footer />
   </div>
 </template>
 
 <script>
 import GlobalHeader from "../components/GlobalHeader.vue";
 import SearchLandmarks from "../components/SearchLandmarks.vue";
-import ViewLandmarks from "../components/ViewLandmarks.vue";
+// import ViewLandmarks from "../components/ViewLandmarks.vue";
 import GlobalFooter from "../components/GlobalFooter.vue";
 export default {
   components: {
     GlobalHeader,
     SearchLandmarks,
     // ViewLandmarks,
-    // GlobalFooter,
+    GlobalFooter,
   },
 };
 </script>
@@ -50,12 +45,12 @@ export default {
   text-align: center;
   margin-top: 50px;
   font-family: "Roboto", sans-serif;
-  font-size: 60px;
+  font-size: 30px;
   color: #e2ecf7;
 }
 
 .homeview-image {
-  border: 2px solid #234d80;
+
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -78,11 +73,24 @@ export default {
   margin-top: 40px;
 }
 
-.image-with-text img {
-  width: 200px;
-  height: auto;
-  border-radius: 40px;
+
+.image-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px; /* Adjust the padding as needed */
 }
+
+img {
+  max-width: 100%; /* Make sure images don't exceed their container */
+  height: auto;
+}
+
+p {
+  max-width: 300px;
+  color: white; /* Adjust the width of the paragraph */
+}
+
 </style>
 
 <!-- 
