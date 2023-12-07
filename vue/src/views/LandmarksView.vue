@@ -1,15 +1,32 @@
 <template>
-    <global-header />
-    <div>
-        <landmark-search /> 
-    </div>
-    <div>
-        <map-of-landmarks />
-    </div>
-    <div class="landmark-card-list" v-for="landmark in landmarks" v-bind:key="landmark.landmarkId">
-        <landmark-card v-bind:landmark="landmark"/>
-    </div>
-    <global-footer />
+  <global-header />
+  <div>
+    <landmark-search />
+  </div>
+  <div>
+    <map-of-landmarks />
+  </div>
+  <div
+    class="landmark-card-list"
+    v-for="landmark in landmarks"
+    v-bind:key="landmark.landmarkId"
+  >
+    <landmark-card v-bind:landmark="landmark" />
+  </div>
+  <global-footer />
+
+  <global-header />
+  <landmark-search />
+  <map-of-landmarks />
+  <div
+    class="landmark-card-list"
+    v-for="landmark in landmarks"
+    v-bind:key="landmark.landmarkId"
+  >
+    <landmark-card v-bind:landmark="landmark" />
+  </div>
+  <router-link v-bind:to="{ name: landmarks }">View Landmarks</router-link>
+  <global-footer />
 </template>
 
 <script>
@@ -56,13 +73,11 @@ export default {
     }
   }
 }
-
 </script>
 
 <style>
 .landmark-card-list {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 </style>
-
