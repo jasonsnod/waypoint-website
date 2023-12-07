@@ -51,9 +51,13 @@
         </div>
       </div>
     </div>
-    <span id="waypoint" class="text-black py-2 mt-4">&copy; 2023 Waypoint</span>
+    
+
+
+    <span id="waypoint" class="text-white py-2 mt-4">&copy; 2023 Waypoint</span>
   </footer>
 </template>
+
 <script>
 export default {
   data() {
@@ -71,38 +75,48 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 #waypoint {
   display: flexbox;
+  
   justify-content: space-around;
 }
+
 a {
   text-decoration: none;
-  color: black;
+  color: white;
   transition: color 0.3s ease;
 }
+
 a:hover {
   text-decoration: underline;
-  color: #08C076;
+  color: #08c076;
 }
+
 ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
+
 footer {
   margin-top: auto;
+
   position: relative;
 }
+
 h6 {
-  color: #08C076
+  color: #08c076
 }
+
 span {
-  color: black
+  color: white
 }
+
 .line-under-image {
   width: 40%;
   margin: 20px auto;
-  border-bottom: 2px solid #234D80;
+  border-bottom: 2px solid #234d80;
 }
 </style>

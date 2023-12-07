@@ -1,5 +1,5 @@
 <template>
-  <link rel="stylesheet" type="text/css" href="https://unpkg.com/@geoapify/geocoder-autocomplete@^1/styles/minimal-dark.css">
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/@geoapify/geocoder-autocomplete@^1/styles/minimal.css">
   <div class="search-landmarks">
     <h1 id="search-landmarks-header">Search Landmarks</h1>
     <form @submit.prevent="searchLandmarks">
@@ -60,19 +60,5 @@ export default {
 /* Add component specific styles here */
 .autocomplete-container {
     position: relative;
-}
-
-.input-container {
-  display: flex;
-}
-
-.input-container input {
-  flex: 1;
-  outline: none;
-  
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 10px;
-  padding-right: 31px;
-  font-size: 16px;
 }
 </style>

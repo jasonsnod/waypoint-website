@@ -16,6 +16,10 @@ html {
 }
 
 body {
-  /* background: linear-gradient(to bottom, #295a7c, #7fb0d3); */
-  background-color: #7fb0d3;
+  background-color: #1d366f;
+}
+
+
+body.custom-body {
+  background-color: #1d366f;
 }

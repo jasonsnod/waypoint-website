@@ -1,11 +1,15 @@
 import { createStore as _createStore } from 'vuex';
 import axios from 'axios';
+import AuthService from '../services/AuthService';
 
 export function createStore(currentToken, currentUser) {
   let store = _createStore({
     state: {
       token: currentToken || '',
-      user: currentUser || {}
+      user: {
+        ...currentUser, 
+        isAdmin: false,
+      },
     },
     mutations: {
       SET_AUTH_TOKEN(state, token) {
@@ -23,6 +27,14 @@ export function createStore(currentToken, currentUser) {
         state.token = '';
         state.user = {};
         axios.defaults.headers.common = {};
+      },
+      async fetchAndSetUserData({ commit }) {
+        try {
+          const userData = await UserService.fetchUserData();
+          commit('SET_ADMIN_STATUS', userData.isAdmin);
+        } catch (error) {
+          console.error('Error fetching user data', error);
+        }
       }
     },
   });

@@ -8,6 +8,16 @@ export default {
 
   register(user) {
     return axios.post('/register', user)
-  }
+  },
 
-}
+  async fetchUserData() {
+    try {
+      const response = await axios.get('/api/user');
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  }
+};
+
+
