@@ -6,6 +6,12 @@
       class="homeview-image"
       src="https://i.icanvas.com/WDA757?d=2&sh=h&p=1&bg=g"
     />
+    <hr class="line-under-image" />
+
+    <div class="image-with-paragraphs">
+      <div class="image-with-text"></div>
+    </div>
+
     <search-landmarks />
     <view-landmarks />
     <global-footer />
@@ -21,13 +27,12 @@ export default {
   components: {
     GlobalHeader,
     SearchLandmarks,
-    ViewLandmarks,
-    GlobalFooter,
+    // ViewLandmarks,
+    // GlobalFooter,
   },
 };
 </script>
 <style scoped>
-/* Add component-specific styles heres  */
 .homeview-header {
   text-align: center;
   margin-top: 50px;
@@ -44,6 +49,12 @@ export default {
   margin-top: 30px;
   width: 60%;
   border-radius: 30px;
+}
+
+.line-under-image {
+  width: 40%;
+  margin: 20px auto;
+  border-bottom: 2px solid #234d80;
 }
 </style>
 
