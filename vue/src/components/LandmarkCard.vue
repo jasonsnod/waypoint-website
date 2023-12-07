@@ -1,6 +1,9 @@
 <template>
-    <div class="landmark-card">
+    <div v-bind:id="landmark.landmarkId" class="landmark-card">
         <h1>{{landmark.landmarkName}}</h1>
+        <p>{{landmark.landmarkAddress}}</p>
+        <p>{{ landmark.landmarkDetails }}</p>
+
         <img src="https://themotzgroup.com/wp-content/uploads/2018/06/Bengals.jpg&nocache=1">
     </div>
 </template>

@@ -1,7 +1,11 @@
 <template>
     <global-header />
-    <landmark-search />  
-    <map-of-landmarks />  
+    <div>
+        <landmark-search /> 
+    </div>
+    <div>
+        <map-of-landmarks />
+    </div>
     <div class="landmark-card-list" v-for="landmark in landmarks" v-bind:key="landmark.landmarkId">
         <landmark-card v-bind:landmark="landmark"/>
     </div>
@@ -41,7 +45,7 @@ export default {
         },
         handleErrorResponse(error) {
             if (error.response.status == 404) {
-                alert(`${error.response.status} + No landmarks found`);
+                alert(`${error.response.status}: No landmarks found`);
             }
             else {
                 alert(`An unknown error occurred while searching for landmarks.`)
@@ -56,5 +60,8 @@ export default {
 </script>
 
 <style>
-
+.landmark-card-list {
+    display: flex;
+    flex-direction: row;
+}
 </style>
