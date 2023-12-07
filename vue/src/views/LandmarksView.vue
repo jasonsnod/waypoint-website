@@ -39,7 +39,6 @@ export default {
   },
   methods: {
     getLandmarks() {
-      console.log("Am i being called?");
       landmarkService.getAllLandmarks()
         .then((response) => {
           this.landmarks = response.data;

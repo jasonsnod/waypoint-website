@@ -43,7 +43,8 @@ export default {
     const autocomplete = new GeocoderAutocomplete(
                           this.$refs.autocomplete, 
                           GEOAPIFY_API_KEY, 
-                          { /* Geocoder options */ });
+                          { /* Geocoder options */ }
+    );
 
     autocomplete.on('select', (location) => {
         // check selected location here 
