@@ -2,17 +2,14 @@
   <div class="home">
     <global-header />
     <h1 class="homeview-header">City Tours</h1>
+    <img
+      class="homeview-image"
+      src="https://i.icanvas.com/WDA757?d=2&sh=h&p=1&bg=g"
+    />
     <search-landmarks />
     <view-landmarks />
     <global-footer />
   </div>
-
-  <!-- Testing an image -->
-  <!-- <div>
-    <img
-      src="https://www.shutterstock.com/image-vector/cincinnati-city-ohio-skyline-silhouette-600nw-1807651513.jpg"
-    />
-  </div> -->
 </template>
 
 <script>
@@ -32,9 +29,25 @@ export default {
 <style scoped>
 /* Add component-specific styles heres  */
 .homeview-header {
-  border: 2px solid pink;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 50px;
   font-family: "Roboto", sans-serif;
+  font-size: 60px;
+  color: #e2ecf7;
+}
+
+.homeview-image {
+  border: 2px solid #234d80;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  width: 60%;
+  border-radius: 30px;
 }
 </style>
+
+<!-- 
+Color Pallete I was working with if anyone cares:
+
+https://www.w3schools.com/w3css/w3css_color_generator.asp -->

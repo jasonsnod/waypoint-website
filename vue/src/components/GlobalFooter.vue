@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   
   <footer class="bg-white fixed-bottom py-3">
         <div class="container">
@@ -42,6 +43,11 @@
         </div>
 <span id="waypoint" class="text-black">&copy; 2023 Waypoint</span>
 
+=======
+  <div>
+    <footer id="footer" class="bg-body-tertiary text-center p-3 mt-5">
+      <p class="footer">City Tours Est 2023</p>
+>>>>>>> b3a26c5 (saving work on homepage and what i stated i was working on)
     </footer>
 
 </template>
