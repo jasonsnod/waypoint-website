@@ -41,10 +41,10 @@ public class ItineraryController {
 
     @RequestMapping(path = "/{itineraryId}", method = RequestMethod.PUT)
     public Itinerary editItinerary(@PathVariable int itineraryId, @RequestBody Itinerary dataItinerary) {
-        Itinerary updatedItinerary;
+        //Itinerary updatedItinerary;
         try {
-            updatedItinerary = itineraryDao.getItineraryById(itineraryId);
-            return itineraryDao.updateItinerary(dataItinerary, updatedItinerary);
+            //updatedItinerary = itineraryDao.getItineraryById(itineraryId);
+            return itineraryDao.updateItinerary(dataItinerary);
         } catch (DaoException e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR);
         }
