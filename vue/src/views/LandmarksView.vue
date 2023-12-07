@@ -1,7 +1,7 @@
 <template>
   <global-header />
   <div>
-    <landmark-search />
+    <search-landmarks />
   </div>
   <div>
     <map-of-landmarks />
@@ -19,7 +19,7 @@
 <script>
 import GlobalHeader from "../components/GlobalHeader.vue";
 import GlobalFooter from "../components/GlobalFooter.vue";
-import LandmarkSearch from "../components/LandmarkSearch.vue";
+import SearchLandmarks from "../components/SearchLandmarks.vue";
 import MapOfLandmarks from "../components/MapOfLandmarks.vue";
 import LandmarkCard from "../components/LandmarkCard.vue";
 import landmarkService from "../services/LandmarkService.js";
@@ -28,7 +28,7 @@ export default {
   components: {
     GlobalHeader,
     GlobalFooter,
-    LandmarkSearch,
+    SearchLandmarks,
     MapOfLandmarks,
     LandmarkCard,
   },
@@ -39,7 +39,6 @@ export default {
   },
   methods: {
     getLandmarks() {
-      console.log("Am i being called?");
       landmarkService.getAllLandmarks()
         .then((response) => {
           this.landmarks = response.data;
