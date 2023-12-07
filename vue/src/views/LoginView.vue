@@ -1,7 +1,8 @@
 <template>
   <div id="login">
+    <global-header />
     <form v-on:submit.prevent="login">
-      <h1>Please Sign In</h1>
+      <h1 class="login-header">Please Sign In</h1>
       <div role="alert" v-if="invalidCredentials">
         Invalid username and password!
       </div>
@@ -29,14 +30,19 @@
         >
       </p>
     </form>
+    <global-footer />
   </div>
 </template>
 
 <script>
 import authService from "../services/AuthService";
-
+import GlobalHeader from "../components/GlobalHeader.vue";
+import GlobalFooter from "../components/GlobalFooter.vue";
 export default {
-  components: {},
+  components: {
+    GlobalHeader,
+    // GlobalFooter,
+  },
   data() {
     return {
       user: {
@@ -70,10 +76,17 @@ export default {
 </script>
 
 <style scoped>
+body {
+  background: linear-gradient(to bottom, #295a7c, #7fb0d3);
+}
 .form-input-group {
   margin-bottom: 1rem;
 }
 label {
   margin-right: 0.5rem;
+}
+
+.login-header {
+  color: pink;
 }
 </style>

@@ -107,7 +107,7 @@ export default {
 }
 .paragraph-text {
   font-size: 20px;
-  color: #234d80;
+  color: #f3f4f5;
   font-family: "Roboto", sans-serif;
 }
 
