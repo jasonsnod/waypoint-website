@@ -22,14 +22,9 @@ import GlobalFooter from "../components/GlobalFooter.vue";
 import LandmarkSearch from "../components/LandmarkSearch.vue";
 import MapOfLandmarks from "../components/MapOfLandmarks.vue";
 import LandmarkCard from "../components/LandmarkCard.vue";
-import landmarkService from "../services/LandmarkService";
+import landmarkService from "../services/LandmarkService.js";
 
 export default {
-  data() {
-    return {
-      landmarks: [],
-    };
-  },
   components: {
     GlobalHeader,
     GlobalFooter,
@@ -37,32 +32,39 @@ export default {
     MapOfLandmarks,
     LandmarkCard,
   },
-  method: {
+  data() {
+    return {
+      landmarks: [],
+    };
+  },
+  methods: {
     getLandmarks() {
-      landmarkService
-        .getAllLandmarks()
+      console.log("Am i being called?");
+      landmarkService.getAllLandmarks()
         .then((response) => {
           this.landmarks = response.data;
         })
-        .catch((error) => {
+        .catch(error => {
           this.handleErrorResponse(error);
         });
     },
     handleErrorResponse(error) {
-      if (error.response.status == 404) {
-        alert(`${error.response.status} + No landmarks found`);
-      } else {
-        alert(`An unknown error occurred while searching for landmarks.`);
+      if (error.response.status === 404) {
+        alert(`${error.response.status}: No landmarks found`);
       }
-    },
-        created() {
-        this.getLandmarks();
+      else {
+        alert("An unknown error has occurred");
+      }
     }
+
+  },
+  created() {
+    this.getLandmarks();
   }
 }
 </script>
 
-<style>
+<style scoped>
 .landmark-card-list {
   display: flex;
   flex-direction: row;
