@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
     <global-header />
     <div>
         <landmark-search /> 
@@ -11,20 +10,6 @@
         <landmark-card v-bind:landmark="landmark"/>
     </div>
     <global-footer />
-=======
-  <global-header />
-  <landmark-search />
-  <map-of-landmarks />
-  <div
-    class="landmark-card-list"
-    v-for="landmark in landmarks"
-    v-bind:key="landmark.landmarkId"
-  >
-    <landmark-card v-bind:landmark="landmark" />
-  </div>
-  <router-link to="/landmarks"> Explore Landmarks</router-link>
-  <global-footer />
->>>>>>> 855cdf55eae7ee24daa35a09b91096f08dfa620b
 </template>
 
 <script>
@@ -66,7 +51,6 @@ export default {
         alert(`An unknown error occurred while searching for landmarks.`);
       }
     },
-<<<<<<< HEAD
     method: {
         getLandmarks() {
             landmarkService.getAllLandmarks()
@@ -89,6 +73,7 @@ export default {
     created() {
         this.getLandmarks();
     }
+  }
 }
 
 </script>
@@ -99,13 +84,4 @@ export default {
     flex-direction: row;
 }
 </style>
-=======
-  },
-  created() {
-    this.getLandmarks();
-  },
-};
-</script>
 
-<style></style>
->>>>>>> 855cdf55eae7ee24daa35a09b91096f08dfa620b
