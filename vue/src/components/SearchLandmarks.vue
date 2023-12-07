@@ -35,10 +35,10 @@ export default {
     searchLandmarks() {
       //Implement logic for searching landmarks
       //Assuming logic cannot be built out until API is up and running on backend
-    },
+    }
   },
   mounted: function() {
-    const GEOAPIFY_API_KEY = 'b5532f224fd24fc596a0409ecc5466cf';
+    const GEOAPIFY_API_KEY = 'f4ec423be4f84260bdd3b93a488dd3b0';
 
     const autocomplete = new GeocoderAutocomplete(
                           this.$refs.autocomplete, 
