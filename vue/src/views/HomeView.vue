@@ -36,6 +36,7 @@
 
     <search-landmarks />
     <router-link v-bind:to="{ name: 'landmarks' }">View Landmarks</router-link>
+    <!-- <router-link :to="{ name: 'itinerary' }">View Itinerary</router-link> -->
     <!-- <global-footer /> -->
   </div>
 </template>
