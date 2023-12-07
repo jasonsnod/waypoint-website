@@ -8,20 +8,29 @@
     />
     <hr class="line-under-image" />
 
+    <!-- YOU ARE WORKING HERE -->
+
     <div class="image-with-paragraphs">
       <div class="image-with-text">
         <img
-          src="https://oyster.ignimgs.com/mediawiki/apis.ign.com/pokemon-blue-version/8/89/Pikachu.jpg?width=325"
+          src="../assets/locationGraphics/itinerary-logo.png"
           alt="Itinerary Graphic"
+          class=""
         />
-        <p>Use our website to build an itinerary and share with friends.</p>
+        <p class="paragraph-text">
+          Waypoint allows you to plan your trip using our website, then share
+          your customized itinerary with friends in just a few clicks.
+        </p>
       </div>
       <div class="image-with-text">
         <img
-          src="https://oyster.ignimgs.com/mediawiki/apis.ign.com/pokemon-blue-version/8/89/Pikachu.jpg?width=325"
+          src="../assets/locationGraphics/landmarks-logo.png"
           alt="Landmark Graphic"
+          class=""
         />
-        <p>Check out the landmarks in Cincinnati</p>
+        <p class="paragraph-text">
+          Explore Cincinnati's iconic landmarks with Waypoint.
+        </p>
       </div>
     </div>
 
@@ -74,14 +83,52 @@ export default {
 
 .image-with-paragraphs {
   display: flex;
-  justify-content: space-between;
-  margin-top: 40px;
+  margin-top: 80px;
+}
+
+.image-with-text {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 420px;
+  margin: 0 auto;
 }
 
 .image-with-text img {
-  width: 200px;
+  width: 100%;
+  max-width: 300px;
   height: auto;
-  border-radius: 40px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border: 2px solid #234d80;
+}
+.paragraph-text {
+  font-size: 20px;
+  color: #234d80;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Reducing margin between images on larger screens */
+
+@media (min-width: 14px) {
+  .image-with-text {
+    width: calc(100% - 10px);
+  }
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+  .image-with-paragraphs {
+    flex-direction: column;
+    margin: 0 20px;
+  }
+
+  .image-with-text {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 }
 </style>
 
