@@ -44,18 +44,15 @@ export default {
     }
   },
   mounted: function() {
-    const GEOAPIFY_API_KEY = 'f4ec423be4f84260bdd3b93a488dd3b0';
-
     const autocomplete = new GeocoderAutocomplete(
                           this.$refs.autocomplete, 
-                          GEOAPIFY_API_KEY, 
+                          import.meta.env.VITE_GEOAPIFY_API_KEY,
                           { /* Geocoder options */ }
     );
 
     autocomplete.on('select', (location) => {
         // check selected location here 
         this.results = location.properties;
-        console.log(this.results);
     });
 
     autocomplete.on('suggestions', (suggestions) => {
