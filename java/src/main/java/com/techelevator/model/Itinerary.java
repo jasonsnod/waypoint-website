@@ -3,7 +3,7 @@ package com.techelevator.model;
 public class Itinerary {
 
     private int itineraryId;
-    private int creatorId;
+    private int userId;
     private String itineraryName;
     private String startingAddress;
 
@@ -11,9 +11,9 @@ public class Itinerary {
 
     }
 
-    public Itinerary(int itineraryId, int creatorId, String itineraryName, String startingAddress) {
+    public Itinerary(int itineraryId, int userId, String itineraryName, String startingAddress) {
         this.itineraryId = itineraryId;
-        this.creatorId = creatorId;
+        this.userId = userId;
         this.itineraryName = itineraryName;
         this.startingAddress = startingAddress;
     }
@@ -26,12 +26,12 @@ public class Itinerary {
         this.itineraryId = itineraryId;
     }
 
-    public int getCreatorId() {
-        return creatorId;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setCreatorId(int creatorId) {
-        this.creatorId = creatorId;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getItineraryName() {

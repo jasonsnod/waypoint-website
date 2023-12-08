@@ -74,7 +74,7 @@ public class JdbcItineraryDao implements ItineraryDao{
             int createdItineraryId = jdbcTemplate.queryForObject(
                     sqlQuery,
                     int.class,
-                    newItinerary.getCreatorId(),
+                    newItinerary.getUserId(),
                     newItinerary.getItineraryName(),
                     newItinerary.getStartingAddress()
             );
@@ -110,7 +110,7 @@ public class JdbcItineraryDao implements ItineraryDao{
     @Override
     public void deleteItinerary(int itineraryId) {
         // TODO: Maybe link the itinerary/landmark table here too?
-        String sqlQuery = "DELETE * FROM itineraries WHERE itinerary_id = ?";
+        String sqlQuery = "DELETE FROM itineraries WHERE itinerary_id = ?";
         jdbcTemplate.update(sqlQuery, itineraryId);
     }
 
@@ -118,7 +118,7 @@ public class JdbcItineraryDao implements ItineraryDao{
         Itinerary itineraryToCreate = new Itinerary();
 
         itineraryToCreate.setItineraryId(resultsToMap.getInt("itinerary_id"));
-        itineraryToCreate.setCreatorId(resultsToMap.getInt("user_id"));
+        itineraryToCreate.setUserId(resultsToMap.getInt("user_id"));
         itineraryToCreate.setItineraryName(resultsToMap.getString("itinerary_name"));
         itineraryToCreate.setStartingAddress(resultsToMap.getString("starting_address"));
 
