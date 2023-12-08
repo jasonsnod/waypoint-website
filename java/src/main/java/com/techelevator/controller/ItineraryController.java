@@ -55,4 +55,15 @@ public class ItineraryController {
     public void deleteItinerary(@PathVariable int itineraryId) {
         itineraryDao.deleteItinerary(itineraryId);
     }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(path = "/{itineraryId}/landmark", method = RequestMethod.POST)
+    public Itinerary createItineraryLandmarks(@PathVariable int itineraryId, List<Integer> landmarkIds) {
+        return null;
+    }
+
+    @RequestMapping(path = "/{itineraryId}/landmark", method = RequestMethod.PUT)
+    public Itinerary editItineraryLandmarks(@PathVariable int itineraryId, List<Integer> landmarkIds) {
+        return null;
+    }
 }

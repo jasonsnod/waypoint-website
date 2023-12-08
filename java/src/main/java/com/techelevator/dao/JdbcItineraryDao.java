@@ -90,6 +90,25 @@ public class JdbcItineraryDao implements ItineraryDao{
     }
 
     @Override
+    public Itinerary addItineraryLandmarks(int itineraryId, List<Integer> landmarkIds) {
+        Itinerary changedItinerary = getItineraryById(itineraryId);
+        String sqlQuery = "INSERT INTO itinerary_landmarks (itinerary_id, landmark_id) " +
+                            "VALUES (?,?)";
+        try {
+            for(int landmarkId: landmarkIds) {
+                jdbcTemplate.update(sqlQuery, itineraryId, landmarkId);
+            }
+        }
+        catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        }
+        catch(DataIntegrityViolationException e) {
+            throw new DaoException("Data integrity violation", e);
+        }
+        return changedItinerary;
+    }
+
+    @Override
     public Itinerary updateItinerary(Itinerary dataItinerary) {
         Itinerary updatedItinerary = null;
         String sqlQuery = "UPDATE itineraries SET itinerary_name = ?, starting_address = ? WHERE itinerary_id = ?";
@@ -109,8 +128,13 @@ public class JdbcItineraryDao implements ItineraryDao{
 
     @Override
     public void deleteItinerary(int itineraryId) {
-        // TODO: Maybe link the itinerary/landmark table here too?
         String sqlQuery = "DELETE FROM itineraries WHERE itinerary_id = ?";
+        jdbcTemplate.update(sqlQuery, itineraryId);
+    }
+
+    @Override
+    public void dropItineraryLandmarks(int itineraryId) {
+        String sqlQuery = "DELETE FROM itinerary_landmarks WHERE itinerary_id = ?";
         jdbcTemplate.update(sqlQuery, itineraryId);
     }
 
