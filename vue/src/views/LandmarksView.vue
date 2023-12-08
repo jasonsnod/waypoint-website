@@ -44,18 +44,12 @@ export default {
           this.landmarks = response.data;
         })
         .catch(error => {
-          this.handleErrorResponse(error);
+          this.handleErrorResponse();
         });
     },
-    handleErrorResponse(error) {
-      if (error.response.status === 404) {
-        alert(`${error.response.status}: No landmarks found`);
-      }
-      else {
-        alert("An unknown error has occurred");
-      }
+    handleErrorResponse() {
+      console.log('Error: Network Error');
     }
-
   },
   created() {
     this.getLandmarks();

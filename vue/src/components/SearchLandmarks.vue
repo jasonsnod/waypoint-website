@@ -29,12 +29,14 @@ export default {
     return {
       searchTerm: "",
       searchRadius: "",
+      results:[]
     };
   },
   methods: {
     searchLandmarks() {
       //Implement logic for searching landmarks
       //Assuming logic cannot be built out until API is up and running on backend
+
     }
   },
   mounted: function() {
@@ -48,11 +50,15 @@ export default {
 
     autocomplete.on('select', (location) => {
         // check selected location here 
+        this.results = location.properties;
+        console.log(this.results);
     });
 
     autocomplete.on('suggestions', (suggestions) => {
         // process suggestions here
     });
+
+    
   }
 };
 </script>
