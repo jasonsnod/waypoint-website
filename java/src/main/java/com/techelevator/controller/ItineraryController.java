@@ -24,8 +24,8 @@ public class ItineraryController {
         this.itineraryDao = itineraryDao;
     }
 
-    @RequestMapping(method= RequestMethod.GET)
-    public List<Itinerary> getItineraries(int userId) {
+    @RequestMapping(path = "/get/{userId}", method = RequestMethod.GET)
+    public List<Itinerary> getItineraries(@PathVariable int userId) {
         return itineraryDao.getItinerariesByUser(userId);
     }
 
@@ -43,6 +43,7 @@ public class ItineraryController {
     @RequestMapping(path = "/{itineraryId}", method = RequestMethod.PUT)
     public Itinerary editItinerary(@PathVariable int itineraryId, @RequestBody Itinerary dataItinerary) {
         //TODO: Decide on and Implement a way to alter landmarks in an itinerary
+        dataItinerary.setItineraryId(itineraryId);
         try {
             return itineraryDao.updateItinerary(dataItinerary);
         } catch (DaoException e) {
