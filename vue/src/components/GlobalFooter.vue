@@ -51,8 +51,6 @@
         </div>
       </div>
     </div>
-    
-
 
     <span id="waypoint" class="text-white py-2 mt-4">&copy; 2023 Waypoint</span>
   </footer>
@@ -79,7 +77,7 @@ export default {
 <style scoped>
 #waypoint {
   display: flexbox;
-  
+
   justify-content: space-around;
 }
 
@@ -107,11 +105,11 @@ footer {
 }
 
 h6 {
-  color: #08c076
+  color: #08c076;
 }
 
 span {
-  color: white
+  color: white;
 }
 
 .line-under-image {
