@@ -15,6 +15,8 @@ CREATE TABLE landmarks (
     landmark_name varchar(50) NOT NULL,
     landmark_address varchar(100) NOT NULL,
     landmark_details varchar(1000),
+    landmark_longitude varchar(25),
+    landmark_latitude varchar(25),
     CONSTRAINT PK_landmark PRIMARY KEY (landmark_id)
 );
 

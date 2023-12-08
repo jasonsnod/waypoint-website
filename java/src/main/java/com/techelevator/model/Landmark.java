@@ -10,17 +10,21 @@ public class Landmark {
     private String landmarkDetails;
     List<Image> landmarkImages = null;
     List<Review> landmarkReviews = null;
+    private String landmarkLongitude;
+    private String landmarkLatitude;
 
     // Constructors
     public Landmark() {
 
     }
 
-    public Landmark(int landmarkId, String landmarkName, String landmarkAddress, String landmarkDetails) {
+    public Landmark(int landmarkId, String landmarkName, String landmarkAddress, String landmarkDetails, String landmarkLongitude, String landmarkLatitude) {
         this.landmarkId = landmarkId;
         this.landmarkName = landmarkName;
         this.landmarkAddress = landmarkAddress;
         this.landmarkDetails = landmarkDetails;
+        this.landmarkLongitude = landmarkLongitude;
+        this.landmarkLatitude = landmarkLatitude;
     }
 
     // Getters and Setters
@@ -73,5 +77,21 @@ public class Landmark {
     // Used in conjunction with ReviewDao, gets sent results of a SQL query
     public void setLandmarkReviews(List<Review> landmarkReviews) {
         this.landmarkReviews = landmarkReviews;
+    }
+
+    public String getLandmarkLongitude() {
+        return landmarkLongitude;
+    }
+
+    public void setLandmarkLongitude(String landmarkLongitude) {
+        this.landmarkLongitude = landmarkLongitude;
+    }
+
+    public String getLandmarkLatitude() {
+        return landmarkLatitude;
+    }
+
+    public void setLandmarkLatitude(String landmarkLatitude) {
+        this.landmarkLatitude = landmarkLatitude;
     }
 }

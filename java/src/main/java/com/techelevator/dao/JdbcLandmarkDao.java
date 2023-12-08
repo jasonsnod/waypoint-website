@@ -29,7 +29,7 @@ public class JdbcLandmarkDao implements LandmarkDao {
         List<LandmarkDto> listOfAllLandmarks = new ArrayList<>();
 
         String sqlSelectQuery = (
-                "SELECT landmark_id, landmark_name, landmark_address, landmark_details \n" +
+                "SELECT landmark_id, landmark_name, landmark_address, landmark_details, landmark_longitude, landmark_latitude \n" +
                 "FROM landmarks;"
         );
 
@@ -51,7 +51,7 @@ public class JdbcLandmarkDao implements LandmarkDao {
         LandmarkDto resultingLandmark = null;
 
         String sqlSelectQuery = (
-                "SELECT landmark_id, landmark_name, landmark_address, landmark_details \n" +
+                "SELECT landmark_id, landmark_name, landmark_address, landmark_details, landmark_longitude, landmark_latitude \n" +
                 "FROM landmarks \n" +
                 "WHERE landmark_id = ?;"
         );
@@ -76,8 +76,8 @@ public class JdbcLandmarkDao implements LandmarkDao {
         LandmarkDto landmarkCreated = null;
 
         String sqlAddQuery = (
-                "INSERT INTO landmarks (landmark_name, landmark_address, landmark_details) " +
-                "VALUES (?, ?, ?) " +
+                "INSERT INTO landmarks (landmark_name, landmark_address, landmark_details, landmark_longitude, landmark_latitude) " +
+                "VALUES (?, ?, ?, ?, ?) " +
                 "RETURNING landmark_id;"
         );
 
@@ -87,7 +87,9 @@ public class JdbcLandmarkDao implements LandmarkDao {
                     int.class,
                     landmarkToBeAdded.getLandmarkName(),
                     landmarkToBeAdded.getLandmarkAddress(),
-                    landmarkToBeAdded.getLandmarkDetails()
+                    landmarkToBeAdded.getLandmarkDetails(),
+                    landmarkToBeAdded.getLandmarkLongitude(),
+                    landmarkToBeAdded.getLandmarkLatitude()
             );
             landmarkCreated = getLandmarkById(createdLandmarkId);
         }
@@ -114,6 +116,8 @@ public class JdbcLandmarkDao implements LandmarkDao {
         landmarkToCreate.setLandmarkName(resultsToMap.getString("landmark_name"));
         landmarkToCreate.setLandmarkAddress(resultsToMap.getString("landmark_address"));
         landmarkToCreate.setLandmarkDetails(resultsToMap.getString("landmark_details"));
+        landmarkToCreate.setLandmarkLongitude(resultsToMap.getString("landmark_longitude"));
+        landmarkToCreate.setLandmarkLatitude(resultsToMap.getString("landmark_latitude"));
 
         return landmarkToCreate;
     }
