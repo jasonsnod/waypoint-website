@@ -1,56 +1,40 @@
 <template>
   <div class="home">
     <global-header />
-    <h1 class="homeview-header">City Tours</h1>
+    <h1 class="homeview-header">Welcome to Waypoint, where to next?</h1>
     <img
       class="homeview-image"
-      src="https://i.icanvas.com/WDA757?d=2&sh=h&p=1&bg=g"
+      src="img\logo-large.png"
     />
     <hr class="line-under-image" />
 
-    <!-- YOU ARE WORKING HERE -->
-
-    <div class="image-with-paragraphs">
-      <div class="image-with-text">
-        <img
-          src="../assets/locationGraphics/itinerary-logo.png"
-          alt="Itinerary Graphic"
-          class=""
-        />
-        <p class="paragraph-text">
-          Waypoint allows you to plan your trip using our website, then share
-          your customized itinerary with friends in just a few clicks.
+    <div class="image-with-paragraphs ">
+      <div class="image-container mx-auto mb-4">
+        <img src="img\itinerary-logo.png" alt="Image 1" class="rounded mr-3">
+        <router-link v-bind:to="{ name: 'landmarks'}">
+          <img src="img\landmarks-logo.png" alt="Image 2" class="rounded mr-3">
+        </router-link>
+        <p>
+          Your paragraph text goes here. This is an example paragraph.
         </p>
+        
       </div>
-      <div class="image-with-text">
-        <img
-          src="../assets/locationGraphics/landmarks-logo.png"
-          alt="Landmark Graphic"
-          class=""
-        />
-        <p class="paragraph-text">
-          Explore Cincinnati's iconic landmarks with Waypoint.
-        </p>
-      </div>
+      
     </div>
 
-    <search-landmarks />
-    <router-link v-bind:to="{ name: 'landmarks' }">View Landmarks</router-link>
-    <!-- <global-footer /> -->
+  
+
+    <global-footer />
   </div>
 </template>
 
 <script>
 import GlobalHeader from "../components/GlobalHeader.vue";
-import SearchLandmarks from "../components/SearchLandmarks.vue";
-import ViewLandmarks from "../components/ViewLandmarks.vue";
 import GlobalFooter from "../components/GlobalFooter.vue";
 export default {
   components: {
     GlobalHeader,
-    SearchLandmarks,
-    // ViewLandmarks,
-    // GlobalFooter,
+    GlobalFooter,
   },
 };
 </script>
@@ -59,12 +43,12 @@ export default {
   text-align: center;
   margin-top: 50px;
   font-family: "Roboto", sans-serif;
-  font-size: 60px;
+  font-size: 30px;
   color: #e2ecf7;
 }
 
 .homeview-image {
-  border: 2px solid #234d80;
+
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -83,53 +67,28 @@ export default {
 
 .image-with-paragraphs {
   display: flex;
-  margin-top: 80px;
+  justify-content: space-between;
+  margin-top: 40px;
 }
 
-.image-with-text {
-  text-align: center;
+
+.image-container {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  max-width: 420px;
-  margin: 0 auto;
+  padding: 20px; /* Adjust the padding as needed */
 }
 
-.image-with-text img {
-  width: 100%;
-  max-width: 300px;
+img {
+  max-width: 100%; /* Make sure images don't exceed their container */
   height: auto;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  border: 2px solid #234d80;
-}
-.paragraph-text {
-  font-size: 20px;
-  color: #234d80;
-  font-family: "Roboto", sans-serif;
 }
 
-/* Reducing margin between images on larger screens */
-
-@media (min-width: 14px) {
-  .image-with-text {
-    width: calc(100% - 10px);
-  }
+p {
+  max-width: 300px;
+  color: white; /* Adjust the width of the paragraph */
 }
 
-/* Media Queries for Mobile */
-@media (max-width: 768px) {
-  .image-with-paragraphs {
-    flex-direction: column;
-    margin: 0 20px;
-  }
-
-  .image-with-text {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-}
 </style>
 
 <!-- 

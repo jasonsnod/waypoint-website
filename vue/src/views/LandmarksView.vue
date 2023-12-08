@@ -1,7 +1,7 @@
 <template>
   <global-header />
   <div>
-    <search-landmarks />
+    <search-landmarks/>
   </div>
   <div>
     <map-of-landmarks />
@@ -28,8 +28,8 @@ export default {
   components: {
     GlobalHeader,
     GlobalFooter,
-    SearchLandmarks,
     MapOfLandmarks,
+    SearchLandmarks,
     LandmarkCard,
   },
   data() {

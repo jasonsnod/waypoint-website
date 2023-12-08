@@ -1,5 +1,5 @@
 <template>
-  <link rel="stylesheet" type="text/css" href="https://unpkg.com/@geoapify/geocoder-autocomplete@^1/styles/minimal-dark.css">
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/@geoapify/geocoder-autocomplete@^1/styles/minimal.css">
   <div class="search-landmarks">
     <h1 id="search-landmarks-header">Search Landmarks</h1>
     <form @submit.prevent="searchLandmarks">
@@ -35,15 +35,16 @@ export default {
     searchLandmarks() {
       //Implement logic for searching landmarks
       //Assuming logic cannot be built out until API is up and running on backend
-    },
+    }
   },
   mounted: function() {
-    const GEOAPIFY_API_KEY = 'b5532f224fd24fc596a0409ecc5466cf';
+    const GEOAPIFY_API_KEY = 'f4ec423be4f84260bdd3b93a488dd3b0';
 
     const autocomplete = new GeocoderAutocomplete(
                           this.$refs.autocomplete, 
                           GEOAPIFY_API_KEY, 
-                          { /* Geocoder options */ });
+                          { /* Geocoder options */ }
+    );
 
     autocomplete.on('select', (location) => {
         // check selected location here 
@@ -60,19 +61,5 @@ export default {
 /* Add component specific styles here */
 .autocomplete-container {
     position: relative;
-}
-
-.input-container {
-  display: flex;
-}
-
-.input-container input {
-  flex: 1;
-  outline: none;
-  
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 10px;
-  padding-right: 31px;
-  font-size: 16px;
 }
 </style>
