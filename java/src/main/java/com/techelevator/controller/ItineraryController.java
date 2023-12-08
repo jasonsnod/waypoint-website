@@ -24,7 +24,7 @@ public class ItineraryController {
         this.itineraryDao = itineraryDao;
     }
 
-    @RequestMapping(path = "/get/{userId}", method = RequestMethod.GET)
+    @RequestMapping(path = "/{userId}", method = RequestMethod.GET)
     public List<Itinerary> getItineraries(@PathVariable int userId) {
         return itineraryDao.getItinerariesByUser(userId);
     }
@@ -53,17 +53,21 @@ public class ItineraryController {
 
     @RequestMapping(path = "/{itineraryId}", method = RequestMethod.DELETE)
     public void deleteItinerary(@PathVariable int itineraryId) {
+        itineraryDao.dropItineraryLandmarks(itineraryId);
         itineraryDao.deleteItinerary(itineraryId);
     }
 
+    //TODO: V V V Change Return Type! V V V
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/{itineraryId}/landmark", method = RequestMethod.POST)
     public Itinerary createItineraryLandmarks(@PathVariable int itineraryId, List<Integer> landmarkIds) {
-        return null;
+        return itineraryDao.addItineraryLandmarks(itineraryId, landmarkIds);
     }
 
+    //TODO: V V V Change Return Type! V V V
     @RequestMapping(path = "/{itineraryId}/landmark", method = RequestMethod.PUT)
     public Itinerary editItineraryLandmarks(@PathVariable int itineraryId, List<Integer> landmarkIds) {
-        return null;
+        itineraryDao.dropItineraryLandmarks(itineraryId);
+        return itineraryDao.addItineraryLandmarks(itineraryId, landmarkIds);
     }
 }

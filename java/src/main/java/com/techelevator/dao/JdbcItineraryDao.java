@@ -89,6 +89,7 @@ public class JdbcItineraryDao implements ItineraryDao{
         return createdItinerary;
     }
 
+    //TODO: V V V Change Return Type! V V V
     @Override
     public Itinerary addItineraryLandmarks(int itineraryId, List<Integer> landmarkIds) {
         Itinerary changedItinerary = getItineraryById(itineraryId);
