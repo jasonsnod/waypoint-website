@@ -2,8 +2,9 @@
   <!-- Bootstrap navbar -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-      <router-link class="navbar-brand" :to="{ name: 'home' }"
-        >Welcome to the City Tours</router-link
+      <router-link class="navbar-brand" :to="{ name: 'home' }">
+        <img src="img\logo-small.png" alt="Logo" class="navbar-logo mr-2" />
+        Welcome to the City Tours</router-link
       >
       <button
         class="navbar-toggler"
@@ -44,7 +45,6 @@
       </div>
     </div>
   </nav>
-
 </template>
 
 <script>
@@ -67,10 +67,36 @@ export default {
 </script>
 
 <style scoped>
-/* .home {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-right: 100;
-} */
+.navbar-logo {
+  max-height: 60px;
+  border-radius: 50%;
+  margin-left: 20px;
+  border: 2px solid black;
+}
+
+.navbar-toggler:hover {
+  background-color: #4267b9;
+}
+
+/* Media Queries for Smaller Screens  */
+@media only screen and (max-width: 600px) {
+  .nav-link {
+    margin-left: 25px;
+  }
+
+  button {
+    margin-right: 5px;
+  }
+}
+
+/* Media Queries for Larger Screens */
+@media only screen and (min-width: 601px) {
+  .nav-link {
+    margin-left: 25px;
+  }
+
+  button {
+    margin-right: 25px;
+  }
+}
 </style>

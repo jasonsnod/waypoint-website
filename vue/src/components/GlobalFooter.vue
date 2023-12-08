@@ -76,9 +76,13 @@ export default {
 
 <style scoped>
 #waypoint {
-  display: flexbox;
-
-  justify-content: space-around;
+  /* display: flexbox;
+  justify-content: space-around; */
+  text-align: center;
+  display: block;
+  color: white;
+  margin: 0 auto;
+  font-size: 20px;
 }
 
 a {
@@ -116,5 +120,14 @@ span {
   width: 40%;
   margin: 20px auto;
   border-bottom: 2px solid #234d80;
+}
+
+/* Media Queries for Mobile Design */
+
+@media only screen and (max-width: 600px) {
+  footer {
+    padding: 20px;
+    text-align: center;
+  }
 }
 </style>
