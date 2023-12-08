@@ -105,6 +105,7 @@ export default {
   color: #1d366f;
   letter-spacing: 2px;
   font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .submit-button {
@@ -151,5 +152,10 @@ export default {
 }
 label {
   margin-right: 0.5rem;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+  letter-spacing: 1px;
+  padding-left: 8px;
 }
 </style>

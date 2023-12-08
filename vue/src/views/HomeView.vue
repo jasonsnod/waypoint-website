@@ -66,8 +66,10 @@ export default {
   text-align: center;
   margin-top: 50px;
   font-family: "Roboto", sans-serif;
-  font-size: 30px;
+  font-size: 50px;
   color: #e2ecf7;
+  text-shadow: 3px 2px 4px rgba(0, 0, 0, 0.9);
+  letter-spacing: 2px;
 }
 
 @keyframes scale {
@@ -167,10 +169,9 @@ span:nth-child(18) {
 
 .homeview-image {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 30px auto;
   margin-top: 30px;
-  width: 70%;
+  width: 90%;
   border-radius: 30px;
 }
 
@@ -235,7 +236,8 @@ p {
   }
 
   .homeview-image {
-    width: 80%;
+    width: 100%;
+    margin-top: 20px;
   }
 
   .line-under-image {

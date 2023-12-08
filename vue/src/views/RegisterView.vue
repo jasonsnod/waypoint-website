@@ -112,7 +112,7 @@ export default {
   align-items: center;
   height: 80vh;
   margin: auto;
-  width: 300px;
+  width: 320px;
   border-radius: 10px;
   margin-top: 60px;
   margin-bottom: 90px;
@@ -127,6 +127,7 @@ export default {
   color: #1d366f;
   letter-spacing: 2px;
   font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .submit-button {
@@ -168,18 +169,15 @@ export default {
   color: #77aae9;
 }
 
-#confirmPassword {
-  margin-left: 11px;
-}
-
-.confirm-password {
-  margin-left: 11px;
-}
-
 .form-input-group {
   margin-bottom: 1rem;
 }
 label {
   margin-right: 0.5rem;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+  letter-spacing: 1px;
+  padding-left: 6px;
 }
 </style>
