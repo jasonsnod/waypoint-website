@@ -27,6 +27,13 @@ CREATE TABLE itineraries (
     CONSTRAINT FK_user_id FOREIGN KEY (user_id) references users (user_id)
 );
 
+CREATE TABLE itinerary_landmarks (
+    itinerary_id int NOT NULL,
+    landmark_id int NOT NULL,
+    CONSTRAINT FK_itinerary_id FOREIGN KEY (itinerary_id) REFERENCES itineraries (itinerary_id),
+    CONSTRAINT FK_landmark_id FOREIGN KEY (landmark_id) REFERENCES landmarks (landmark_id)
+);
+
 
 
 --TODO: Create remaining tables for application (images, reviews)
