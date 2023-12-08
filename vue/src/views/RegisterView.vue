@@ -110,7 +110,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 70vh;
+  height: 80vh;
   margin: auto;
   width: 300px;
   border-radius: 10px;
