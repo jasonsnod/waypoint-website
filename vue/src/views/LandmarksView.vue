@@ -1,14 +1,14 @@
 <template>
   <global-header />
   <div>
-    <search-landmarks/>
+    <search-landmarks @retrieveCoordinates="filterLandmarks($event)"/>
   </div>
   <div>
     <map-of-landmarks />
   </div>
   <div
     class="landmark-card-list"
-    v-for="landmark in landmarks"
+    v-for="landmark in displayedLandmarks"
     v-bind:key="landmark.landmarkId"
   >
     <landmark-card v-bind:landmark="landmark" />
@@ -35,6 +35,7 @@ export default {
   data() {
     return {
       landmarks: [],
+      displayedLandmarks: []
     };
   },
   methods: {
@@ -42,20 +43,18 @@ export default {
       landmarkService.getAllLandmarks()
         .then((response) => {
           this.landmarks = response.data;
+          this.displayedLandmarks = response.data;
         })
         .catch(error => {
-          this.handleErrorResponse(error);
+          this.handleErrorResponse();
         });
     },
-    handleErrorResponse(error) {
-      if (error.response.status === 404) {
-        alert(`${error.response.status}: No landmarks found`);
-      }
-      else {
-        alert("An unknown error has occurred");
-      }
+    handleErrorResponse() {
+      console.log('Error: Network Error');
+    },
+    filterLandmarks(startingLocationCoordinates) {
+      this.displayedLandmarks.filter()
     }
-
   },
   created() {
     this.getLandmarks();
