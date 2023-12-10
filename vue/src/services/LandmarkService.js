@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export default{
+export default {
     getAllLandmarks(){
         return axios.get("/landmark")
     },
