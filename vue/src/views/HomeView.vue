@@ -19,12 +19,14 @@
 
     <div class="image-with-paragraphs">
       <div class="image-container mx-auto mb-4">
-        <img
-          src="img\itinerary-logo.png"
-          alt="Image 1"
-          class="rounded mr-3"
-          id="itinerary-photo"
-        />
+        <router-link v-bind:to="{ name: 'itineraries' }">
+          <img
+            src="img\itinerary-logo.png"
+            alt="Image 1"
+            class="rounded mr-3"
+            id="itinerary-photo"
+          />
+      </router-link>
         <router-link v-bind:to="{ name: 'landmarks' }">
           <img
             src="img\landmarks-logo.png"
