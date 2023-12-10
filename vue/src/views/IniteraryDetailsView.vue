@@ -19,7 +19,6 @@ export default {
         GlobalHeader
     }
 }
-
 </script>
 
 <style scoped>

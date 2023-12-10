@@ -8,6 +8,8 @@ import LogoutView from "../views/LogoutView.vue";
 import RegisterView from "../views/RegisterView.vue";
 import LandmarksView from "../views/LandmarksView.vue";
 import ItinerariesView from "../views/InitnerariesView.vue";
+import ItineraryDetailsView from "../views/IniteraryDetailsView.vue";
+import LandmarkDetailsView from "../views/LandmarkDetailsView.vue";
 
 /**
  * The Vue Router is used to "direct" the browser to render a specific view component
@@ -60,9 +62,25 @@ const routes = [
     }
   },
   {
+    path: "/landmarks/{landmard-id}",
+    name: "landmark-details",
+    component: LandmarkDetailsView,
+    meta: {
+      requiresAuth: false
+    }
+  },
+  {
     path: "/itineraries",
     name: "itineraries",
     component: ItinerariesView,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: "/itineraries/{itinerary-id}",
+    name: "itinerary-details",
+    component: ItineraryDetailsView,
     meta: {
       requiresAuth: true
     }
