@@ -106,7 +106,7 @@ export default {
 
 <style scoped>
 .login-form {
-  border: 3px solid rgb(233, 231, 231);
+  border: 3px solid #e9e7e7;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -117,8 +117,9 @@ export default {
   margin-top: 60px;
   margin-bottom: 90px;
   background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
 }
-
 .login-header {
   margin-top: 20px;
   text-align: center;

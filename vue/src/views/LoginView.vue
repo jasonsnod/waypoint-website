@@ -2,7 +2,7 @@
   <div id="login">
     <global-header />
     <form v-on:submit.prevent="login" class="login-form">
-      <h1 class="login-header">Please Sign In</h1>
+      <h1 class="login-header">Sign In:</h1>
       <div role="alert" v-if="invalidCredentials">
         Invalid username and password!
       </div>
@@ -84,24 +84,25 @@ export default {
 
 <style scoped>
 .login-form {
-  border: 3px solid rgb(233, 231, 231);
+  border: 3px solid #e9e7e7;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 50vh;
+  height: 80vh;
   margin: auto;
-  width: 300px;
+  width: 320px;
   border-radius: 10px;
   margin-top: 60px;
   margin-bottom: 90px;
   background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
 }
 
 .login-header {
   margin-top: 20px;
   text-align: center;
   font-size: 2.5rem;
-  margin-bottom: 30px;
   color: #1d366f;
   letter-spacing: 2px;
   font-weight: bold;
@@ -125,7 +126,7 @@ export default {
 
 .styled-input {
   border-radius: 5px;
-  padding: 5px;
+  padding: 8px;
   border: 1px solid #ccc;
   width: calc(100% - 20px);
   margin-bottom: 15px;

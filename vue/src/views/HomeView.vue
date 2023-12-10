@@ -19,13 +19,19 @@
 
     <div class="image-with-paragraphs">
       <div class="image-container mx-auto mb-4">
-        <img
-          src="img\itinerary-logo.png"
-          alt="Image 1"
-          class="rounded mr-3"
-          id="itinerary-photo"
-        />
-        <router-link v-bind:to="{ name: 'landmarks' }">
+        <div data-aos="fade-down-right" data-aos-duration="1000">
+          <img
+            src="img\itinerary-logo.png"
+            alt="Image 1"
+            class="rounded mr-3"
+            id="itinerary-photo"
+          />
+        </div>
+        <router-link
+          v-bind:to="{ name: 'landmarks' }"
+          data-aos="fade-down-left"
+          data-aos-duration="1000"
+        >
           <img
             src="img\landmarks-logo.png"
             alt="Image 2"
@@ -33,7 +39,8 @@
             id="landmarks-photo"
           />
         </router-link>
-        <p>
+
+        <p data-aos="zoom-in" data-aos-duration="1000">
           Explore Cincinnati's hidden gems with Waypoint! Create your
           personalized itinerary effortlessly and share it with friends.
           Discover the must-see landmarks and make the most of your Cincinnati
@@ -59,8 +66,12 @@ export default {
       image.classList.add("loaded");
     },
   },
+  mounted() {
+    window.initAOS();
+  },
 };
 </script>
+
 <style scoped>
 .homeview-header {
   text-align: center;
@@ -70,6 +81,68 @@ export default {
   color: #e2ecf7;
   text-shadow: 3px 2px 4px rgba(0, 0, 0, 0.9);
   letter-spacing: 2px;
+}
+
+.homeview-image {
+  display: block;
+  margin: 30px auto;
+  margin-top: 30px;
+  width: 90%;
+  border-radius: 30px;
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 2.5s ease-in-out;
+}
+
+.fade-in.loaded {
+  opacity: 1;
+}
+
+.line-under-image {
+  width: 40%;
+  margin: 20px auto;
+  border-bottom: 2px solid #234d80;
+}
+
+/* Styles for itinerary and graphic */
+
+.image-with-paragraphs {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.image-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+#itinerary-photo {
+  border: 1px solid antiquewhite;
+}
+
+#landmarks-photo {
+  width: 100%;
+  width: 250px;
+  border: 1px solid antiquewhite;
+}
+
+p {
+  font-size: 1.2rem;
+  max-width: 300px;
+  color: white;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-family: "Roboto", sans-serif;
 }
 
 @keyframes scale {
@@ -165,68 +238,6 @@ span:nth-child(18) {
     opacity: 1;
     filter: blur(0);
   }
-}
-
-.homeview-image {
-  display: block;
-  margin: 30px auto;
-  margin-top: 30px;
-  width: 90%;
-  border-radius: 30px;
-}
-
-.fade-in {
-  opacity: 0;
-  transition: opacity 2.5s ease-in-out;
-}
-
-.fade-in.loaded {
-  opacity: 1;
-}
-
-.line-under-image {
-  width: 40%;
-  margin: 20px auto;
-  border-bottom: 2px solid #234d80;
-}
-
-/* Styles for itinerary and graphic */
-
-.image-with-paragraphs {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 40px;
-}
-
-.image-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-#itinerary-photo {
-  border: 1px solid antiquewhite;
-}
-
-#landmarks-photo {
-  width: 100%;
-  width: 250px;
-  border: 1px solid antiquewhite;
-}
-
-p {
-  font-size: 1.2rem;
-  max-width: 300px;
-  color: white;
-  margin: 0 auto;
-  line-height: 1.6;
-  font-family: "Roboto", sans-serif;
 }
 
 /* Media Queries for Mobile */

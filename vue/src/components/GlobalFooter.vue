@@ -1,6 +1,6 @@
 <template>
   <hr class="line-under-image" />
-  <footer class="bg-#1d366f fixed-bottom py-2 mt-4">
+  <footer class="bg-#1d366f fixed-bottom py-4">
     <div class="container">
       <div class="row">
         <div class="col-md-4">
@@ -8,7 +8,7 @@
             <ul>
               <h6>Explore</h6>
               <li><router-link :to="{ name: 'home' }">Home</router-link></li>
-              <li><a href="#">About</a></li>
+              <li><router-link :to="{ name: 'about' }">About</router-link></li>
               <li><a href="#">FAQ</a></li>
               <li><a href="#">Contact</a></li>
             </ul>
@@ -42,7 +42,7 @@
                 <p>
                   <span class="address-line">Waypoint, 123 Main Street</span
                   ><br />
-                  <span class="address-line">Cityville, State, USA 12345</span
+                  <span class="address-line">Cincinnati, State, USA 45215</span
                   ><br />
                 </p>
               </li>
@@ -76,8 +76,6 @@ export default {
 
 <style scoped>
 #waypoint {
-  /* display: flexbox;
-  justify-content: space-around; */
   text-align: center;
   display: block;
   color: white;
@@ -104,8 +102,9 @@ ul {
 
 footer {
   margin-top: auto;
-
   position: relative;
+  text-align: center;
+  color: white;
 }
 
 h6 {
@@ -127,7 +126,6 @@ span {
 @media only screen and (max-width: 600px) {
   footer {
     padding: 20px;
-    text-align: center;
   }
 }
 </style>
