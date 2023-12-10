@@ -1,7 +1,7 @@
 <template>
     <global-header />
     <h1>Your itineraries</h1>
-    <div class="itineraries-list" v-for="itinerary in itineraries" v-bind:key="itinerary.itineraryId">
+    <div class="itineraries-list" v-for="itinerary in this.$store.state.itineraries" v-bind:key="itinerary.itineraryId">
         <itinerary-card v-bind:itinerary="itinerary"/>
     </div>
     <global-footer />
@@ -21,14 +21,13 @@ export default {
     },
     data() {
         return {
-            itineraries: []
         }
     },
     methods: {
         getItineraries() {
             itineraryService.getAllItineraries(this.$store.state.user.userId)
                 .then(response => {
-                    this.itineraries = response.data;
+                    this.$store.commit('SET_USER_ITINERARIES', response.data);
                 })
                 .catch(error => {
                     this.handleErrorResponse();
