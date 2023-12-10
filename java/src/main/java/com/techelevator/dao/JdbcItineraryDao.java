@@ -66,7 +66,7 @@ public class JdbcItineraryDao implements ItineraryDao{
     @Override
     public List<Integer> getItineraryLandmarks(int itineraryId) {
         List<Integer> landmarkIds = new ArrayList<>();
-        String sqlQuery = "SELECT landmark_id FROM itineraries WHERE itinerary_id = ?";
+        String sqlQuery = "SELECT landmark_id FROM itinerary_landmarks WHERE itinerary_id = ?";
 
         try {
             SqlRowSet resultsFromQuery = jdbcTemplate.queryForRowSet(sqlQuery, itineraryId);
