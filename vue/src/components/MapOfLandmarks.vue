@@ -1,5 +1,5 @@
 <template>
-  <h1>Map of Landmarks Test</h1>
+  <h1 class="map-header">Map of Landmarks Test</h1>
   <!-- <img width="600" 
          height="400" 
          src="../../img/all-landmarks-static-map.jpg"
@@ -17,4 +17,23 @@
 export default {};
 </script>
 
-<styled scoped></styled>
+<style scoped>
+.map-header {
+  font-family: Arial, sans-serif;
+  color: #fcf5f5;
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 5px;
+  border: 2px solid #ccc;
+}
+</style>
