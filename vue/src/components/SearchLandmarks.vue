@@ -10,13 +10,13 @@
         https://vuejs.org/guide/essentials/forms 
     -->
 
-      <select v-model="searchRadius">
-        <option disabled value="">Search Radius</option>
+      <select v-model.number="searchRadius">
+        <option disabled value="0">Search Radius</option>
         <option value="5">5 miles</option>
         <option value="10">10 miles</option>
         <option value="20">20 miles</option>
       </select>
-      <button>Search</button>
+      <input type="submit" value="Search">
     </form>
   </div>
 </template>
@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       searchTerm: "",
-      searchRadius: "",
+      searchRadius: 0,
       results:{}
     };
   },
@@ -36,12 +36,13 @@ export default {
     sendStartingLocationCoordinates() {
       //Implement logic for searching landmarks
       //Assuming logic cannot be built out until API is up and running on backend
-      let startingLocationCoordinates = {
+      let startingLocationParameters = {
+        startingLocationLong: this.results.lon,
         startingLocationLat: this.results.lat,
-        startingLocationLong: this.results.lon
+        searchRadius: this.searchRadius
       }
-      this.$emit('retrieveCoordinates', startingLocationCoordinates)
-    }
+      this.$emit('retrieveCoordinates', startingLocationParameters);
+    },
   },
   mounted: function() {
     const autocomplete = new GeocoderAutocomplete(

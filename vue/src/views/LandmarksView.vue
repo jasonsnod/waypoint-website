@@ -2,6 +2,7 @@
   <global-header />
   <div>
     <search-landmarks @retrieveCoordinates="filterLandmarks($event)"/>
+    <input type="button" value="Reset" v-on:click="resetListOfLandmarks">
   </div>
   <div>
     <map-of-landmarks />
@@ -23,6 +24,8 @@ import SearchLandmarks from "../components/SearchLandmarks.vue";
 import MapOfLandmarks from "../components/MapOfLandmarks.vue";
 import LandmarkCard from "../components/LandmarkCard.vue";
 import landmarkService from "../services/LandmarkService.js";
+import geoApifyService from "../services/GeoApifyService.js";
+import axios from 'axios';
 
 export default {
   components: {
@@ -49,11 +52,30 @@ export default {
           this.handleErrorResponse();
         });
     },
+    filterLandmarks(startingLocationParameters) {
+
+      geoApifyService.getRoutes(startingLocationParameters, this.landmarks)
+      .then(
+        axios.spread((...data) => {
+
+          this. displayedLandmarks = this.displayedLandmarks.filter((landmark, index) => {
+
+            console.log(data[index].data.features[0].properties.distance);
+            console.log(startingLocationParameters.searchRadius);
+
+            return data[index].data.features[0].properties.distance <= startingLocationParameters.searchRadius;
+          })
+      }))
+      .catch(error => {
+        this.handleErrorResponse();
+      });
+      
+    },
     handleErrorResponse() {
       console.log('Error: Network Error');
     },
-    filterLandmarks(startingLocationCoordinates) {
-      this.displayedLandmarks.filter()
+    resetListOfLandmarks() {
+      this.displayedLandmarks = this.landmarks;
     }
   },
   created() {
