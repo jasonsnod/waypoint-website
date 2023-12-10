@@ -1,6 +1,7 @@
 <template>
     <global-header />
-    <h1>Itineraries List</h1>
+    <h1>Your Itinerary</h1>
+    <router-link v-bind="{ name: 'landmark-details', params: {landmarkId: landmark.landmarkId } }">Link to a LandmarkDetailsView</router-link>
     <global-footer />
 </template>
 

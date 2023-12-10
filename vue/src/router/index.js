@@ -62,7 +62,7 @@ const routes = [
     }
   },
   {
-    path: "/landmarks/{landmard-id}",
+    path: "/landmarks/:landmarkId",
     name: "landmark-details",
     component: LandmarkDetailsView,
     meta: {
@@ -78,7 +78,7 @@ const routes = [
     }
   },
   {
-    path: "/itineraries/{itinerary-id}",
+    path: "/itineraries/:itineraryId",
     name: "itinerary-details",
     component: ItineraryDetailsView,
     meta: {
