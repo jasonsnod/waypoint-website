@@ -1,8 +1,8 @@
 <template>
     <global-header />
-    <h1>Itineraries List</h1>
-    <div class="itineraries-list">
-        <itinerary-card />
+    <h1>Your itineraries</h1>
+    <div class="itineraries-list" v-for="itinerary in itineraries" v-bind:key="itinerary.itineraryId">
+        <itinerary-card v-bind:itinerary="itinerary"/>
     </div>
     <global-footer />
 </template>
