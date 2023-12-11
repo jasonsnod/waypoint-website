@@ -90,7 +90,6 @@ export default {
   display: block;
   margin: 30px auto;
   margin-top: 30px;
-  width: 90%;
   border-radius: 30px;
 }
 

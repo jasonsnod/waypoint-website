@@ -21,7 +21,7 @@
               <li><a href="#">Create/View Itineraries</a></li>
               <li><a href="#">View Landmarks</a></li>
               <h6 v-show="isAdmin">Admin </h6>
-              <li v-show="isAdmin"><a href="#">Add/Delete Landmarks</a></li>
+              <li v-show="isAdmin"><router-link :to="{ name: 'landmarks' }">Add/Delete Landmarks</router-link></li>
             </ul>
           </div>
         </div>
@@ -58,13 +58,15 @@
 </template>
 
 <script>
+
+
+import MapOfLandmarks from "../components/MapOfLandmarks.vue";
+
+
+
 export default {
   data() {
     return {
-      user: {
-        authenticated: true, 
-        isAdmin: true,
-      },
     };
   },
   computed: {
@@ -72,6 +74,7 @@ export default {
       return this.$store.state.user.authorities[0].name === 'ROLE_ADMIN';
     },
   },
+  components: MapOfLandmarks
 };
 </script>
 
