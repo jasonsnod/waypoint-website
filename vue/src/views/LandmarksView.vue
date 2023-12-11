@@ -1,4 +1,5 @@
 <template>
+  <div class="landmarks-view">
   <global-header />
   <div>
     <search-landmarks @retrieveCoordinates="filterLandmarks($event)"/>
@@ -15,6 +16,7 @@
     <landmark-card v-bind:landmark="landmark" />
   </div>
   <global-footer />
+  </div>
 </template>
 
 <script>
