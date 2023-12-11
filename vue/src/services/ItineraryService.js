@@ -20,6 +20,9 @@ export default {
     },
     updateItineraryDetails(itineraryId, itinerary) {
         return axios.put(`/itinerary/${itineraryId}`, itinerary)
+    },
+    getLandmarksByItinerary(itineraryId) {
+        return axios.get(`/itinerary/${itineraryId}/landmark`)
     }
 
 }
