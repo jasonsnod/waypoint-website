@@ -4,6 +4,7 @@
     <div class="itineraries-list" v-for="itinerary in this.$store.state.itineraries" v-bind:key="itinerary.itineraryId">
         <itinerary-card v-bind:itinerary="itinerary"/>
     </div>
+    <button class="new-itinerary-button">Create New Itinerary</button>
     <global-footer />
 </template>
 
@@ -21,7 +22,6 @@ export default {
     },
     methods: {
         getItineraries() {
-            console.log(this.$store.state.user);
             itineraryService.getAllItineraries(this.$store.state.user.id)
             .then(response => {
                 this.$store.commit('SET_USER_ITINERARIES', response.data);

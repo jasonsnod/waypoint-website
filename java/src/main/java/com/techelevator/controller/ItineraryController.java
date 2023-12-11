@@ -88,7 +88,7 @@ public class ItineraryController {
 
         return itineraryLandmarks;
     }
-    
+
     @RequestMapping(path = "/{itineraryId}/landmark", method = RequestMethod.PUT)
     public List<LandmarkDto> editItineraryLandmarks(@PathVariable int itineraryId, @RequestParam List<Integer> landmarkIds) {
         itineraryDao.dropItineraryLandmarks(itineraryId);
