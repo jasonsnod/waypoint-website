@@ -29,6 +29,7 @@ export function createStore(currentToken, currentUser) {
       },
       SET_USER_ITINERARIES(state, arrayOfItineraries) {
         state.itineraries = arrayOfItineraries;
+
       },
     },
   });
