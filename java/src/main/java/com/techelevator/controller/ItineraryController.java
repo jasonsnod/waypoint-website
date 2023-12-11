@@ -74,17 +74,33 @@ public class ItineraryController {
         itineraryDao.deleteItinerary(itineraryId);
     }
 
-    //TODO: V V V Change Return Type? V V V
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/{itineraryId}/landmark", method = RequestMethod.POST)
-    public Itinerary createItineraryLandmarks(@PathVariable int itineraryId, List<Integer> landmarkIds) {
-        return itineraryDao.addItineraryLandmarks(itineraryId, landmarkIds);
-    }
+    public List<LandmarkDto> createItineraryLandmarks(@PathVariable int itineraryId, @RequestParam List<Integer> landmarkIds) {
+        itineraryDao.addItineraryLandmarks(itineraryId, landmarkIds);
 
-    //TODO: V V V Change Return Type? V V V
+        List<LandmarkDto> itineraryLandmarks = new ArrayList<>();
+
+        landmarkIds = itineraryDao.getItineraryLandmarks(itineraryId);
+        for(int landmarkId : landmarkIds) {
+            itineraryLandmarks.add(landmarkDao.getLandmarkById(landmarkId));
+        }
+
+        return itineraryLandmarks;
+    }
+    
     @RequestMapping(path = "/{itineraryId}/landmark", method = RequestMethod.PUT)
-    public Itinerary editItineraryLandmarks(@PathVariable int itineraryId, List<Integer> landmarkIds) {
+    public List<LandmarkDto> editItineraryLandmarks(@PathVariable int itineraryId, @RequestParam List<Integer> landmarkIds) {
         itineraryDao.dropItineraryLandmarks(itineraryId);
-        return itineraryDao.addItineraryLandmarks(itineraryId, landmarkIds);
+        itineraryDao.addItineraryLandmarks(itineraryId, landmarkIds);
+
+        List<LandmarkDto> itineraryLandmarks = new ArrayList<>();
+
+        landmarkIds = itineraryDao.getItineraryLandmarks(itineraryId);
+        for(int landmarkId : landmarkIds) {
+            itineraryLandmarks.add(landmarkDao.getLandmarkById(landmarkId));
+        }
+
+        return itineraryLandmarks;
     }
 }

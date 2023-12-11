@@ -46,7 +46,7 @@ public class LandmarkController {
         return resultingLandmark;
     }
 
-    //@PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(method = RequestMethod.POST)
     public LandmarkDto addNewLandmark(@Valid @RequestBody LandmarkDto newLandmark) {
