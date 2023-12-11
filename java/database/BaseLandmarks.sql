@@ -25,7 +25,7 @@ VALUES ('Cincinnati Museum Center at Union Terminal',
 
 INSERT INTO landmarks (landmark_name, landmark_address, landmark_details, landmark_longitude, landmark_latitude)
 VALUES ('Findlay Market',
-        '1801 Race St., Cincinnati, OH, 45202,
+        '1801 Race St., Cincinnati, OH, 45202',
         'At more than 150 years old, Findlay Market is Ohio’s oldest continually operating public market and was named one of the top 10 markets in the world by Newsweek. Findlay Market has been on the National Register of Historic Places since 1972, and while it is fee to wander, they do offer a free 30-minute guided tour bi-monthly to introduce you to special market vendors and recount tales of the market’s history.',
         '39.11550',
         '-84.51906'
