@@ -15,11 +15,11 @@ export default {
     deleteItinerary(itineraryId) {
         return axios.delete(`/itinerary/${itineraryId}`)
     },
-    createBaseItinerary() {
-        return axios.post('/itinerary')
+    createBaseItinerary(itinerary) {
+        return axios.post('/itinerary', itinerary)
     },
-    updateItineraryDetails(itineraryId) {
-        return axios.put(`/itinerary/${itineraryId}`)
+    updateItineraryDetails(itineraryId, itinerary) {
+        return axios.put(`/itinerary/${itineraryId}`, itinerary)
     }
 
 }
