@@ -1,8 +1,9 @@
 <template>
+  <div class="landmarks-view">
   <global-header />
   <div>
     <search-landmarks @retrieveCoordinates="filterLandmarks($event)"/>
-    <input type="button" value="Reset" v-on:click="resetListOfLandmarks">
+    <input type="button" value="Reset Form" v-on:click="resetListOfLandmarks" class="reset-button">
   </div>
   <div>
     <map-of-landmarks />
@@ -15,6 +16,7 @@
     <landmark-card v-bind:landmark="landmark" />
   </div>
   <global-footer />
+  </div>
 </template>
 
 <script>
@@ -85,6 +87,25 @@ export default {
 </script>
 
 <style scoped>
+
+
+.reset-button{
+  display: block;
+  margin: 0 auto;
+  padding: 10px 30px;
+  margin-bottom: 60px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.reset-button:hover{
+  background-color: #DC3545;
+}
+
 .landmark-card-list {
   display: flex;
   flex-direction: row;

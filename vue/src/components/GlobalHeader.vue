@@ -5,7 +5,7 @@
       <router-link class="navbar-brand" :to="{ name: 'home' }">
         <img src="img\logo-small.png" alt="Logo" class="navbar-logo mr-2" />
         <span class="brand-text"
-          >Welcome to <span class="city-tours-text">City Tours</span></span
+          ><span class="city-tours-text">Waypoint</span></span
         >
       </router-link>
       <button

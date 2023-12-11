@@ -6,10 +6,8 @@ export function createStore(currentToken, currentUser) {
   let store = _createStore({
     state: {
       token: currentToken || '',
-      user: {
-        ...currentUser, 
-        isAdmin: false,
-      },
+        user: currentUser || {},
+      
       itineraries: []
     },
     mutations: {
@@ -32,14 +30,6 @@ export function createStore(currentToken, currentUser) {
       SET_USER_ITINERARIES(state, arrayOfItineraries) {
         state.itineraries = arrayOfItineraries;
       },
-      async fetchAndSetUserData({ commit }) {
-        try {
-          const userData = await UserService.fetchUserData();
-          commit('SET_ADMIN_STATUS', userData.isAdmin);
-        } catch (error) {
-          console.error('Error fetching user data', error);
-        }
-      }
     },
   });
   return store;

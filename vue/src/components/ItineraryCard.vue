@@ -1,23 +1,19 @@
 <template>
-    <global-header />
-    <h1>Your Itinerary</h1>
-    <router-link v-bind="{ name: 'landmark-details', params: {landmarkId: landmark.landmarkId } }">Link to a LandmarkDetailsView</router-link>
-    <global-footer />
+    <h1>{{ itinerary.itineraryName }}</h1>
+    <p>{{ itinerary.itineraryId}}</p>
+    <p>{{ itinerary.userId }}</p>
+    <p>{{ itinerary.startingAddress }}</p>
+    <!-- <router-link v-bind="{ name: 'landmark-details', params: {landmarkId: landmark.landmarkId } }">Link to a LandmarkDetailsView</router-link> -->
 </template>
 
 <script>
-import GlobalFooter from '../components/GlobalFooter.vue';
-import GlobalHeader from '../components/GlobalHeader.vue';
 
 export default {
-    data() {
-        return {
-
-        }
+    props: {
+        itinerary: Object
     },
     components: {
-        GlobalFooter,
-        GlobalHeader
+
     }
 }
 

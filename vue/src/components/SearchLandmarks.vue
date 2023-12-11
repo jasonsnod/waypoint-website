@@ -1,14 +1,14 @@
 <template>
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/@geoapify/geocoder-autocomplete@^1/styles/minimal.css">
   <div class="search-landmarks">
     <h1 class="search-landmarks-header">Search Landmarks</h1>
     <form @submit.prevent="sendStartingLocationCoordinates" class="search-form">
-      <div class="autocomplete-container">
-        <input
+      <div ref="autocomplete" class="autocomplete-container autocomplete-input">
+        <!-- <input
           type="text"
-          ref="autocomplete"
-          class="autocomplete-input"
+          class=""
           placeholder="Enter Location"
-        />
+        /> -->
       </div>
       <div class="radius-container">
         <select v-model="searchRadius" class="radius-select">
@@ -106,8 +106,8 @@ export default {
 .autocomplete-input {
   width: calc(100% - 80px);
   padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  /* border-radius: 5px; */
+  /* border: 1px solid #ccc; */
   font-size: 16px;
   margin-right: 10px;
 }
