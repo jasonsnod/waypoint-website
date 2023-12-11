@@ -34,7 +34,7 @@ public class ItineraryController {
         return itineraryDao.getItinerariesByUser(userId);
     }
 
-    @RequestMapping(path = "/landmark/{itineraryId}", method = RequestMethod.GET)
+    @RequestMapping(path = "/{itineraryId}/landmark", method = RequestMethod.GET)
     public List<LandmarkDto> getLandmarksByItinerary(@PathVariable int itineraryId) {
         List<LandmarkDto> itineraryLandmarks = new ArrayList<>();
 
@@ -46,10 +46,10 @@ public class ItineraryController {
         return itineraryLandmarks;
     }
 
+
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(method = RequestMethod.POST)
     public Itinerary addNewItinerary(@Valid @RequestBody Itinerary newItinerary) {
-        //TODO: Possibly need to Link Itinerary/Landmark Table to add landmarks
         try {
             return itineraryDao.createItinerary(newItinerary);
         } catch(DaoException e) {
@@ -57,9 +57,9 @@ public class ItineraryController {
         }
     }
 
+
     @RequestMapping(path = "/{itineraryId}", method = RequestMethod.PUT)
     public Itinerary editItinerary(@PathVariable int itineraryId, @RequestBody Itinerary dataItinerary) {
-        //TODO: Decide on and Implement a way to alter landmarks in an itinerary (Already Done?)
         dataItinerary.setItineraryId(itineraryId);
         try {
             return itineraryDao.updateItinerary(dataItinerary);
@@ -74,14 +74,14 @@ public class ItineraryController {
         itineraryDao.deleteItinerary(itineraryId);
     }
 
-    //TODO: V V V Change Return Type! V V V
+    //TODO: V V V Change Return Type? V V V
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/{itineraryId}/landmark", method = RequestMethod.POST)
     public Itinerary createItineraryLandmarks(@PathVariable int itineraryId, List<Integer> landmarkIds) {
         return itineraryDao.addItineraryLandmarks(itineraryId, landmarkIds);
     }
 
-    //TODO: V V V Change Return Type! V V V
+    //TODO: V V V Change Return Type? V V V
     @RequestMapping(path = "/{itineraryId}/landmark", method = RequestMethod.PUT)
     public Itinerary editItineraryLandmarks(@PathVariable int itineraryId, List<Integer> landmarkIds) {
         itineraryDao.dropItineraryLandmarks(itineraryId);
