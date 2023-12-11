@@ -17,6 +17,10 @@
     />
     <hr class="line-under-image" />
 
+    <div class="gif-container">
+      <img src="../assets/cincyPhotos/cincyBridge.gif" />
+    </div>
+
     <div class="image-with-paragraphs">
       <div class="image-container mx-auto mb-4">
         <router-link v-bind:to="{ name: 'itineraries' }">
@@ -133,6 +137,21 @@ img {
   width: 100%;
   width: 250px;
   border: 1px solid antiquewhite;
+}
+
+.gif-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  height: 70vh;
+  border-radius: 10px;
+}
+
+.gif-container img {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid rgb(232, 228, 229);
+  border-radius: 10px;
 }
 
 p {
@@ -274,6 +293,11 @@ span:nth-child(18) {
     max-width: 80%;
     text-align: center;
     margin-top: 20px;
+  }
+  .gif-container {
+    height: 50vh;
+    margin-left: 30px;
+    margin-right: 30px;
   }
 }
 
