@@ -21,7 +21,8 @@ export default {
     },
     methods: {
         getItineraries() {
-            itineraryService.getAllItineraries(this.$store.state.user.userId)
+            console.log(this.$store.state.user);
+            itineraryService.getAllItineraries(this.$store.state.user.id)
             .then(response => {
                 this.$store.commit('SET_USER_ITINERARIES', response.data);
             })
@@ -32,6 +33,9 @@ export default {
         handleErrorResponse() {
             console.log('Error: Network Error');
         }
+    },
+    created() {
+        this.getItineraries();
     }
 }
 
