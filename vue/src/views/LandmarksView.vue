@@ -47,7 +47,6 @@ export default {
   },
   data() {
     return {
-      landmarks: [],
       displayedLandmarks: []
     };
   },
@@ -65,7 +64,7 @@ export default {
     getLandmarks() {
       landmarkService.getAllLandmarks()
         .then((response) => {
-          this.landmarks = response.data;
+          this.$store.commit('SET_LANDMARKS', response.data);
           this.displayedLandmarks = response.data;
         })
         .catch(error => {
@@ -74,7 +73,7 @@ export default {
     },
     filterLandmarks(startingLocationParameters) {
 
-      geoApifyService.getRoutes(startingLocationParameters, this.landmarks)
+      geoApifyService.getRoutes(startingLocationParameters, this.$store.state.landmarks)
       .then(
         axios.spread((...data) => {
 
@@ -95,7 +94,7 @@ export default {
       console.log('Error: Network Error');
     },
     resetListOfLandmarks() {
-      this.displayedLandmarks = this.landmarks;
+      this.displayedLandmarks = this.$store.state.landmarks;
     }
   },
   created() {

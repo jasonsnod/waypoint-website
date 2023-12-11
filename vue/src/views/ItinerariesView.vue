@@ -10,6 +10,8 @@
         <input/>
         <p>Starting Address</p>
         <input/>
+
+        <input type=""/>
         <button type="" v-on:click="flipForm">Ahhh</button>
 
     </form>
