@@ -14,7 +14,13 @@
     v-bind:key="landmark.landmarkId"
   >
     <landmark-card v-bind:landmark="landmark" />
+    
+
   </div>
+
+  <hr class="line-under-image" />
+
+  <admin v-if="isAdmin" />
   <global-footer />
   </div>
 </template>
@@ -27,6 +33,7 @@ import MapOfLandmarks from "../components/MapOfLandmarks.vue";
 import LandmarkCard from "../components/LandmarkCard.vue";
 import landmarkService from "../services/LandmarkService.js";
 import geoApifyService from "../services/GeoApifyService.js";
+import Admin from "../components/Admin.vue";
 import axios from 'axios';
 
 export default {
@@ -36,12 +43,23 @@ export default {
     MapOfLandmarks,
     SearchLandmarks,
     LandmarkCard,
+    Admin,
   },
   data() {
     return {
       landmarks: [],
       displayedLandmarks: []
     };
+  },
+
+  computed: {
+    isAdmin() {
+      if (this.$store.state.user.authorities) {
+        return this.$store.state.user.authorities[0].name === 'ROLE_ADMIN';
+      } else {
+        return false;
+      }
+    },
   },
   methods: {
     getLandmarks() {
@@ -109,5 +127,11 @@ export default {
 .landmark-card-list {
   display: flex;
   flex-direction: row;
+}
+
+.line-under-image {
+  width: 40%;
+  margin: 20px auto;
+  border-bottom: 2px solid #234d80;
 }
 </style>
