@@ -1,5 +1,7 @@
 <template>
-    <h1>{{ itinerary.itineraryName }}</h1>
+    <router-link :to="{ name: 'itinerary-details', params: {itineraryId: itinerary.itineraryId}}">
+        <h1>{{ itinerary.itineraryName }}</h1>
+    </router-link>
     <p>{{ itinerary.itineraryId}}</p>
     <p>{{ itinerary.userId }}</p>
     <p>{{ itinerary.startingAddress }}</p>
