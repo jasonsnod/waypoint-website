@@ -20,7 +20,8 @@
               <h6>More</h6>
               <li><a href="#">Create/View Itineraries</a></li>
               <li><a href="#">View Landmarks</a></li>
-              <li v-show="isAdmin"><a href="#">View Landmarks</a></li>
+              <h6 v-show="isAdmin">Admin </h6>
+              <li v-show="isAdmin"><a href="#">Add/Delete Landmarks</a></li>
             </ul>
           </div>
         </div>
@@ -61,14 +62,14 @@ export default {
   data() {
     return {
       user: {
-        authenticated: true, // Add actual properties to match authentication and admin rights
+        authenticated: true, 
         isAdmin: true,
       },
     };
   },
   computed: {
     isAdmin() {
-      return this.$store.getters.isAdmin;
+      return this.$store.state.user.authorities[0].name === 'ROLE_ADMIN';
     },
   },
 };
