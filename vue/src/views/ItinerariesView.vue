@@ -19,19 +19,15 @@ export default {
         GlobalHeader,
         ItineraryCard
     },
-    data() {
-        return {
-        }
-    },
     methods: {
         getItineraries() {
             itineraryService.getAllItineraries(this.$store.state.user.userId)
-                .then(response => {
-                    this.$store.commit('SET_USER_ITINERARIES', response.data);
-                })
-                .catch(error => {
-                    this.handleErrorResponse();
-                });
+            .then(response => {
+                this.$store.commit('SET_USER_ITINERARIES', response.data);
+            })
+            .catch(error => {
+                this.handleErrorResponse();
+            });
         },
         handleErrorResponse() {
             console.log('Error: Network Error');

@@ -64,6 +64,24 @@ public class JdbcItineraryDao implements ItineraryDao{
     }
 
     @Override
+    public List<Integer> getItineraryLandmarks(int itineraryId) {
+        List<Integer> landmarkIds = new ArrayList<>();
+        String sqlQuery = "SELECT landmark_id FROM itinerary_landmarks WHERE itinerary_id = ?";
+
+        try {
+            SqlRowSet resultsFromQuery = jdbcTemplate.queryForRowSet(sqlQuery, itineraryId);
+            while(resultsFromQuery.next()) {
+                landmarkIds.add(resultsFromQuery.getInt("landmark_id"));
+            }
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to server or database", e);
+        }
+
+        return landmarkIds;
+    }
+
+
+    @Override
     public Itinerary createItinerary(Itinerary newItinerary) {
         Itinerary createdItinerary = null;
         String sqlQuery = "INSERT INTO itineraries (user_id, itinerary_name, starting_address) " +

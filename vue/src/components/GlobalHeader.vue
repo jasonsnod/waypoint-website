@@ -4,8 +4,10 @@
     <div class="container-fluid">
       <router-link class="navbar-brand" :to="{ name: 'home' }">
         <img src="img\logo-small.png" alt="Logo" class="navbar-logo mr-2" />
-        Welcome to the City Tours</router-link
-      >
+        <span class="brand-text"
+          >Welcome to <span class="city-tours-text">City Tours</span></span
+        >
+      </router-link>
       <button
         class="navbar-toggler"
         type="button"
@@ -24,22 +26,30 @@
               class="nav-link"
               :to="{ name: 'home' }"
               aria-current="page"
-              >Home</router-link
             >
+              Home
+            </router-link>
           </li>
           <li class="nav-item">
             <router-link
               v-if="!isLoggedIn"
               class="nav-link"
               :to="{ name: 'login' }"
-              >Login</router-link
             >
+              Login
+            </router-link>
             <router-link
               v-if="isLoggedIn"
               class="nav-link"
               :to="{ name: 'logout' }"
-              >Logout</router-link
             >
+              Logout
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" :to="{ name: 'about' }">
+              About
+            </router-link>
           </li>
         </ul>
       </div>
@@ -67,6 +77,25 @@ export default {
 </script>
 
 <style scoped>
+.brand-text {
+  font-size: 1.2em;
+  color: #4267b9;
+  transition: color 0.3s ease-in-out;
+}
+
+.brand-text:hover {
+  color: #345a9c;
+}
+
+.nav-link {
+  font-weight: bold;
+  color: #333;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  color: #4267b9;
+}
 .navbar-logo {
   max-height: 60px;
   border-radius: 50%;
@@ -81,11 +110,25 @@ export default {
 /* Media Queries for Smaller Screens  */
 @media only screen and (max-width: 600px) {
   .nav-link {
-    margin-left: 25px;
+    text-align: center;
   }
 
   button {
     margin-right: 5px;
+  }
+
+  .brand-text {
+    display: none;
+  }
+
+  .navbar-brand .brand-text {
+    display: inline;
+  }
+
+  .city-tours-text {
+    font-size: 20px;
+    color: #4267b9;
+    display: inline;
   }
 }
 
