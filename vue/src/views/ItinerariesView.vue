@@ -10,8 +10,10 @@
         <input/>
         <p>Starting Address</p>
         <input/>
-
-        <input type=""/>
+        <ul class="landmarks-list" v-for="landmark in this.$store.state.landmarks" v-bind:key="landmark.landmarkId">
+            <input type="checkbox">{{ landmark.landmarkName }}<input/>
+        </ul>
+        
         <button type="" v-on:click="flipForm">Ahhh</button>
 
     </form>

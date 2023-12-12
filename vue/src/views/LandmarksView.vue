@@ -62,14 +62,7 @@ export default {
   },
   methods: {
     getLandmarks() {
-      landmarkService.getAllLandmarks()
-        .then((response) => {
-          this.$store.commit('SET_LANDMARKS', response.data);
-          this.displayedLandmarks = response.data;
-        })
-        .catch(error => {
-          this.handleErrorResponse();
-        });
+          this.displayedLandmarks = this.$store.state.landmarks;
     },
     filterLandmarks(startingLocationParameters) {
 
