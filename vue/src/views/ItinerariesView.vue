@@ -147,7 +147,7 @@ export default {
     #itinerary-name, #itinerary-address{
         font-size: 30px;
         color: #e2ecf7;
-        text-shadow: 3px 2px 4px rgba(0, 0, 0, 0.9);
+        text-shadow: 3px 2px 2px rgba(0, 0, 0, 0.9);
         letter-spacing: 1px;
     }
 
