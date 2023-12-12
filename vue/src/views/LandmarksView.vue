@@ -16,7 +16,13 @@
     v-bind:key="landmark.landmarkId"
   >
     <landmark-card v-bind:landmark="landmark" />
+    
+
   </div>
+
+  <hr class="line-under-image" />
+
+  <admin v-if="isAdmin" />
   <global-footer />
   </div>
 </template>
@@ -27,8 +33,8 @@ import GlobalFooter from "../components/GlobalFooter.vue";
 import SearchLandmarks from "../components/SearchLandmarks.vue";
 import MapOfLandmarks from "../components/MapOfLandmarks.vue";
 import LandmarkCard from "../components/LandmarkCard.vue";
-import landmarkService from "../services/LandmarkService.js";
 import geoApifyService from "../services/GeoApifyService.js";
+import Admin from "../components/Admin.vue";
 import axios from 'axios';
 
 export default {
@@ -38,27 +44,30 @@ export default {
     MapOfLandmarks,
     SearchLandmarks,
     LandmarkCard,
+    Admin,
   },
   data() {
     return {
-      landmarks: [],
       displayedLandmarks: []
     };
   },
+
+  computed: {
+    isAdmin() {
+      if (this.$store.state.user.authorities) {
+        return this.$store.state.user.authorities[0].name === 'ROLE_ADMIN';
+      } else {
+        return false;
+      }
+    },
+  },
   methods: {
     getLandmarks() {
-      landmarkService.getAllLandmarks()
-        .then((response) => {
-          this.landmarks = response.data;
-          this.displayedLandmarks = response.data;
-        })
-        .catch(error => {
-          this.handleErrorResponse();
-        });
+          this.displayedLandmarks = this.$store.state.landmarks;
     },
     filterLandmarks(startingLocationParameters) {
 
-      geoApifyService.getRoutes(startingLocationParameters, this.landmarks)
+      geoApifyService.getRoutes(startingLocationParameters, this.$store.state.landmarks)
       .then(
         axios.spread((...data) => {
 
@@ -79,7 +88,7 @@ export default {
       console.log('Error: Network Error');
     },
     resetListOfLandmarks() {
-      this.displayedLandmarks = this.landmarks;
+      this.displayedLandmarks = this.$store.state.landmarks;
     }
   },
   created() {
@@ -126,6 +135,12 @@ export default {
   border-radius: 8px;
   background-color: #f5f5f5;
   margin-bottom: 30px;
-  
+}
+
+.line-under-image {
+  width: 40%;
+  margin: 20px auto;
+  border-bottom: 2px solid #234d80;
+
 }
 </style>

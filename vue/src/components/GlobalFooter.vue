@@ -1,6 +1,6 @@
 <template>
   <hr class="line-under-image" />
-  <footer class="bg-#1d366f fixed-bottom py-4">
+  <footer class="bg-#1d366f fixed-bottom mt-auto py-4">
     <div class="container">
       <div class="row">
         <div class="col-md-4">

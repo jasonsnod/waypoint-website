@@ -7,7 +7,7 @@ export function createStore(currentToken, currentUser) {
     state: {
       token: currentToken || '',
         user: currentUser || {},
-      
+      landmarks: [],
       itineraries: []
     },
     mutations: {
@@ -29,7 +29,11 @@ export function createStore(currentToken, currentUser) {
       },
       SET_USER_ITINERARIES(state, arrayOfItineraries) {
         state.itineraries = arrayOfItineraries;
+
       },
+      SET_LANDMARKS(state, arrayOfLandmarks) {
+        state.landmarks = arrayOfLandmarks;
+      }
     },
   });
   return store;

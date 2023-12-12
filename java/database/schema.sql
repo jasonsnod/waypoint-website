@@ -12,7 +12,7 @@ CREATE TABLE users (
 
 CREATE TABLE landmarks (
     landmark_id SERIAL,
-    landmark_name varchar(50) NOT NULL,
+    landmark_name varchar(100) NOT NULL,
     landmark_address varchar(100) NOT NULL,
     landmark_details varchar(1000),
     landmark_longitude varchar(25),
