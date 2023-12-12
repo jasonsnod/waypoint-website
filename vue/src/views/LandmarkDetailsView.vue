@@ -1,6 +1,13 @@
 <template>
     <global-header />
-    <h1>Itineraries List</h1>
+    <p>{{landmark.landmarkId}}</p>
+    <p>{{landmark.landmarkName}}</p>
+    <p>{{landmark.landmarkAddress}}</p>
+
+    <p>{{landmark.landmarkDetails}}</p>
+    <p>{{landmark.landmarkLatitude}}</p>
+    <p>{{landmark.landmarkLongitude}}</p>
+
     <global-footer />
 </template>
 
@@ -11,22 +18,24 @@ import GlobalHeader from '../components/GlobalHeader.vue';
 export default {
     data() {
         return {
-            itinerary: this
+            landmark: {}
         }
     },
     components: {
         GlobalFooter,
         GlobalHeader
-    }, 
+    },
     methods: {
-        getItinerary() {
-            console.log(this.$route);
-            //this.itinerary = this.$store.state.itineraries.find(itinerary => itinerary.id === this.$route.itineraryId)
+        getLandmark(){
+            this.landmark = this.$store.state.landmarks.find(landmark => {
+                return this.$route.params.landmarkId == landmark.landmarkId;
+            })
         }
     },
-    created() {
-        this.getItinerary();
-    }
+    created(){
+        this.getLandmark();
+    } 
+    
 }
 
 </script>
