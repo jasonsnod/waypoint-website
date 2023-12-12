@@ -87,4 +87,76 @@ VALUES ('Metrobot at the Contemporary Arts Center',
         '39.10299'
         );
 
+INSERT INTO landmarks (landmark_name, landmark_address, landmark_details, landmark_longitude, landmark_latitude)
+VALUES ('Far Flung at the Taft Museum Center',
+        '316 Pike St., Cincinnati, OH, 45202',
+        'Far Flung is a large-scale, outdoor sculpture on the grounds of the Taft Museum of Art — and it is pretty cool. A "unique fantasy experience" by sculptor Patrick Dougherty, it features more than six tons of manipulated willow tree saplings, twisted into whirling shapes that call to mind hobbit homes, a fairy garden and/or a Dr. Seuss fever dream manifestation. The best part? Visitors can touch and walk through it. Far Flung opened in April 2018 and is free to experience during regular museum hours.',
+        '-84.50280',
+        '39.10221'
+        );
+
+INSERT INTO landmarks (landmark_name, landmark_address, landmark_details, landmark_longitude, landmark_latitude)
+VALUES ('The Genius of Water',
+        '520 Vine St., Cincinnati, OH, 45202',
+        'In the heart of Fountain Square stands the 43-foot tall bronze-cast Genius of Water fountain, also known as the Tyler Davidson Fountain. Cincinnati businessman Henry Probasco commissioned German artists August von Kreling and Ferdinand von Miller for a fountain design as an ode to Tyler Davidson, his brother-in-law and business partner who had passed away. Since its presentation to the city in 1871, the Genius of Water fountain is a remarkable work of art fit for being recognizable as the heart of the city. The fountain honors and depicts the use of water as a necessity of life through the actions of the bronze figures surrounding the fountain; children fishing, workmen praying for water to stop a burning fire, farmers praying for water through a drought are all scenes told through the fountains endless detail. Fun fact: The four figures around the edge produce drinkable water.',
+        '-84.51276',
+        '39.10194'
+        );
+
+INSERT INTO landmarks (landmark_name, landmark_address, landmark_details, landmark_longitude, landmark_latitude)
+VALUES ('Pinocchio Sculpture at the Cincinnati Art Museum',
+        '953 Eden Park Dr., Cincinnati, OH, 45202',
+        'When visitors walk up to the entrance of the Cincinnati Art Museum, the first thing they are greeted by is a 12-foot, bronze statue of the puppet Pinocchio. Designed by world-renowned, Cincinnati-born artist Jim Dine, the statue, entitled, "Pinocchio (Emotional)," was presented to the museum in 2012 and has stood tall just before the entrance, arms outstretched — and for some reason without eyeballs — ready to embrace the coming visitors ever since.',
+        '-84.49688',
+        '39.11411'
+        );
+
+INSERT INTO landmarks (landmark_name, landmark_address, landmark_details, landmark_longitude, landmark_latitude)
+VALUES ('Krohn Conservatory',
+        '1501 Eden Park Dr., Cincinnati, OH, 45202',
+        'Located in historic Eden Park, the Krohn Conservatory is an aluminum-and-glass Art Deco destination (in the shape of an upside-down heart) filled with more than 3,500 plant species from around the world. Permanent displays include a rare orchid house, steamy tropical room, succulent-filled desert space and a fun walk-through rainforest rock waterfall.',
+        '-84.49013',
+        '39.11515'
+        );
+
+INSERT INTO landmarks (landmark_name, landmark_address, landmark_details, landmark_longitude, landmark_latitude)
+VALUES ('"Hamlet" from the Big Pig Gig',
+        '1195 Elm St., Cincinnati, OH 45202',
+        'It’s no secret that the Queen City has a thing for pigs — it’s a big part of our history. Also known as “porkopolis,” Cincinnati was the leader in pork processing in the 1850s and many pigs were seen roaming the streets. You may still see some today scattered about town, though these are part of a former art installation called the Big Pig Gig, where 400 decorated pigs were placed across the city. There are still a few that remain, including Hamlet, located outside of Over-the-Rhine’s Cincinnati Shakespeare Company. According to Cincy Shakes, he''s one of the longest-running pigs from the gig.',
+        '-84.51819',
+        '39.10779'
+        );
+
+INSERT INTO landmarks (landmark_name, landmark_address, landmark_details, landmark_longitude, landmark_latitude)
+VALUES ('Carew Tower / Observation Deck',
+        '41 W 5th St., Cincinnati, OH, 45202',
+        'Completed in 1930, Carew Tower is one of the world’s finest examples of French Art Deco architecture and includes Rookwood Pottery floral tiles, an Art Deco shopping center and the Hilton Cincinnati Netherland Plaza hotel (complete with a Great Gatsby-esque hotel bar and five-diamond restaurant). One of downtown’s tallest skyscrapers, the viewing area and observation deck on top of the building features a wonderful panoramic view of downtown, the Ohio River and Northern Kentucky.',
+        '-84.51412',
+        '39.10106'
+        );
+
+INSERT INTO landmarks (landmark_name, landmark_address, landmark_details, landmark_longitude, landmark_latitude)
+VALUES ('"Hug Me Jesus" FKA "Touchdown Jesus"',
+        '903 Union Rd., Lebanon, OH 45036',
+        'After a lightning fire destroyed a giant Jesus statue known as "Touchdown Jesus" that brought national attention to the Solid Rock Church in Monroe in 2010, the church couldn’t go without and replaced the monument in 2012. The giant Lux Mundi statue designed by Tom Tsuchiya, affectionately nicknamed "Hug Me Jesus," is visible from I-75.',
+        '-84.32480',
+        '39.45324'
+        );
+
+INSERT INTO landmarks (landmark_name, landmark_address, landmark_details, landmark_longitude, landmark_latitude)
+VALUES ('The Origin of the Glass Door Oven',
+        '2701 Spring Grove Ave., Cincinnati, OH, 45225',
+        'The first full-size glass door oven was invented by Ernst H. Huenefeld in 1909. The glass window allows bakers to see their food cooking in the oven without having to open the door. A marker dedicated to the invention was erected in 2003 by the Cincinnati Preservation Association and The Ohio Historical Society.',
+        '-84.53711',
+        '39.13108'
+        );
+
+INSERT INTO landmarks (landmark_name, landmark_address, landmark_details, landmark_longitude, landmark_latitude)
+VALUES ('Capitoline Wolf Statue',
+        '950 Eden Park Dr., Cincinnati, OH, 45202',
+        'The Capitoline Wolf statue in Eden Park — a bronze work depicting a she-wolf nursing two young boys — was a gift from Italian dictator Benito Mussolini. Intended to honor Lucius Quinctius Cincinnatus, Roman statesman, farmer and namesake of our dear city, the two thirsty boys represent Romulus and Remus, twins whose story relates to the founding of Rome — in fact, various images of the boys suckling a she-wolf have served as symbols of the Roman people since ancient times. So how did it get here? Mussolini sent it over for a Sons of Italy convention in 1929… sort of: He gave us an exact replica of one in Rome’s Musei Capitolini, but it was switched out for a larger one in 1931. And that is the one that has remained in place ever since. Inscribed with "Il Governatore di Roma alla Citta di Cincinnati 1931 Anno X" — "from the governor of Rome to the city of Cincinnati in 1931 (year 10 of Mussolini’s reign)" — it sits at Twin Lakes, a former quarry that now boasts two lakes and views of the Ohio River.',
+        '-84.49596',
+        '39.11661'
+        );
+
 COMMIT TRANSACTION;
