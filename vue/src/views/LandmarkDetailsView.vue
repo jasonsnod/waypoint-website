@@ -2,13 +2,16 @@
     <div class="landmark-details">
         <global-header />
         <div class="details-container">
-            <p>{{landmark.landmarkId}}</p>
+            <p class="landmark-id">{{landmark.landmarkId}}</p>
             <p class="detail-name">{{landmark.landmarkName}}</p>
             <p class="detail-value">{{landmark.landmarkAddress}}</p>
             <p class="detail-value">{{landmark.landmarkDetails}}</p>
             <img class="landmark-image" src="https://www.visittheusa.com/sites/default/files/styles/hero_l/public/images/hero_media_image/2023-04/cd6d5f6d-0b19-47cf-93f1-dd16cca640a8.jpeg?h=2935a1aa&itok=mlV8oEZW">
             <!-- <p>{{landmark.landmarkLatitude}}</p>
             <p>{{landmark.landmarkLongitude}}</p> -->
+            <router-link v-bind:to="{ name: 'landmarks' }">
+                <button>Landmark List</button>
+            </router-link>
         </div>
     </div>
     <global-footer />
@@ -54,7 +57,7 @@ export default {
         max-width: 600px;
         width: 100%;
         background-color: rgb(59, 108, 172);
-        
+        text-align: center;
     }
 
     .landmark-image{
@@ -70,6 +73,27 @@ export default {
     .detail-name{
         font-weight: bold;
         font-size: 18px;
+    }
+
+    .landmark-id{
+        display: none;
+    }
+
+    button{
+        padding: 12px 24px;
+        background-color: #4caf50;
+        color: white;
+        font-weight: bold;
+        border: none;
+        border-radius: 20px;
+        display: inline block;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-bottom: 30px;
+    }
+
+    button:hover{
+        background-color: #45a049;
     }
 
     /* Mobile Styles   */
