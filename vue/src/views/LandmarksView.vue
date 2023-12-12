@@ -22,8 +22,6 @@
 
   </div>
 
-  <hr class="line-under-image" />
-
   <admin v-if="isAdmin" />
   <global-footer />
   </div>
@@ -113,6 +111,7 @@ export default {
   border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
+  border: 2px solid;
 }
 
 .reset-button:hover{
@@ -139,10 +138,10 @@ export default {
   margin-bottom: 30px;
 }
 
-.line-under-image {
-  width: 40%;
-  margin: 20px auto;
-  border-bottom: 2px solid #234d80;
 
+@media screen and (max-width: 600px){
+  .reset-form{
+    max-width: 80.3%;
+  }
 }
 </style>

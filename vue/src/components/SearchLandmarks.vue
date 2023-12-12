@@ -144,4 +144,39 @@ export default {
 .autocomplete-container {
   position: relative;
 }
+
+/* Mobile Styles */
+@media screen and (max-width: 600px) {
+  .search-landmarks{
+  margin-top: 30px;
+}
+
+.search-landmarks-header{
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.search-form{
+  max-width: 90%;
+}
+
+.autocomplete-input{
+  width: calc(100% - 20px);
+}
+
+.radius-container{
+  flex-direction: column;
+}
+
+.radius-select{
+  width: 100%;
+  margin-top: 10px;
+}
+
+.search-button{
+  width: 100%;
+  margin-top: 20px;
+}
+
+}
 </style>

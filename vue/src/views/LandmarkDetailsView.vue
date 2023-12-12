@@ -1,6 +1,7 @@
 <template>
     <div class="landmark-details">
         <global-header />
+        
         <div class="details-container">
             <p class="landmark-id">{{landmark.landmarkId}}</p>
             <p class="detail-name">{{landmark.landmarkName}}</p>
@@ -13,24 +14,27 @@
                 <button>Landmark List</button>
             </router-link>
         </div>
+        
     </div>
     <global-footer />
 </template>
 
 <script>
-import GlobalFooter from '../components/GlobalFooter.vue';
 import GlobalHeader from '../components/GlobalHeader.vue';
+import GlobalFooter from '../components/GlobalFooter.vue';
+
 
 export default {
+    components: {
+        GlobalHeader,
+        GlobalFooter,
+    },
     data() {
         return {
             landmark: {}
         }
     },
-    components: {
-        GlobalFooter,
-        GlobalHeader
-    },
+
     methods: {
         getLandmark(){
             this.landmark = this.$store.state.landmarks.find(landmark => {
