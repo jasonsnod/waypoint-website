@@ -2,7 +2,7 @@
     <div class="imagePreviewWrapper">
       <img v-if="image" v-bind:src="image" />
       <input type="file" v-on:change="loadImage" />
-      <button v-on:click="saveImage" class="btn btn-primary mr-3 mt-3">Save Image</button>
+      <!-- <button v-on:click="saveImage" class="btn btn-primary mr-3 mt-3">Save Image</button> -->
     </div>
   </template>
   
@@ -14,6 +14,7 @@
       return {
         image: null,
         imageFile: null,
+
       };
     },
     methods: {
@@ -26,12 +27,13 @@
         reader.readAsDataURL(this.imageFile);
       },
       saveImage() {
-        this.imageFile.userId = this.$store.state.userId;
+        console.log(this.imageFile)
+      
         imageService.addImage(this.imageFile)
         .catch((err) => {
           console.error(err);
         });
-        this.$router.push({name: 'home'});
+        this.$router.push({name: 'landmarks'});
       },
     },
   };
@@ -47,6 +49,6 @@
     width: 20em;
   }
   .imagePreviewWrapper button {
-    width: 20em;
+    width: 10em;
   }
   </style>

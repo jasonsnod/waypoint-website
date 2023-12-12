@@ -83,6 +83,11 @@ export default {
 </script>
 
 <style scoped>
+#app {
+  display:flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 #waypoint {
   text-align: center;
   display: block;
@@ -113,6 +118,7 @@ footer {
   position: relative;
   text-align: center;
   color: white;
+  padding: 1rem;
 }
 
 h6 {

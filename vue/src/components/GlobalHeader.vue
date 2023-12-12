@@ -3,7 +3,7 @@
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <router-link class="navbar-brand" :to="{ name: 'home' }">
-        <img src="img\logo-small.png" alt="Logo" class="navbar-logo mr-2" />
+        <img src="img\logo-small.png" alt="Logo" class="navbar-logo ml-2 mr-2" />
         <!-- <span class="brand-text"
           ><span class="city-tours-text">Waypoint</span></span
         > -->

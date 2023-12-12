@@ -1,4 +1,5 @@
 <template>
+<body>
     <global-header />
     <h1>{{ itinerary.itineraryId }}</h1>
     <p>{{ itinerary.userId }}</p>
@@ -6,6 +7,7 @@
     <p>{{  itinerary.startingAddress }}</p>
 
     <global-footer />
+</body>
 </template>
 
 <script>
