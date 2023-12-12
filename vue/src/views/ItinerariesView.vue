@@ -5,16 +5,16 @@
         <itinerary-card v-bind:itinerary="itinerary"/>
     </div>
     <button class="new-itinerary-button" v-if="!showForm" v-on:click="flipForm">Create New Itinerary</button>
-    <form v-if="showForm">
+    <form v-if="showForm" v-on:submit.prevent="createItinerary">
         <p>Itinerary Name</p>
-        <input/>
+        <input v-model="itinerary.itineraryName"/>
         <p>Starting Address</p>
-        <input/>
+        <input v-model="itinerary.startingAddress"/>
         <ul class="landmarks-list" v-for="landmark in this.$store.state.landmarks" v-bind:key="landmark.landmarkId">
-            <input type="checkbox">{{ landmark.landmarkName }}
+            <input type="checkbox" v-bind="landmark.landmarkId" v-on:click="updateIds">{{ landmark.landmarkName }}
         </ul>
         
-        <button type="" v-on:click="flipForm">Ahhh</button>
+        <button type="submit" v-on:click="flipForm">Ahhh</button>
 
     </form>
     <global-footer />
@@ -36,12 +36,23 @@ export default {
         return {
             showForm: false,
             landmarkIds: [],
-            itinerary: {}
+            itinerary: {
+                userId: this.$store.state.user.userId,
+                itineraryName: "",
+                startingAddress: ""
+            }
         }
     },
     methods: {
         flipForm() {
             this.showForm = !this.showForm
+        },
+        updateIds() {
+            if (this.landmarkIds.includes(this.landmarkId)) {
+                this.landmarkIds.splice(this.landmarkIds.findIndex(this.landmarkId), 1)
+            } else {
+                this.landmarkIds.push(this.landmarkId)
+            }
         },
         getItineraries() {
             itineraryService.getAllItineraries(this.$store.state.user.id)
@@ -51,6 +62,10 @@ export default {
             .catch(error => {
                 this.handleErrorResponse();
             });
+        },
+        createItinerary() {
+            itineraryService.createBaseItinerary(this.itinerary)
+            itineraryService.createLandmarksForItinerary(this.landmarkIds)
         },
         handleErrorResponse() {
             console.log('Error: Network Error');
