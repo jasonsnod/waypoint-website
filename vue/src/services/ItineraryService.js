@@ -10,9 +10,11 @@ export default {
         return axios.put(`/itinerary/${itineraryId}/landmark`, landmarkIdArray)
     },
     createLandmarksForItinerary(itineraryId, landmarkIdArray) {
-        // let landmarkIdString = landmarkIdArray.join(',')
+        console.log(landmarkIdArray)
+        let landmarkIdString = landmarkIdArray.join(',')
         //?landmarkIds=${landmarkIdString}
-        return axios.post(`/itinerary/${itineraryId}/landmark`, landmarkIdArray)
+        console.log(landmarkIdString)
+        return axios.post(`/itinerary/${itineraryId}/landmark?landmarkIds=${landmarkIdString}`)
     },
     deleteItinerary(itineraryId) {
         return axios.delete(`/itinerary/${itineraryId}`)

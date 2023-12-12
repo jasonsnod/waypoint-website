@@ -44,7 +44,8 @@ export default {
                 userId: this.$store.state.user.id,
                 itineraryName: "",
                 startingAddress: ""
-            }
+            },
+            newItineraryId: 0
         }
     },
     methods: {
@@ -55,10 +56,10 @@ export default {
             console.log(landmarkId)
             if (this.landmarkIds.includes(landmarkId) === true) {
                 this.landmarkIds = this.landmarkIds.filter(id => id != landmarkId)
-                console.log(this.landmarkIds)
+                
             } else {
                 this.landmarkIds.push(landmarkId)
-                console.log(this.landmarkIds)
+                
             }
         },
         getItineraries() {
@@ -72,20 +73,24 @@ export default {
         },
         createItinerary() {
             itineraryService.createBaseItinerary(this.itinerary)
-            // .then(response => {
-            //     this.$store.state.itineraries.add(response)
-            // })
-            // .catch(error => {
-            //     console.log(error)
-            // });
-            itineraryService.createLandmarksForItinerary(this.itinerary.itineraryId, this.landmarkIds)
-            this.landmarkIds = [];
-            this.itinerary = {
+            .then(response => {
+                this.newItineraryId = response.data.itineraryId
+                console.log(this.landmarkIds)
+                itineraryService.createLandmarksForItinerary(this.newItineraryId, this.landmarkIds)
+
+                this.landmarkIds = [];
+                 this.itinerary = {
                 userId: this.$store.state.user.userId,
                 itineraryName: "",
                 startingAddress: ""
-            };
+                 };
             this.showForm = false;
+            })
+            .catch(error => {
+                console.log(error)
+            });
+            
+            
         },
         handleErrorResponse() {
             console.log('Error: Network Error');
