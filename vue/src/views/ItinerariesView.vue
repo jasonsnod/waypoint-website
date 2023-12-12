@@ -219,6 +219,9 @@ export default {
         list-style: none;
         padding: 0;
         margin: 0;
+        margin-left: 20px;
+        color: rgb(253, 243, 229);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
     }
 
     .landmark-checkbox {
@@ -243,6 +246,7 @@ export default {
         border-radius: 4px;
         padding: 10px 30px;
         cursor: pointer;
+        font-weight: bold;
     }
 
     .submit-button:hover{
@@ -256,9 +260,17 @@ export default {
         border-radius: 4px;
         padding: 10px 30px;
         cursor: pointer;
+        font-weight: bold;
     }
 
     .cancel-button:hover{
         background-color: #BB2D38;
     }
+
+    /* Media styles for phone */
+    @media screen and (max-width: 600){
+    .landmarks-list{
+        margin-left: none;
+    }
+   }
 </style>
