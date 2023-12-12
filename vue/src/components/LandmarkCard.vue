@@ -19,7 +19,7 @@
         props: {
             landmark: Object
         },
-        components: {
+    components: {
 
     }
     }
