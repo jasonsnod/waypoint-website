@@ -2,7 +2,7 @@
     
     <global-header />
     <div class="itinerary-container">
-        <h1>Your Itineraries</h1>
+        <h1 class="itinerary-header">Your Itineraries:</h1>
         <div class="itineraries-list">
             <div class="itinerary-item" v-for="itinerary in $store.state.itineraries" :key="itinerary.itineraryId">
             <itinerary-card :itinerary="itinerary" />
@@ -121,6 +121,17 @@ export default {
 </script>
 
 <style scoped>
+
+    .itinerary-header{
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-family: "Roboto", sans-serif;
+        font-size: 50px;
+        color: #e2ecf7;
+        text-shadow: 3px 2px 4px rgba(0, 0, 0, 0.9);
+        letter-spacing: 2px;
+    }
     .itinerary-container {
         max-width: 600px;
         margin: 0 auto;
