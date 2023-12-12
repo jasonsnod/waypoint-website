@@ -11,7 +11,7 @@
         <p>Starting Address</p>
         <input/>
         <ul class="landmarks-list" v-for="landmark in this.$store.state.landmarks" v-bind:key="landmark.landmarkId">
-            <input type="checkbox">{{ landmark.landmarkName }}<input/>
+            <input type="checkbox">{{ landmark.landmarkName }}
         </ul>
         
         <button type="" v-on:click="flipForm">Ahhh</button>
@@ -28,13 +28,15 @@ import itineraryService from '../services/ItineraryService.js';
 
 export default {
     components: {
-        GlobalFooter,
-        GlobalHeader,
-        ItineraryCard
-    },
+    GlobalFooter,
+    GlobalHeader,
+    ItineraryCard
+},
     data() {
         return {
-            showForm: false
+            showForm: false,
+            landmarkIds: [],
+            itinerary: {}
         }
     },
     methods: {
