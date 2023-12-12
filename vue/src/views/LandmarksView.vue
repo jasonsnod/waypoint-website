@@ -15,7 +15,9 @@
     v-for="landmark in displayedLandmarks"
     v-bind:key="landmark.landmarkId"
   >
-    <landmark-card v-bind:landmark="landmark" />
+    <router-link v-bind:to="{name: 'landmark-details', params: {landmarkId: landmark.landmarkId}}">
+      <landmark-card v-bind:landmark="landmark" />
+    </router-link>
     
 
   </div>
