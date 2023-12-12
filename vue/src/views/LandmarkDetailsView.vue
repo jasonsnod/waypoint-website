@@ -62,6 +62,8 @@ export default {
         width: 100%;
         background-color: rgb(59, 108, 172);
         text-align: center;
+        margin-top: 100px;
+        margin-bottom: 100px;
     }
 
     .landmark-image{
@@ -103,7 +105,7 @@ export default {
     /* Mobile Styles   */
    @media screen and (max-width: 600){
     .details-container{
-        padding: 3000px;
+        padding: 300px;
         margin-left: 70px;
     }
    }
