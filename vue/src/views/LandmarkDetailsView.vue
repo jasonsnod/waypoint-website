@@ -1,10 +1,8 @@
 <template>
-
     <div class="landmark-details">
         <global-header />
         <div class="details-container">
             <p>{{landmark.landmarkId}}</p>
-
             <p class="detail-name">{{landmark.landmarkName}}</p>
             <p class="detail-value">{{landmark.landmarkAddress}}</p>
             <p class="detail-value">{{landmark.landmarkDetails}}</p>
@@ -50,23 +48,21 @@ export default {
         padding: 20px;
         background-color: #f9f9f9;
         border-radius: 10px;
-        margin: 20px;
+        margin: 20px auto;
         color: #333;
         border: 2px solid rgb(236, 173, 231);
-        border-radius: 8px;
-        padding: 10px;
-        margin-bottom: 20px;
-        margin-top: 10px;
-        margin-left: 500px;
-        margin-right: 500px;
+        max-width: 600px;
+        width: 100%;
         background-color: rgb(59, 108, 172);
+        
     }
 
     .landmark-image{
-        max-width: 80%;
+        max-width: 100%;
         border-radius: 8px;
         display: block;
         margin: 0 auto;
+        margin-top: 40px;
         margin-bottom: 50px;
         border: 1px solid antiquewhite;
     }
@@ -79,8 +75,8 @@ export default {
     /* Mobile Styles   */
    @media screen and (max-width: 600){
     .details-container{
-        display: flex;
-        flex-direction: column;
+        padding: 3000px;
+        margin-left: 70px;
     }
    }
 </style>
