@@ -3,7 +3,9 @@
   <global-header />
   <div>
     <search-landmarks @retrieveCoordinates="filterLandmarks($event)"/>
-    <input type="button" value="Reset Form" v-on:click="resetListOfLandmarks" class="reset-button">
+    <div class="reset-form">
+      <input type="button" value="Reset Form" v-on:click="resetListOfLandmarks" class="reset-button" >
+    </div> 
   </div>
   <div>
     <map-of-landmarks />
@@ -109,5 +111,21 @@ export default {
 .landmark-card-list {
   display: flex;
   flex-direction: row;
+}
+
+
+/* Remove if this doesn't work on mobile screens once mobile is set up */
+.reset-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: -34px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  margin-bottom: 30px;
+  
 }
 </style>

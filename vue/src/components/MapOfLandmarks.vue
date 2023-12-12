@@ -11,6 +11,7 @@
     src="https://maps.geoapify.com/v1/staticmap?style=osm-carto&width=600&height=400&center=lonlat:-84.482038,39.116247&zoom=11.4604&marker=lonlat:-84.5082596024472,39.07830587854244;color:%23ff0000;size:small|lonlat:-84.52642222209342,39.08815258064968;color:%23ff0000;size:small|lonlat:-84.42370410995925,39.1411755209522;color:%23ff0000;size:small&apiKey=f4ec423be4f84260bdd3b93a488dd3b0"
     alt="1725 Riverside Drive, Cincinnati, OH 45202, United States of America"
   />
+  <hr class="divider-header" />
 </template>
 
 <script>
@@ -35,5 +36,13 @@ img {
   margin: 0 auto;
   border-radius: 5px;
   border: 2px solid #ccc;
+  margin-bottom: 50px;
+}
+
+.divider-header {
+  width: 30%;
+  margin: auto;
+  border: 1px solid #f4f2f2;
+  margin-bottom: 60px;
 }
 </style>
