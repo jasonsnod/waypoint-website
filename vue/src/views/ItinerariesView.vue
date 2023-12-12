@@ -1,21 +1,20 @@
 <template>
-    
     <global-header />
     <div class="itinerary-container">
         <h1 class="itinerary-header">Your Itineraries:</h1>
         <div class="itineraries-list">
             <div class="itinerary-item" v-for="itinerary in $store.state.itineraries" :key="itinerary.itineraryId">
-            <itinerary-card :itinerary="itinerary" />
+                <itinerary-card :itinerary="itinerary" />
             </div>
         </div>
         <button class="new-itinerary-button" v-if="!showForm" @click="flipForm">Create New Itinerary</button>
         <form class="itinerary-form" v-if="showForm" @submit.prevent="createItinerary">
             <div class="form-field">
-                <label for="itinerary-name-input">Itinerary Name</label>
+                <label for="itinerary-name-input" id="itinerary-name">Itinerary Name</label>
                 <input v-model="itinerary.itineraryName" id="itinerary-name-input" type="text" placeholder="Enter itinerary name" />
             </div>
             <div class="form-field">
-                <label for="starting-address-input">Starting Address</label>
+                <label for="starting-address-input" id="itinerary-address">Starting Address</label>
                 <input v-model="itinerary.startingAddress" id="starting-address-input" type="text" placeholder="Enter starting address" />
             </div>
             <ul class="landmarks-list">
@@ -37,7 +36,6 @@
         </form>
     </div>
     <global-footer />
-    
   </template>
   
 
@@ -144,6 +142,12 @@ export default {
         flex-wrap: wrap;
         gap: 20px;
     }
+    #itinerary-name, #itinerary-address{
+        font-size: 22px;
+        color: #e2ecf7;
+        text-shadow: 3px 2px 4px rgba(0, 0, 0, 0.9);
+        letter-spacing: 1px;
+    }
 
     .new-itinerary-button {
         background-color: #3498db;
@@ -182,6 +186,8 @@ export default {
         background-color: rgb(59, 108, 172);
         padding: 20px;
         border-radius: 8px;
+        margin-top: 0px;
+        margin-bottom: 50px;
     }
 
     .form-field {
