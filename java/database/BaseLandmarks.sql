@@ -86,5 +86,5 @@ VALUES ('Metrobot at the Contemporary Arts Center',
         '39.10299',
         '-84.51225'
         );
-        
+
 COMMIT TRANSACTION;
