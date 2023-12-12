@@ -15,7 +15,9 @@
             </div>
             <div class="form-field">
                 <label for="starting-address-input" id="itinerary-address">Starting Address:</label>
-                <input v-model="itinerary.startingAddress" id="starting-address-input" type="text" placeholder="Enter starting address" />
+                <div class="bottom-input">
+                    <input v-model="itinerary.startingAddress" id="starting-address-input" type="text" placeholder="Enter starting address" />
+                </div>
             </div>
             <ul class="landmarks-list">
                 <li v-for="landmark in $store.state.landmarks" :key="landmark.landmarkId">
@@ -135,7 +137,6 @@ export default {
         margin: 0 auto;
         padding: 20px;
         font-family: 'Arial', sans-serif;
-        
     }
 
     .itineraries-list{
@@ -144,7 +145,7 @@ export default {
         gap: 20px;
     }
     #itinerary-name, #itinerary-address{
-        font-size: 22px;
+        font-size: 30px;
         color: #e2ecf7;
         text-shadow: 3px 2px 4px rgba(0, 0, 0, 0.9);
         letter-spacing: 1px;
@@ -200,6 +201,7 @@ export default {
         font-weight: bold;
         margin-bottom: 5px;
         display: block;
+        
     }
 
     input[type="text"] {
@@ -207,6 +209,10 @@ export default {
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 4px;
+    }
+
+    .bottom-input{
+        margin-bottom: 30px;
     }
 
     .landmarks-list {
@@ -222,11 +228,12 @@ export default {
     .form-buttons {
         display: flex;
         justify-content: center;
-        margin-top: 20px;
+        margin-top: 30px;
+        margin-bottom: 30px;
     }
 
     .button-wrapper{
-        margin: 0 10px;
+        margin: 0 30px;
     }
 
     .submit-button {
@@ -234,7 +241,7 @@ export default {
         color: white;
         border: none;
         border-radius: 4px;
-        padding: 10px 20px;
+        padding: 10px 30px;
         cursor: pointer;
     }
 
@@ -247,7 +254,7 @@ export default {
         color: white;
         border: none;
         border-radius: 4px;
-        padding: 10px 20px;
+        padding: 10px 30px;
         cursor: pointer;
     }
 
