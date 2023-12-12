@@ -243,3 +243,7 @@ methods: {
   }
 }
 ```
+### Using Geoapify Autocomplete
+
+The following is the documentation for the geoApify Autocomplete library used as part of this project.
+Most of the code is copied from there: `https://www.npmjs.com/package/@geoapify/geocoder-autocomplete?activeTab=readme`
