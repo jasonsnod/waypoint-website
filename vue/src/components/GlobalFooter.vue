@@ -20,7 +20,7 @@
               <h6>More</h6>
               <li><a href="#">Create/View Itineraries</a></li>
               <li><a href="#">View Landmarks</a></li>
-              <h6 v-if="isAdmin">Admin</h6>
+              <h6 class="mt-2" v-if="isAdmin">Admin</h6>
               <li v-if="isAdmin"><router-link :to="{ name: 'landmarks' }">Add/Delete Landmarks</router-link></li>
             </ul>
           </div>
