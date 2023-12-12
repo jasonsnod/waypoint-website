@@ -58,6 +58,7 @@
 <script>
 import GlobalHeader from "../components/GlobalHeader.vue";
 import GlobalFooter from "../components/GlobalFooter.vue";
+import landmarkService from "../services/LandmarkService";
 export default {
   components: {
     GlobalHeader,
@@ -68,10 +69,22 @@ export default {
       const image = document.querySelector(".homeview-image");
       image.classList.add("loaded");
     },
+    getLandmarks() {
+      landmarkService.getAllLandmarks()
+        .then((response) => {
+          this.$store.commit('SET_LANDMARKS', response.data);
+        })
+        .catch(error => {
+          console.log(error)
+        });
+    }
   },
   mounted() {
     window.initAOS();
   },
+  created() {
+    this.getLandmarks();
+  }
 };
 </script>
 
