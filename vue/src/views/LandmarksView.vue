@@ -145,4 +145,11 @@ export default {
   border-bottom: 2px solid #234d80;
 
 }
+
+
+@media screen and (max-width: 600px){
+  .reset-form{
+    max-width: 80.3%;
+  }
+}
 </style>
