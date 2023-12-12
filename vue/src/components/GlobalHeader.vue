@@ -31,6 +31,21 @@
             </router-link>
           </li>
           <li class="nav-item">
+            <router-link class="nav-link" :to="{ name: 'landmarks' }">
+              View Landmarks
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" :to="{ name: 'itineraries' }">
+              Itinerary
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" :to="{ name: 'about' }">
+              About
+            </router-link>
+          </li>
+          <li class="nav-item">
             <router-link
               v-if="!isLoggedIn"
               class="nav-link"
@@ -44,11 +59,6 @@
               :to="{ name: 'logout' }"
             >
               Logout
-            </router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" :to="{ name: 'about' }">
-              About
             </router-link>
           </li>
         </ul>
