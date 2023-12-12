@@ -16,7 +16,9 @@
             </li>
         </ul>
         
-        <button type="submit" v-on:click="flipForm">Submit</button>
+        <button type="submit">Submit</button>
+        <button type="cancel" v-on:click="flipForm">Cancel</button>
+
 
     </form>
     <global-footer />
@@ -39,7 +41,7 @@ export default {
             showForm: false,
             landmarkIds: [],
             itinerary: {
-                userId: this.$store.state.user.userId,
+                userId: this.$store.state.user.id,
                 itineraryName: "",
                 startingAddress: ""
             }
@@ -52,7 +54,6 @@ export default {
         updateIds(landmarkId) {
             console.log(landmarkId)
             if (this.landmarkIds.includes(landmarkId) === true) {
-                //this.landmarkIds.splice(this.landmarkIds.indexOf(landmarkId), 1)
                 this.landmarkIds = this.landmarkIds.filter(id => id != landmarkId)
                 console.log(this.landmarkIds)
             } else {
@@ -71,13 +72,20 @@ export default {
         },
         createItinerary() {
             itineraryService.createBaseItinerary(this.itinerary)
-            .then(response => {
-                this.$store.state.itineraries.add(response)
-            })
-            .catch(error => {
-                console.log(error)
-            })
-            // itineraryService.createLandmarksForItinerary(this.landmarkIds)
+            // .then(response => {
+            //     this.$store.state.itineraries.add(response)
+            // })
+            // .catch(error => {
+            //     console.log(error)
+            // });
+            itineraryService.createLandmarksForItinerary(this.itinerary.itineraryId, this.landmarkIds)
+            this.landmarkIds = [];
+            this.itinerary = {
+                userId: this.$store.state.user.userId,
+                itineraryName: "",
+                startingAddress: ""
+            };
+            this.showForm = false;
         },
         handleErrorResponse() {
             console.log('Error: Network Error');

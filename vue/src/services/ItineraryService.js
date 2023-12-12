@@ -5,12 +5,14 @@ export default {
         return axios.get(`/itinerary/${userId}`);
     },
     editLandmarksForItinerary(itineraryId, landmarkIdArray) {
-        let landmarkIdString = landmarkIdArray.join(',')
-        return axios.put(`/itinerary/${itineraryId}/landmark?landmarkIds=${landmarkIdString}`)
+        // let landmarkIdString = landmarkIdArray.join(',')
+        //?landmarkIds=${landmarkIdString}
+        return axios.put(`/itinerary/${itineraryId}/landmark`, landmarkIdArray)
     },
     createLandmarksForItinerary(itineraryId, landmarkIdArray) {
-        let landmarkIdString = landmarkIdArray.join(',')
-        return axios.post(`/itinerary/${itineraryId}/landmark?landmarkIds=${landmarkIdString}`)
+        // let landmarkIdString = landmarkIdArray.join(',')
+        //?landmarkIds=${landmarkIdString}
+        return axios.post(`/itinerary/${itineraryId}/landmark`, landmarkIdArray)
     },
     deleteItinerary(itineraryId) {
         return axios.delete(`/itinerary/${itineraryId}`)
