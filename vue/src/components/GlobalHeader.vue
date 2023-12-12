@@ -4,9 +4,9 @@
     <div class="container-fluid">
       <router-link class="navbar-brand" :to="{ name: 'home' }">
         <img src="img\logo-small.png" alt="Logo" class="navbar-logo mr-2" />
-        <span class="brand-text"
+        <!-- <span class="brand-text"
           ><span class="city-tours-text">Waypoint</span></span
-        >
+        > -->
       </router-link>
       <button
         class="navbar-toggler"
@@ -106,12 +106,12 @@ export default {
 .nav-link:hover {
   color: #4267b9;
 }
-.navbar-logo {
+/* .navbar-logo {
   max-height: 60px;
   border-radius: 50%;
   margin-left: 20px;
   border: 2px solid black;
-}
+} */
 
 .navbar-toggler:hover {
   background-color: #4267b9;

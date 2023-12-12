@@ -1,6 +1,21 @@
 <template>
   <div class="home">
     <global-header />
+    <!-- <h1 class="homeview-header">
+      <div class="word-group">
+        <span>Welcome</span> <span>to </span>
+        <span> Waypoint </span>
+        <span>where </span>
+        <span>to </span>
+        <span>next?</span>
+      </div>
+    </h1> -->
+    <img
+      class="homeview-image fade-in"
+      src="img\logo-large.png"
+      @load="handleImageload"
+    />
+    <!-- <hr class="line-under-image" /> -->
     <h1 class="homeview-header">
       <div class="word-group">
         <span>Welcome</span> <span>to </span>
@@ -10,13 +25,6 @@
         <span>next?</span>
       </div>
     </h1>
-    <img
-      class="homeview-image fade-in"
-      src="img\logo-large.png"
-      @load="handleImageload"
-    />
-    <hr class="line-under-image" />
-
     <div class="gif-container">
       <img src="../assets/cincyPhotos/cincyBridge.gif" />
     </div>

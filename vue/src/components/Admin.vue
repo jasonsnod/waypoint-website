@@ -1,20 +1,22 @@
 <template>
  
-  <h1>Add a Landmark</h1>
+  <h1 class="ml-3">Add a Landmark</h1>
       <form class="login-form" v-on:submit.prevent="jasonsDestiny"> 
           <div class="form-group">
               <label for="landmarkName">Landmark Name: </label>
               <input type="text" class="form-control" v-model="landmark.landmarkName" id="landmarkName" placeholder="Enter landmark name">
-              <label for="landmarkAddress">Landmark Address: </label>
+              <label for="landmarkAddress" class="mt-2">Landmark Address: </label>
               <div ref="autocomplete" class="autocomplete-container autocomplete-input"></div>
   
-              <label for="landmarkDetails">Landmark Details: </label>
+              <label for="landmarkDetails" class="mt-2">Landmark Details: </label>
               <input type="textarea" class="form-control" v-model="landmark.landmarkDetails" id="landmarkDetails" placeholder="Enter landmark details">
-  
+              <file-upload class="mt-3"/>
+
+              <image-viewer class="mb-3"/>
               <button type="submit" class="btn btn-primary mr-3 mt-3">Submit</button>
               <button type="reset" class="btn btn-secondary mt-3">Reset</button>
   
-  
+ 
           
           </div>
       </form>
@@ -24,8 +26,10 @@
   
   <script>
   
-  import { GeocoderAutocomplete } from "@geoapify/geocoder-autocomplete";
-  import LandmarkService from "../services/LandmarkService";
+import { GeocoderAutocomplete } from "@geoapify/geocoder-autocomplete";
+import LandmarkService from "../services/LandmarkService";
+import FileUpload from '../components/FileUpload.vue';
+import ImageViewer from '../components/ImageViewer.vue';
   
   
   export default {
@@ -36,6 +40,11 @@
           }
       },
   
+      components: {
+        FileUpload,
+        ImageViewer,
+      },
+
       methods: {
           jasonsDestiny() {
               console.log(this.landmark)
