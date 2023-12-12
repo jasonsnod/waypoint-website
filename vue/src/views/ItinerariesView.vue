@@ -10,11 +10,11 @@
         <button class="new-itinerary-button" v-if="!showForm" @click="flipForm">Create New Itinerary</button>
         <form class="itinerary-form" v-if="showForm" @submit.prevent="createItinerary">
             <div class="form-field">
-                <label for="itinerary-name-input" id="itinerary-name">Itinerary Name</label>
+                <label for="itinerary-name-input" id="itinerary-name">Itinerary Name:</label>
                 <input v-model="itinerary.itineraryName" id="itinerary-name-input" type="text" placeholder="Enter itinerary name" />
             </div>
             <div class="form-field">
-                <label for="starting-address-input" id="itinerary-address">Starting Address</label>
+                <label for="starting-address-input" id="itinerary-address">Starting Address:</label>
                 <input v-model="itinerary.startingAddress" id="starting-address-input" type="text" placeholder="Enter starting address" />
             </div>
             <ul class="landmarks-list">
@@ -135,6 +135,7 @@ export default {
         margin: 0 auto;
         padding: 20px;
         font-family: 'Arial', sans-serif;
+        
     }
 
     .itineraries-list{
@@ -186,8 +187,9 @@ export default {
         background-color: rgb(59, 108, 172);
         padding: 20px;
         border-radius: 8px;
-        margin-top: 0px;
+        margin-top: 50px;
         margin-bottom: 50px;
+        border: 1px solid rgb(236, 173, 231);
     }
 
     .form-field {
