@@ -93,7 +93,7 @@ export default {
             itineraryService.createBaseItinerary(this.itinerary)
             .then(response => {
                 this.newItineraryId = response.data.itineraryId
-                console.log(this.landmarkIds)
+                //console.log(this.landmarkIds)
                 itineraryService.createLandmarksForItinerary(this.newItineraryId, this.landmarkIds)
 
                 this.landmarkIds = [];
