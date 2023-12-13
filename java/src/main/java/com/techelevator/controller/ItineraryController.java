@@ -19,7 +19,7 @@ import java.util.List;
 @RestController
 @CrossOrigin
 @RequestMapping("/itinerary")
-@PreAuthorize("isAuthenticated")
+@PreAuthorize("isAuthenticated()")
 public class ItineraryController {
 
     private ItineraryDao itineraryDao;

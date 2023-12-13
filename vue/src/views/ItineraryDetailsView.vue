@@ -32,7 +32,6 @@ import GlobalHeader from '../components/GlobalHeader.vue';
 import itineraryService from '../services/ItineraryService';
 import { RouteDirections } from '@geoapify/route-directions';
 import maplibre from 'maplibre-gl';
-import ItineraryService from '../services/ItineraryService';
 
 export default {
     data() {
@@ -68,7 +67,7 @@ export default {
             this.showDeleteNotification = !this.showDeleteNotification
         },
         deleteItinerary() {
-            ItineraryService.deleteItinerary(this.itinerary.itineraryId)
+            itineraryService.deleteItinerary(this.itinerary.itineraryId)
             this.$router.push('/itineraries')
         }
     },

@@ -3,7 +3,7 @@
     <div class="itinerary-container">
         <h1 class="itinerary-header">Your Itineraries:</h1>
         <div class="itineraries-list">
-            <div class="itinerary-item" v-for="itinerary in $store.state.itineraries" :key="itinerary.itineraryId">
+            <div class="itinerary-item" v-for="itinerary in this.$store.state.itineraries" :key="itinerary.itineraryId">
                 <itinerary-card :itinerary="itinerary" />
             </div>
         </div>
@@ -85,6 +85,7 @@ export default {
                 this.$store.commit('SET_USER_ITINERARIES', response.data);
             })
             .catch(error => {
+                console.log(error);
                 this.handleErrorResponse();
             });
         },
@@ -106,8 +107,6 @@ export default {
             .catch(error => {
                 console.log(error)
             });
-            
-            
         },
         handleErrorResponse() {
             console.log('Error: Network Error');
