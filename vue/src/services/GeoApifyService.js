@@ -27,19 +27,14 @@ function formatAddressForGeoApify(locationAddress) {
     }
 
     locationAddress = splitLocationAddress.join(' ');
-    console.log(locationAddress)
 
     splitLocationAddress = locationAddress.split(', ');
-    console.log(splitLocationAddress);
 
     locationAddress = splitLocationAddress.join('%2C%20');
-    console.log(locationAddress);
 
     splitLocationAddress = locationAddress.split(' ');
-    console.log(splitLocationAddress);
 
     locationAddress = splitLocationAddress.join('%20');
-    console.log(locationAddress);
 }
 
 export default {
@@ -97,6 +92,6 @@ export default {
             import.meta.env.VITE_GEOAPIFY_API_KEY
         );
 
-        geoapify.get(requestURL);
+        return geoapify.get(requestURL);
     }
 }

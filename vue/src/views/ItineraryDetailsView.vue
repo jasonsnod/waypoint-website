@@ -10,7 +10,6 @@
             <p>{{ landmark.landmarkName }}</p>
         </router-link>
     </div>
-
  
     <div class="map-container" ref="myMap"></div>
 
@@ -59,17 +58,19 @@
 import GlobalFooter from '../components/GlobalFooter.vue';
 import GlobalHeader from '../components/GlobalHeader.vue';
 import itineraryService from '../services/ItineraryService';
-//import { RouteDirections } from '@geoapify/route-directions';
+import geoApifyService from '../services/GeoApifyService';
 import maplibre from 'maplibre-gl';
 
 export default {
     data() {
         return {
             itinerary: {},
+            itineraryStartingCoordinates: {},
             landmarkIdsToAdd: [],
             showUpdateForm: false,
             showDeleteNotification: false,
-            itineraryLandmarks: []
+            itineraryLandmarks: [],
+            itineraryRoute: {}
         }
     },
     components: {
@@ -124,32 +125,79 @@ export default {
         deleteItinerary() {
             itineraryService.deleteItinerary(this.itinerary.itineraryId)
             this.$router.push('/itineraries')
+        },
+        getStartingAddressCoordinates() {
+           geoApifyService.getCoordinatesForAddress(this.itinerary.startingAddress)
+           .then(response => {
+            this.itineraryStartingCoordinates.lat = response.data.results[0].lat;
+            this.itineraryStartingCoordinates.lon = response.data.results[0].lon;
+
+            this.getItineraryRoute();
+           })
+           .catch(error => {
+            console.log([error, 'Could not retrieve route.']);
+           });
+        },
+        getItineraryRoute() {
+            let waypointsCoordinatesArray = [];
+
+            waypointsCoordinatesArray.push({latitude: this.itineraryStartingCoordinates.lat , longitude: this.itineraryStartingCoordinates.lon});
+
+            for (let landmark of this.itineraryLandmarks) {
+                waypointsCoordinatesArray.push({latitude: landmark.landmarkLatitude , longitude: landmark.landmarkLongitude})
+            }
+
+            geoApifyService.getItineraryRoute(waypointsCoordinatesArray)
+            .then(response => {
+                this.itineraryRoute = response.data;
+
+                this.createItineraryMap();
+            })
+            .catch(error => {
+                console.log(error);
+            });
+        },
+        createItineraryMap() {
+            const mapStyle = 'https://maps.geoapify.com/v1/styles/osm-carto/style.json';
+
+            const initialState = {
+                lng: -84.51233126586305,
+                lat: 39.10162530373483,
+                zoom: 12
+            };
+
+            const map = new maplibre.Map({
+                container: this.$refs.myMap,
+                style: `${mapStyle}?apiKey=${import.meta.env.VITE_GEOAPIFY_API_KEY}`,
+                center: [initialState.lng, initialState.lat],
+                zoom: initialState.zoom
+            });
+
+            const markerPopup = new maplibre.Popup().setText('Some marker');
+            new maplibre.Marker().setLngLat([initialState.lng, initialState.lat]).setPopup(markerPopup).addTo(map);
+
+            function visualizeRoute(routeGeojson) {
+
+                console.log(routeGeojson)
+                map.addSource('my-route', {
+                    type:"geojson",
+                    data: routeGeojson // <= add data here!
+                });
+
+                map.addLayer({
+                    id: 'my-route-layer',
+                    source: 'my-route',
+                    type: 'line',
+                });
+            }
+            map.on('load', visualizeRoute(this.itineraryRoute));
         }
     },
     created() {
         this.getItinerary();
+        this.getStartingAddressCoordinates();
         this.getItineraryLandmarks();
     },
-    mounted: function(){
-        const mapStyle = 'https://maps.geoapify.com/v1/styles/osm-carto/style.json';
-
-        const initialState = {
-            lng: -84.51233126586305,
-            lat: 39.10162530373483,
-            zoom: 12
-        };
-
-        const map = new maplibre.Map({
-            container: this.$refs.myMap,
-            style: `${mapStyle}?apiKey=${import.meta.env.VITE_GEOAPIFY_API_KEY}`,
-            center: [initialState.lng, initialState.lat],
-            zoom: initialState.zoom
-        });
-
-        const markerPopup = new maplibre.Popup().setText('Some marker');
-        new maplibre.Marker().setLngLat([initialState.lng, initialState.lat]).setPopup(markerPopup).addTo(map);
-  
-    }
 }
 
 </script>
