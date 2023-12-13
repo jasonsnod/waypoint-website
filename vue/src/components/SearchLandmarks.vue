@@ -82,10 +82,10 @@ export default {
 .search-landmarks-header {
   font-family: Arial, sans-serif;
   color: #fcf5f5;
-  font-size: 66px;
+  /* font-size: 66px; */
   font-weight: bold;
   margin-bottom: 30px;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   letter-spacing: 1px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }

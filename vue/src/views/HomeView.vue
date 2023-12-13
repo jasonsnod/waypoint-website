@@ -12,7 +12,7 @@
     </h1> -->
     <img
       class="homeview-image fade-in"
-      src="img\logo-large.png"
+      src="src\assets\img\logo-large.png"
       @load="handleImageload"
     />
     <!-- <hr class="line-under-image" /> -->
@@ -25,9 +25,9 @@
         <span>next?</span>
       </div>
     </h1>
-    <div class="gif-container">
+    <!-- <div class="gif-container">
       <img src="../assets/cincyPhotos/cincyBridge.gif" />
-    </div>
+    </div> -->
 
     <div class="image-with-paragraphs">
       <div class="image-container mx-auto mb-4">
@@ -72,11 +72,6 @@ export default {
     GlobalHeader,
     GlobalFooter,
   },
-  data() {
-        return {
-            landmarkCart: []
-        }
-    },
   methods: {
     handleImageload() {
       const image = document.querySelector(".homeview-image");
@@ -90,9 +85,6 @@ export default {
         .catch(error => {
           console.log(error)
         });
-    },
-    setLandmarkCart() {
-      this.$store.commit('SET_LANDMARK_CART', this.landmarkCart)
     }
   },
   mounted() {
@@ -111,7 +103,7 @@ export default {
   font-family: "Roboto", sans-serif;
   font-size: 50px;
   color: #e2ecf7;
-  text-shadow: 3px 2px 4px rgba(0, 0, 0, 0.9);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   letter-spacing: 2px;
 }
 

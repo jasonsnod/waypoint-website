@@ -57,10 +57,10 @@ export default {
         border-radius: 10px;
         margin: 20px auto;
         color: #333;
-        border: 2px solid rgb(236, 173, 231);
+        /* border: 2px solid rgb(236, 173, 231); */
         max-width: 600px;
         width: 100%;
-        background-color: rgb(59, 108, 172);
+        /* background-color: rgb(59, 108, 172); */
         text-align: center;
         margin-top: 100px;
         margin-bottom: 100px;
@@ -73,12 +73,14 @@ export default {
         margin: 0 auto;
         margin-top: 40px;
         margin-bottom: 50px;
-        border: 1px solid antiquewhite;
+        /* border: 1px solid antiquewhite; */
+        text-decoration: none;
     }
 
     .detail-name{
         font-weight: bold;
         font-size: 18px;
+        text-decoration: none;
     }
 
     .landmark-id{
@@ -96,6 +98,7 @@ export default {
         cursor: pointer;
         transition: background-color 0.3s ease;
         margin-bottom: 30px;
+        text-decoration: none;
     }
 
     button:hover{
