@@ -1,4 +1,5 @@
 <template>
+    
     <div class="scrollable-container">
         <div v-bind:id="landmark.landmarkId" class="landmark-card">
             <div class="landmark-content">
@@ -9,6 +10,8 @@
                 </div>
                     <!-- <img :src="landmark.imageSrc" alt="Landmark Image" class="landmark-image" /> -->
                     <img class="landmark-image" src="https://www.visittheusa.com/sites/default/files/styles/hero_l/public/images/hero_media_image/2023-04/cd6d5f6d-0b19-47cf-93f1-dd16cca640a8.jpeg?h=2935a1aa&itok=mlV8oEZW">
+                    <h1 class="add-landmark-button" v-if="this.$store.state.user.authorities && !this.isInCart">+</h1>
+                    <h1 class="remove-landmark-button" v-if="this.$store.state.user.authorities && this.isInCart">-</h1>
             </div>
         </div>
     </div>
@@ -19,9 +22,34 @@
         props: {
             landmark: Object
         },
-    components: {
+        components: {
 
-    }
+         },
+         data() {
+            return{
+            isInCart: false
+            }
+         },
+         methods: {
+            checkCart() {
+                if(this.$store.state.landmarkCart.contains(this.landmark)) {
+                    this.isInCart = true;
+                }
+            },
+            updateCart(landmark) {
+                if (this.$store.state.landmarkCart.includes(landmark) === true) {
+                this.$store.state.landmarkCart = this.$store.state.landmarkCart.filter(id => id != landmark)
+                
+            } else {
+                this.$store.state.landmarkCart.push(landmark)
+                
+            }
+            console.log(this.$store.state.landmarkCart)
+            }
+         },
+         created() {
+            this.checkCart
+         }
     }
 </script>
 

@@ -99,7 +99,6 @@ export default {
 
 <style scoped>
 
-
 .reset-button{
   display: block;
   margin: 0 auto;
