@@ -39,10 +39,11 @@
             updateCart(landmark) {
                 if (this.$store.state.landmarkCart.includes(landmark) === true) {
                 this.$store.state.landmarkCart = this.$store.state.landmarkCart.filter(id => id != landmark)
+                this.isInCart = !this.isInCart
                 
             } else {
                 this.$store.state.landmarkCart.push(landmark)
-                
+                this.isInCart = !this.isInCart
             }
             console.log(this.$store.state.landmarkCart)
             }
