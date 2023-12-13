@@ -1,7 +1,10 @@
 import axios from "axios";
 
 // This URI is the base used for doing a geocode search using location addresses
-const geoCoderUri = '/v1/geocode/search';
+const geoCoderUri = '/v1/geocode/search?';
+
+// Example get request URL for getting geocode by address: https://api.geoapify.com/v1/geocode/search?text=1214-1224%20West%20Van%20Buren%20Street%2C%20Chicago%2C%20IL%2060607%2C%20United%20States%20of%20America&lang=en&limit=5&format=json&apiKey=YOUR_API_KEY
+
 
 // This URI is the base used for finding the route between 2+ location coordinates
 const routingUri = '/v1/routing?waypoints=';
@@ -31,15 +34,40 @@ export default {
                 '&units=imperial' +
                 '&apiKey=' + import.meta.env.VITE_GEOAPIFY_API_KEY
             );
-        
-            //requestUrl = 'https://api.geoapify.com/v1/routing?waypoints=39.127973,-84.524567|39.1429225,-84.5090381&mode=drive&apiKey=a97e169c03ef43108e1e05b4a0cc2d4e';
+
             return geoapify.get(requestUrl);
         }));
 
     }, 
-    getRoute() {
-        return geoapify.get(
-            'https://api.geoapify.com/v1/routing?waypoints=50.96209827745463%2C4.414458883409225%7C50.429137079078345%2C5.00088081232559&mode=drive&apiKey=' + import.meta.env.VITE_GEOAPIFY_API_KEY
+    getItineraryRoute(waypointsCoordinatesArray) {
+
+        let waypointsString = "";
+        for (let index = 0; index < waypointsCoordinatesArray.length; index++) {
+            waypointsString += waypointsCoordinatesArray[index].latitude + ',' + waypointsCoordinatesArray[index].longitude;
+            if (index !== waypointsCoordinatesArray.length - 1) waypointsString += '|';
+        }
+
+        let requestURL = (
+            routingUri + 
+            waypointsString +
+            "&mode=drive" +
+            "&type=short" +
+            "&details=instruction_details" +
+            "&format=geojson" +
+            "&apiKey=" + import.meta.env.VITE_GEOAPIFY_API_KEY
         );
+
+        return geoapify.get(requestURL);
+    },
+    getCoordinatesForAddress(locationAddress) {
+
+        // 337 West Mcmillan Street, Cincinnati, OH 45219, United States of America
+
+
+        let requestURL = (
+            geoCoderUri +
+            "text=" +
+            ""
+        )
     }
 }
