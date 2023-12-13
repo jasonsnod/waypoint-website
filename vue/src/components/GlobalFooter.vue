@@ -7,10 +7,11 @@
           <div class="footer-column">
             <ul>
               <h6>Explore</h6>
-              <li><router-link :to="{ name: 'home' }">Home</router-link></li>
-              <li><router-link :to="{ name: 'about' }">About</router-link></li>
-              <li><a href="#">FAQ</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><router-link :to="{ name: 'itineraries' }">View Itineraries</router-link></li>
+              <li><router-link :to="{ name: 'landmarks' }">View Landmarks</router-link></li>
+              <li><router-link :to="{ name: 'safety' }">Safety & Waypoint</router-link></li>
+              <li><router-link :to="{ name: 'faq' }">FAQ</router-link></li>
+            
             </ul>
           </div>
         </div>
@@ -18,8 +19,9 @@
           <div class="footer-column">
             <ul>
               <h6>More</h6>
-              <li><a href="#">Create/View Itineraries</a></li>
-              <li><a href="#">View Landmarks</a></li>
+              <li><router-link :to="{ name: 'home' }">Home</router-link></li>
+              <li><router-link :to="{ name: 'about' }">About Us</router-link></li>
+              
               <h6 class="mt-2" v-if="isAdmin">Admin</h6>
               <li v-if="isAdmin"><router-link :to="{ name: 'landmarks' }">Add/Delete Landmarks</router-link></li>
             </ul>

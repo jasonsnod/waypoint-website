@@ -11,6 +11,8 @@ import ItinerariesView from "../views/ItinerariesView.vue";
 import ItineraryDetailsView from "../views/ItineraryDetailsView.vue";
 import LandmarkDetailsView from "../views/LandmarkDetailsView.vue";
 import AboutView from "../views/AboutView.vue";
+import SafetyView from "../views/SafetyView.vue";
+import FaqView from "../views/FaqView.vue";
 
 
 /**
@@ -91,6 +93,22 @@ const routes = [
     path: "/about",
     name: "about",
     component: AboutView,
+    meta: {
+      requiresAuth: false,
+    },
+  },
+  {
+    path: "/safety",
+    name: "safety",
+    component: SafetyView,
+    meta: {
+      requiresAuth: false,
+    },
+  },
+  {
+    path: "/faq",
+    name: "faq",
+    component: FaqView,
     meta: {
       requiresAuth: false,
     },
