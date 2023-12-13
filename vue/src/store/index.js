@@ -33,6 +33,9 @@ export function createStore(currentToken, currentUser) {
       },
       SET_LANDMARKS(state, arrayOfLandmarks) {
         state.landmarks = arrayOfLandmarks;
+      },
+      SET_LANDMARK_CART(state, emptyArrayOfLandmarks) {
+        state.landmarkCart = emptyArrayOfLandmarks
       }
     },
   });

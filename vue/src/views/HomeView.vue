@@ -72,6 +72,11 @@ export default {
     GlobalHeader,
     GlobalFooter,
   },
+  data() {
+        return {
+            landmarkCart: []
+        }
+    },
   methods: {
     handleImageload() {
       const image = document.querySelector(".homeview-image");
@@ -85,6 +90,9 @@ export default {
         .catch(error => {
           console.log(error)
         });
+    },
+    setLandmarkCart() {
+      this.$store.commit('SET_LANDMARK_CART', this.landmarkCart)
     }
   },
   mounted() {

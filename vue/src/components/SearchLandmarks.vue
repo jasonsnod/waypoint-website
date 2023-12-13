@@ -75,6 +75,10 @@ export default {
   margin-top: 60px;
 }
 
+.autocomplete-container {
+    color:black;
+  }
+
 .search-landmarks-header {
   font-family: Arial, sans-serif;
   color: #fcf5f5;
