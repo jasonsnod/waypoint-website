@@ -133,24 +133,24 @@
             <h2 class="name-text">Zach Huster</h2>
             <hr class="divider" />
             <p>
-              Hello, I'm <span class="mobile-name">Jason Snoddy</span>
-              a junior software engineer. Recently, I finished Tech Elevator's
-              Full-Stack Developer course. I am currently searching for software
-              engineer jobs focusing on the back-end.
+              Hello, I'm <span class="mobile-name">Zach Huster</span>
+              Welcome to my digital space! I'm a software developer with a zest for life, 
+              and I'm here to share my journey with you. If you're a fellow tech enthusiast,
+               a gamer looking for a teammate, or simply someone curious about the exciting 
+               world of software development, you're in the right place!
             </p>
             <p>
-              I rely on both my intelligence and will-power to follow through on
-              projects and find the best possible solution to problems I face. I
-              also love playing music, frisbee, and being in the outdoors with a
-              good book. You'll find me on the side of a mountain reading some
-              good Tolkien.
+              My passion for coding began as a spark and has since grown into a blazing fire. 
+              I thrive on tackling complex challenges and transforming them into elegant solutions. 
+              Whether it's crafting efficient algorithms or building user-friendly 
+              applications, I'm constantly exploring the ever-evolving landscape of technology.
             </p>
           </div>
           <div class="about-profile">
             <div class="about-img-container">
               <img
                 class="about-img"
-                src="../assets/teamImages/jasonLogo.jpg"
+                src="../assets/teamImages/zh-about.png"
                 alt="Jason"
               />
             </div>
@@ -162,7 +162,7 @@
                   alt="LinkedIn"
                 />
               </a>
-              <a href="https://github.com/jasonsnod" target="_blank">
+              <a href="https://github.com/huster8" target="_blank">
                 <img
                   class="social-icon"
                   id="github"
