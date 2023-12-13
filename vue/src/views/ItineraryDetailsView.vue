@@ -1,10 +1,10 @@
 <template>
+<body>
     <global-header />
     <h1>{{ itinerary.itineraryId }}</h1>
     <p>{{ itinerary.userId }}</p>
     <p>{{ itinerary.itineraryName }}</p>
     <p>{{  itinerary.startingAddress }}</p>
-
     <div class="list-of-landmarks" v-for="landmark in landmarks" v-bind:key="landmark.landmarkId">
         <router-link :to="{ name: 'landmark-details', params: {landmarkId: landmark.landmarkId} }">
             <p>{{ landmark.landmarkName }}</p>
@@ -14,7 +14,16 @@
     <div ref="routeDirections" id="route-directions"></div>
     <div class="map-container" ref="myMap"></div>
 
+    <button class="update-button" v-if="!showUpdateForm" >Update</button>
+    <button class="delete-button" v-if="!showDeleteNotification" @click="flipDeleteAlert">Delete</button>
+    <container class="delete-box" v-if="showDeleteNotification">
+        <h6>Are you sure you want to delete this itinerary?</h6>
+        <button class="delete-confirmation" @click="deleteItinerary">Yes!</button>
+        <button class="delete-rejection">No!</button>
+    </container>
+
     <global-footer />
+</body>
 </template>
 
 <script>
@@ -23,12 +32,16 @@ import GlobalHeader from '../components/GlobalHeader.vue';
 import itineraryService from '../services/ItineraryService';
 import { RouteDirections } from '@geoapify/route-directions';
 import maplibre from 'maplibre-gl';
+import ItineraryService from '../services/ItineraryService';
 
 export default {
     data() {
         return {
             itinerary: {},
-            landmarks: []
+            landmarks: [],
+            showUpdateForm: false,
+            showDeleteNotification: false,
+            // this.itineraryLandmarks
         }
     },
     components: {
@@ -47,6 +60,16 @@ export default {
             .catch(error => {
                 console.log(error);
             });
+        },
+        // getItineraryLandmarks() {
+        //     this.itineraryLandmarks = ItineraryService.getLandmarksByItinerary(this.itinerary.itineraryId)
+        // },
+        flipDeleteAlert() {
+            this.showDeleteNotification = !this.showDeleteNotification
+        },
+        deleteItinerary() {
+            ItineraryService.deleteItinerary(this.itinerary.itineraryId)
+            this.$router.push('/itineraries')
         }
     },
     created() {
@@ -91,6 +114,7 @@ export default {
 
         const markerPopup = new maplibre.Popup().setText('Some marker');
         new maplibre.Marker().setLngLat([initialState.lng, initialState.lat]).setPopup(markerPopup).addTo(map);
+        this.getItineraryLandmarks();
     }
 }
 

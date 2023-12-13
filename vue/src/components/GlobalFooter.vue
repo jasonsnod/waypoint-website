@@ -83,6 +83,8 @@ export default {
 </script>
 
 <style scoped>
+
+
 #waypoint {
   text-align: center;
   display: block;
@@ -113,6 +115,7 @@ footer {
   position: relative;
   text-align: center;
   color: white;
+  padding: 1rem;
 }
 
 h6 {
