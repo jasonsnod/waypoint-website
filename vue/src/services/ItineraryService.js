@@ -8,9 +8,10 @@ export default {
         return axios.get(`/itinerary/${itineraryId}/landmark`);
     },
     editLandmarksForItinerary(itineraryId, landmarkIdArray) {
-        // let landmarkIdString = landmarkIdArray.join(',')
+        let landmarkIdString = landmarkIdArray.join(',')
         //?landmarkIds=${landmarkIdString}
-        return axios.put(`/itinerary/${itineraryId}/landmark`, landmarkIdArray);
+        console.log(landmarkIdString);
+        return axios.put(`/itinerary/${itineraryId}/landmark?landmarkIds=${landmarkIdString}`);
     },
     createLandmarksForItinerary(itineraryId, landmarkIdArray) {
         console.log(landmarkIdArray);

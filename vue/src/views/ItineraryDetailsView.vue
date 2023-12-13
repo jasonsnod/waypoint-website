@@ -5,7 +5,7 @@
     <p>{{ itinerary.userId }}</p>
     <p>{{ itinerary.itineraryName }}</p>
     <p>{{  itinerary.startingAddress }}</p>
-    <div class="list-of-landmarks" v-for="landmark in landmarks" v-bind:key="landmark.landmarkId">
+    <div class="list-of-landmarks" v-for="landmark in itineraryLandmarks" v-bind:key="landmark.landmarkId">
         <router-link :to="{ name: 'landmark-details', params: {landmarkId: landmark.landmarkId} }">
             <p>{{ landmark.landmarkName }}</p>
         </router-link>
@@ -14,12 +14,41 @@
  
     <div class="map-container" ref="myMap"></div>
 
-    <button class="update-button" v-if="!showUpdateForm" >Update</button>
+    <button class="update-button" v-if="!showUpdateForm" @click="flipUpdateForm">Update</button>
+    <form class="itinerary-form" v-if="showUpdateForm" @submit.prevent="updateItinerary">
+            <div class="form-field">
+                <label for="itinerary-name-input" id="itinerary-name">Itinerary Name:</label>
+                <input v-model="itinerary.itineraryName" id="itinerary-name-input" type="text" placeholder="Enter itinerary name" />
+            </div>
+            <div class="form-field">
+                <label for="starting-address-input" id="itinerary-address">Starting Address:</label>
+                <div class="bottom-input">
+                    <input v-model="itinerary.startingAddress" id="starting-address-input" type="text" placeholder="Enter starting address" />
+                </div>
+            </div>
+            <ul class="landmarks-list">
+                <li v-for="landmark in $store.state.landmarks" :key="landmark.landmarkId">
+                    <label>
+                        <input type="checkbox" @click="updateIds(landmark.landmarkId)" class="landmark-checkbox"/>
+                        {{ landmark.landmarkName }}
+                    </label>
+                </li>
+            </ul>
+            <div class="form-buttons">
+                <div class="button-wrapper">
+                    <button type="submit" class="submit-button" @click="flipUpdateForm">Submit</button>
+                </div>
+                <div class="button-wrapper">
+                    <button type="button" class="cancel-button" @click="flipUpdateForm">Cancel</button>
+                </div>
+            </div>
+        </form>
+
     <button class="delete-button" v-if="!showDeleteNotification" @click="flipDeleteAlert">Delete</button>
     <container class="delete-box" v-if="showDeleteNotification">
         <h6>Are you sure you want to delete this itinerary?</h6>
         <button class="delete-confirmation" @click="deleteItinerary">Yes!</button>
-        <button class="delete-rejection">No!</button>
+        <button class="delete-rejection" @click="flipDeleteAlert">No!</button>
     </container>
 
     <global-footer />
@@ -37,10 +66,10 @@ export default {
     data() {
         return {
             itinerary: {},
-            landmarks: [],
+            landmarkIdsToAdd: [],
             showUpdateForm: false,
             showDeleteNotification: false,
-            // this.itineraryLandmarks
+            itineraryLandmarks: []
         }
     },
     components: {
@@ -51,18 +80,44 @@ export default {
         getItinerary() {
             this.itinerary = this.$store.state.itineraries.find(itinerary => itinerary.itineraryId == this.$route.params.itineraryId)
         },
-        getLandmarks() {
+        flipUpdateForm() {
+            this.showUpdateForm = !this.showUpdateForm
+        },
+        updateIds(landmarkId) {
+            console.log(landmarkId)
+            if (this.landmarkIdsToAdd.includes(landmarkId) === true) {
+                this.landmarkIdsToAdd = this.landmarkIdsToAdd.filter(id => id != landmarkId)
+                console.log(this.landmarkIdsToAdd)
+            } else {
+                this.landmarkIdsToAdd.push(landmarkId)
+                console.log(this.landmarkIdsToAdd)
+            }
+        },
+        updateItinerary() {
+            itineraryService.updateItineraryDetails(this.itinerary.itineraryId, this.itinerary)
+            let idsToSend = this.landmarkIdsToAdd
+            for(let landmark of this.itineraryLandmarks) {
+                if(!idsToSend.includes(landmark.landmarkId)) {
+                    idsToSend.push(landmark.landmarkId)
+                }
+            }
+            itineraryService.editLandmarksForItinerary(this.itinerary.itineraryId, idsToSend)
+            .then(response => {
+                this.landmarkIdsToAdd = [];
+            })
+            .catch(error => {
+                console.log(error);
+            })
+        },
+        getItineraryLandmarks() {
             itineraryService.getLandmarksByItinerary(this.itinerary.itineraryId)
             .then(response => {
-                this.landmarks = response.data;
+                this.itineraryLandmarks = response.data;
             })
             .catch(error => {
                 console.log(error);
             });
         },
-        // getItineraryLandmarks() {
-        //     this.itineraryLandmarks = ItineraryService.getLandmarksByItinerary(this.itinerary.itineraryId)
-        // },
         flipDeleteAlert() {
             this.showDeleteNotification = !this.showDeleteNotification
         },
@@ -73,7 +128,7 @@ export default {
     },
     created() {
         this.getItinerary();
-        this.getLandmarks();
+        this.getItineraryLandmarks();
     },
     mounted: function(){
         const mapStyle = 'https://maps.geoapify.com/v1/styles/osm-carto/style.json';

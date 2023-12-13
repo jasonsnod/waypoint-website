@@ -10,9 +10,9 @@
                 </div>
                     <!-- <img :src="landmark.imageSrc" alt="Landmark Image" class="landmark-image" /> -->
                     <img class="landmark-image" src="https://www.visittheusa.com/sites/default/files/styles/hero_l/public/images/hero_media_image/2023-04/cd6d5f6d-0b19-47cf-93f1-dd16cca640a8.jpeg?h=2935a1aa&itok=mlV8oEZW">
-                    <h1 class="add-landmark-button" v-if="this.$store.state.user.authorities && !this.isInCart">+</h1>
-                    <h1 class="remove-landmark-button" v-if="this.$store.state.user.authorities && this.isInCart">-</h1>
             </div>
+            <h1 class="add-landmark-button" v-if="this.$store.state.user.authorities && !this.isInCart" @click="updateCart(landmark)">+</h1>
+            <h1 class="remove-landmark-button" v-if="this.$store.state.user.authorities && this.isInCart" @click="updateCart(landmark)">-</h1>
         </div>
     </div>
 </template>
@@ -39,10 +39,11 @@
             updateCart(landmark) {
                 if (this.$store.state.landmarkCart.includes(landmark) === true) {
                 this.$store.state.landmarkCart = this.$store.state.landmarkCart.filter(id => id != landmark)
+                this.isInCart = !this.isInCart
                 
             } else {
                 this.$store.state.landmarkCart.push(landmark)
-                
+                this.isInCart = !this.isInCart
             }
             console.log(this.$store.state.landmarkCart)
             }
