@@ -75,24 +75,23 @@
             <h2 class="name-text">David Boyd</h2>
             <hr class="divider" />
             <p>
-              Hello, I'm <span class="mobile-name">David Boyd</span>
-              a junior software engineer. Recently, I finished Tech Elevator's
-              Full-Stack Developer course. I am currently searching for software
-              engineer jobs focusing on the back-end.
+              Hello, I'm <span class="mobile-name">David Boyd</span> a junior Full-Stack developer. 
+              I've cherished video games for their adaptable nature, allowing me to make 
+              nuanced choices without the burden of handling the entire world's scope. 
+              This flexibility not only drew me into gaming but also spurred my 
+              interest in poetry and ignited my passion for coding. 
             </p>
             <p>
-              I rely on both my intelligence and will-power to follow through on
-              projects and find the best possible solution to problems I face. I
-              also love playing music, frisbee, and being in the outdoors with a
-              good book. You'll find me on the side of a mountain reading some
-              good Tolkien.
+              As a Full-Stack developer, my journey blends a Bachelor's Degree in English, refining my critical thinking, with the creativity cultivated through 
+              publishing poetry thrice. This fusion aids me in dissecting coding challenges and finding innovative solutions. 
+              I eagerly anticipate further growth as I transition into a software development role.
             </p>
           </div>
           <div class="about-profile">
             <div class="about-img-container">
               <img
                 class="about-img"
-                src="../assets/teamImages/jasonLogo.jpg"
+                src="../assets/teamImages/davidLogo.jpg"
                 alt="Jason"
               />
             </div>
