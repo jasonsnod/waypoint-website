@@ -151,14 +151,13 @@ export default {
             .then(response => {
                 this.itineraryRoute = response.data;
 
-                this.createItineraryMap();
+                this.getMapStyle();
             })
             .catch(error => {
                 console.log(error);
             });
         },
-        createItineraryMap() {
-            const mapStyle = 'https://maps.geoapify.com/v1/styles/osm-carto/style.json';
+        createItineraryMap(mapStyle) {
 
             const initialState = {
                 lng: -84.51233126586305,
@@ -168,7 +167,7 @@ export default {
 
             const map = new maplibre.Map({
                 container: this.$refs.myMap,
-                style: `${mapStyle}?apiKey=${import.meta.env.VITE_GEOAPIFY_API_KEY}`,
+                style: mapStyle,
                 center: [initialState.lng, initialState.lat],
                 zoom: initialState.zoom
             });
@@ -191,8 +190,19 @@ export default {
                 });
             }
             map.on('load', visualizeRoute(this.itineraryRoute));
-        }
+        },
+        getMapStyle() {
+            geoApifyService.getGeoapifyMapStyle()
+            .then(response => {
+                const mapStyle = response.data
+                this.createItineraryMap(mapStyle);
+            })
+            .catch(error => {
+                console.log(error + ' Could not get style.')
+            });
+        }  
     },
+
     created() {
         this.getItinerary();
         this.getStartingAddressCoordinates();

@@ -93,5 +93,10 @@ export default {
         );
 
         return geoapify.get(requestURL);
+    },
+    getGeoapifyMapStyle() {
+
+        const mapStyleUrl = 'https://maps.geoapify.com/v1/styles/osm-carto/style.json?apiKey=' + import.meta.env.VITE_GEOAPIFY_API_KEY ;
+        return geoapify.get(mapStyleUrl);
     }
 }
