@@ -75,7 +75,7 @@
             <h2 class="name-text">David Boyd</h2>
             <hr class="divider" />
             <p>
-              Hello, I'm <span class="mobile-name">Jason Snoddy</span>
+              Hello, I'm <span class="mobile-name">David Boyd</span>
               a junior software engineer. Recently, I finished Tech Elevator's
               Full-Stack Developer course. I am currently searching for software
               engineer jobs focusing on the back-end.
@@ -133,7 +133,7 @@
             <h2 class="name-text">Zach Huster</h2>
             <hr class="divider" />
             <p>
-              Hello, I'm <span class="mobile-name">Jason Snoddy</span>
+              Hello, I'm <span class="mobile-name">Zach Huster</span>
               a junior software engineer. Recently, I finished Tech Elevator's
               Full-Stack Developer course. I am currently searching for software
               engineer jobs focusing on the back-end.
