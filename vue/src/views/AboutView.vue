@@ -82,7 +82,7 @@
               interest in poetry and ignited my passion for coding. 
             </p>
             <p>
-              As a Full-Stack developer, my journey blends a Bachelor's Degree in English, refining my critical thinking, with the creativity cultivated through 
+              My journey as a Full-Stack developer has blended the refined critical thinking from my Bachelor's Degree in English with the creativity cultivated through 
               publishing poetry thrice. This fusion aids me in dissecting coding challenges and finding innovative solutions. 
               I eagerly anticipate further growth as I transition into a software development role.
             </p>
