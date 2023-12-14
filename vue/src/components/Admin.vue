@@ -1,25 +1,20 @@
 <template>
- 
-  <h1 class="ml-3">Add a Landmark</h1>
-      <form class="login-form" v-on:submit.prevent="submitForm"> 
-          <div class="form-group">
+  <h1 class="ml-5">Add a Landmark</h1>
+      <form class="login-form" v-on:submit.prevent="submitForm">
+          <div class="form-group ml-5">
               <label for="landmarkName">Landmark Name: </label>
-              <input type="text" class="form-control" v-model="landmark.landmarkName" id="landmarkName" placeholder="Enter landmark name">
+              <input type="text" class="form-control" v-model="landmark.landmarkName" id="landmarkName" placeholder="Enter landmark name" required>
               <label for="landmarkAddress" class="mt-2">Landmark Address: </label>
               <div ref="autocomplete" class="autocomplete-container autocomplete-input"></div>
-  
               <label for="landmarkDetails" class="mt-2">Landmark Details: </label>
-              <input type="textarea" class="form-control" v-model="landmark.landmarkDetails" id="landmarkDetails" placeholder="Enter landmark details">
-  
+              <textarea class="form-control" v-model="landmark.landmarkDetails" id="landmarkDetails" placeholder="Enter landmark details" rows="2" required></textarea>
+              <file-upload class="mt-3"/>
+              <image-viewer class="mb-3"/>
               <button type="submit" class="btn btn-primary mr-3 mt-3">Submit</button>
               <button type="reset" class="btn btn-secondary mt-3">Reset</button>
-  
-  
-          
           </div>
       </form>
   </template>
-  
   
   
   <script>
@@ -38,9 +33,24 @@
   
       methods: {
           submitForm() {
-              console.log(this.landmark)
-              LandmarkService.addLandmark(this.landmark)
-          }
+              
+            LandmarkService.addLandmark(this.landmark)
+            .catch((err) => {
+              console.error(err);
+            });
+            this.$router.push({name: 'landmarks'})
+          },
+          handleErrorResponse(error, verb) {
+            if (error.response) {
+              this.$store.commit('SET_NOTIFICATION',
+                "Error " + verb + " card. Response received was '" + error.response.statusText + "'.");
+            } else if (error.request) {
+              this.$store.commit('SET_NOTIFICATION', "Error " + verb + " landmark. Server could not be reached.");
+            } else {
+              this.$store.commit('SET_NOTIFICATION', "Error " + verb + " landmark. Request could not be created.");
+            }
+          },
+          
       },
   
       mounted: function () {

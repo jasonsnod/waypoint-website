@@ -13,6 +13,7 @@
             <router-link v-bind:to="{ name: 'landmarks' }">
                 <button>Landmark List</button>
             </router-link>
+            <button class="btn btn-cancel ml-3 mt-4" v-on:click="deleteLandmark">Delete Landmark</button>
         </div>
         
     </div>
@@ -22,7 +23,7 @@
 <script>
 import GlobalHeader from '../components/GlobalHeader.vue';
 import GlobalFooter from '../components/GlobalFooter.vue';
-
+import LandmarkService from '../services/LandmarkService';
 
 export default {
     components: {
@@ -40,6 +41,22 @@ export default {
             this.landmark = this.$store.state.landmarks.find(landmark => {
                 return this.$route.params.landmarkId == landmark.landmarkId;
             })
+        },
+        deleteLandmark() {
+            if (
+                confirm('Are you sure you want to delete this landmark?')) {
+                    LandmarkService.deleteLandmark(this.landmark.landmarkId)
+                    .then(response => {
+                        if (response.status === 200) {
+                            this.$store.commit('SET_NOTIFICATION', {
+                                message: `Landmark ${this.landmark.id} was deleted.`,
+                                type: 'success'
+                            })
+                            this.$router.push({ name: 'landmarks' })
+                        }
+                    })
+                }
+            
         }
     },
     created(){
