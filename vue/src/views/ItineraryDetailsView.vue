@@ -180,13 +180,13 @@ export default {
             const markerPopup = new maplibre.Popup().setText('Some marker');
             new maplibre.Marker().setLngLat([initialState.lng, initialState.lat]).setPopup(markerPopup).addTo(map);
             
-<<<<<<< HEAD
+
             map.once('idle', visualizeRoute(this.itineraryRoute.features[0]));
-=======
+
             setTimeout(() => {
                 map.on('load', visualizeRoute(this.itineraryRoute.features[0]));
             }, 5000);
->>>>>>> a7aeb4f0436798ff3b3d68c38cbb84d904567ade
+
 
             function visualizeRoute(routeGeojson) {
 
