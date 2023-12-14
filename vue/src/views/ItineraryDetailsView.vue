@@ -48,8 +48,10 @@
         <button class="delete-button" v-if="!showDeleteNotification" @click="flipDeleteAlert">Delete</button>
         <container class="delete-box" v-if="showDeleteNotification">
             <h6>Are you sure you want to delete this itinerary?</h6>
-            <button class="delete-confirmation" @click="deleteItinerary">Yes!</button>
-            <button class="delete-rejection" @click="flipDeleteAlert">No!</button>
+            <div class="delete-buttons">
+                <button class="delete-confirmation" @click="deleteItinerary">Yes!</button>
+                <button class="delete-rejection" @click="flipDeleteAlert">No!</button>
+            </div>
         </container>
     </div>
     </div>
@@ -181,7 +183,7 @@ export default {
             new maplibre.Marker().setLngLat([initialState.lng, initialState.lat]).setPopup(markerPopup).addTo(map);
             
 
-            map.once('idle', visualizeRoute(this.itineraryRoute.features[0]));
+            
 
             setTimeout(() => {
                 map.on('load', visualizeRoute(this.itineraryRoute.features[0]));
@@ -315,5 +317,40 @@ h6 {
 button:hover {
     opacity: 0.9;
 }
+
+/* DELETE SECTION */
+.delete-box {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
+.delete-box h6 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 15px;
+}
+.delete-box button {
+    padding: 8px 16px;
+    margin-right: 10px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+}
+.delete-box .delete-confirmation {
+    background-color: #D9534F;
+    color: #fff;
+}
+.delete-box .delete-rejection {
+    background-color: #337AB7;
+    color: #fff;
+}
+
+
 </style>
 
