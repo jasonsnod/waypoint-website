@@ -28,18 +28,18 @@ public class ImagesController {
     }
 
     @PostMapping(path = "")
-    public ResponseEntity<byte[]> saveImage(@RequestPart("data") MultipartFile file,
+    public void saveImage(@RequestPart("data") MultipartFile file,
                                             UriComponentsBuilder uriBuilder, Principal principal) throws IOException {
 
         Image newImage = new Image(file.getBytes(), file.getContentType());
         newImage = dao.saveNew(newImage, userDao.getUserByUsername(principal.getName()).getId());
 
         // create the URI that will be used in the Location header for the 201 Created response
-        URI selfLink = MvcUriComponentsBuilder.relativeTo(uriBuilder)
-                .withMethodName(this.getClass(), "getImage", newImage.getId())
-                .build().toUri();
-
-        return ResponseEntity.created(selfLink).build();
+//        URI selfLink = MvcUriComponentsBuilder.relativeTo(uriBuilder)
+//                .withMethodName(this.getClass(), "getImage", newImage.getId())
+//                .build().toUri();
+//
+//        return ResponseEntity.created(selfLink).build();
     }
 
     @GetMapping(path = "/{landmarkId}", name = "getImage")

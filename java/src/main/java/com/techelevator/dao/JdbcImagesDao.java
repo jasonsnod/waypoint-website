@@ -19,7 +19,7 @@ public class JdbcImagesDao implements ImagesDao {
 
     @Override
     public Image getById(int id) {
-        final String query = "SELECT image_id, data, mediatype FROM images WHERE landmark_id = ?";
+        final String query = "SELECT image_id, data, mediatype FROM images WHERE image_id = ?";
         SqlRowSet srs = this.jdbcTemplate.queryForRowSet(query, id);
         Image image = null;
         if (srs.next()) {
@@ -56,7 +56,7 @@ public class JdbcImagesDao implements ImagesDao {
     }
     @Override
     public Image saveNew(Image image, int userId) {
-        final String query = "INSERT INTO images (data, mediatype, user_id, landmark_id) VALUES (?,?,?,?) RETURNING image_id;";
+        final String query = "INSERT INTO images (data, mediatype, user_id) VALUES (?,?,?) RETURNING image_id;";
         Integer newId = this.jdbcTemplate.queryForObject(query,
                 Integer.class,
                 (Object) image.getData(),
