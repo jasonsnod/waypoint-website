@@ -8,8 +8,6 @@
               <div ref="autocomplete" class="autocomplete-container autocomplete-input"></div>
               <label for="landmarkDetails" class="mt-2">Landmark Details: </label>
               <textarea class="form-control" v-model="landmark.landmarkDetails" id="landmarkDetails" placeholder="Enter landmark details" rows="2" required></textarea>
-              <file-upload class="mt-3"/>
-              <image-viewer class="mb-3"/>
               <input type="textarea" class="form-control" v-model="landmark.landmarkDetails" id="landmarkDetails" placeholder="Enter landmark details">
 
               
