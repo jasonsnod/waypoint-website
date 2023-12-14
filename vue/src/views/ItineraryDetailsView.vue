@@ -18,13 +18,13 @@
         <button class="update-button" v-if="!showUpdateForm && !showDeleteNotification" @click="flipUpdateForm">Update</button>
         <form class="itinerary-form" v-if="showUpdateForm" @submit.prevent="updateItinerary">
                 <div class="form-field">
-                    <label for="itinerary-name-input" id="itinerary-name">Itinerary Name:</label>
-                    <input v-model="itinerary.itineraryName" id="itinerary-name-input" type="text" placeholder="Enter itinerary name" />
+                    <label for="itinerary-name-input" id="itinerary-name" class="input-label">Itinerary Name:</label>
+                    <input v-model="itinerary.itineraryName" id="itinerary-name-input" class="text-input" type="text" placeholder="Enter itinerary name" />
                 </div>
                 <div class="form-field">
-                    <label for="starting-address-input" id="itinerary-address">Starting Address:</label>
+                    <label for="starting-address-input" id="itinerary-address" class="input-label">Starting Address:</label>
                     <div class="bottom-input">
-                        <input v-model="itinerary.startingAddress" id="starting-address-input" type="text" placeholder="Enter starting address" />
+                        <input v-model="itinerary.startingAddress" id="starting-address-input" class="text-input" type="text" placeholder="Enter starting address" />
                     </div>
                 </div>
                 <ul class="landmarks-list">
@@ -262,6 +262,7 @@ body{
     margin: 0 auto;
     margin-top: 50px;
 }
+
 .itinerary-name {
     font-size: 32px;
     color: #FFFFFF;
@@ -270,6 +271,7 @@ body{
     font-family: "Roboto", sans-serif;
     text-shadow: 3px 2px 4px rgba(0, 0, 0, 0.9);
 }
+
 .itinerary-info {
     font-size: 18px;
     color: #FFFFFF;
@@ -278,6 +280,7 @@ body{
     opacity: 0.7;
     display: none;
 }
+
 .itinerary-address {
     font-size: 20px;
     color: #FFFFFF;
@@ -287,6 +290,7 @@ body{
     color: rgb(253, 243, 229);
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
 }
+
 .buttons-container {
     display: flex;
     flex-wrap: wrap;
@@ -294,6 +298,7 @@ body{
     align-items: center;
     margin-top: 20px;
 }
+
 button {
     padding: 10px 20px;
     border: none;
@@ -301,6 +306,35 @@ button {
     color: #FFFFFF;
     cursor: pointer;
     transition: background-color 0.3s ease;
+}
+
+.itinerary-form{
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-field{
+    margin-bottom: 20px ;
+}
+
+.input-label{
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.text-input{
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.bottom-input{
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    overflow: hidden;
 }
 
 .form-buttons{
@@ -313,7 +347,6 @@ button {
 }
 
 .submit-button, .cancel-button{
-    margin-left: 90px;
     border: 1px solid transparent;
     font-weight: bold;
     margin-top: 20px;
