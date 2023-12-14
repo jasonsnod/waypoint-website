@@ -15,7 +15,7 @@
         <div class="map-container" ref="myMap"></div>
 
         <div class="buttons-container">
-        <button class="update-button" v-if="!showUpdateForm" @click="flipUpdateForm">Update</button>
+        <button class="update-button" v-if="!showUpdateForm && !showDeleteNotification" @click="flipUpdateForm">Update</button>
         <form class="itinerary-form" v-if="showUpdateForm" @submit.prevent="updateItinerary">
                 <div class="form-field">
                     <label for="itinerary-name-input" id="itinerary-name">Itinerary Name:</label>
@@ -126,6 +126,7 @@ export default {
         },
         flipDeleteAlert() {
             this.showDeleteNotification = !this.showDeleteNotification
+            this.showUpdateForm = false;
         },
         deleteItinerary() {
             itineraryService.deleteItinerary(this.itinerary.itineraryId)
