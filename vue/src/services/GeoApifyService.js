@@ -16,6 +16,29 @@ const geoapify = axios.create({
     baseURL: import.meta.env.VITE_GEOAPIFY_BASE_URL
 });
 
+function formatAddressForGeoApify(locationAddress) {
+    const stateAbbreviationRegex = new RegExp('^[A-Z]{2}$', 'g');
+
+    let splitLocationAddress = locationAddress.split(' ');
+    for (let index = 0; index < splitLocationAddress.length; index++) {
+        if (stateAbbreviationRegex.test(splitLocationAddress[index])) {
+            splitLocationAddress[index] += ',';
+        }
+    }
+
+    locationAddress = splitLocationAddress.join(' ');
+
+    splitLocationAddress = locationAddress.split(', ');
+
+    locationAddress = splitLocationAddress.join('%2C%20');
+
+    splitLocationAddress = locationAddress.split(' ');
+
+    locationAddress = splitLocationAddress.join('%20');
+
+    return locationAddress;
+}
+
 export default {
     getRoutes(startingLocationCoordinates, landmarksArray) {
 
@@ -61,13 +84,21 @@ export default {
     },
     getCoordinatesForAddress(locationAddress) {
 
-        // 337 West Mcmillan Street, Cincinnati, OH 45219, United States of America
+        locationAddress = formatAddressForGeoApify(locationAddress);
 
-
-        let requestURL = (
+        let requestUrl = (
             geoCoderUri +
             "text=" +
-            ""
-        )
+            locationAddress +
+            '&lang=en&limit=5&format=json&apiKey=' +
+            import.meta.env.VITE_GEOAPIFY_API_KEY
+        );
+
+        return geoapify.get(requestUrl);
+    },
+    getGeoapifyMapStyle() {
+
+        const mapStyleUrl = 'https://maps.geoapify.com/v1/styles/osm-carto/style.json?apiKey=' + import.meta.env.VITE_GEOAPIFY_API_KEY ;
+        return geoapify.get(mapStyleUrl);
     }
 }
