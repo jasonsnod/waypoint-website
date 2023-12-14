@@ -35,6 +35,8 @@ function formatAddressForGeoApify(locationAddress) {
     splitLocationAddress = locationAddress.split(' ');
 
     locationAddress = splitLocationAddress.join('%20');
+
+    return locationAddress;
 }
 
 export default {
@@ -84,7 +86,7 @@ export default {
 
         locationAddress = formatAddressForGeoApify(locationAddress);
 
-        let requestURL = (
+        let requestUrl = (
             geoCoderUri +
             "text=" +
             locationAddress +
@@ -92,6 +94,11 @@ export default {
             import.meta.env.VITE_GEOAPIFY_API_KEY
         );
 
-        return geoapify.get(requestURL);
+        return geoapify.get(requestUrl);
+    },
+    getGeoapifyMapStyle() {
+
+        const mapStyleUrl = 'https://maps.geoapify.com/v1/styles/osm-carto/style.json?apiKey=' + import.meta.env.VITE_GEOAPIFY_API_KEY ;
+        return geoapify.get(mapStyleUrl);
     }
 }

@@ -158,12 +158,13 @@ export default {
             });
         },
         createItineraryMap() {
+
             const mapStyle = 'https://maps.geoapify.com/v1/styles/osm-carto/style.json';
 
             const initialState = {
-                lng: -84.51233126586305,
-                lat: 39.10162530373483,
-                zoom: 12
+                lng: this.itineraryStartingCoordinates.lon,
+                lat: this.itineraryStartingCoordinates.lat,
+                zoom: 11
             };
 
             const map = new maplibre.Map({
@@ -176,9 +177,11 @@ export default {
             const markerPopup = new maplibre.Popup().setText('Some marker');
             new maplibre.Marker().setLngLat([initialState.lng, initialState.lat]).setPopup(markerPopup).addTo(map);
 
+            
+            map.on('load', visualizeRoute(this.itineraryRoute.features[0]));
+
             function visualizeRoute(routeGeojson) {
 
-                console.log(routeGeojson)
                 map.addSource('my-route', {
                     type:"geojson",
                     data: routeGeojson // <= add data here!
@@ -188,11 +191,19 @@ export default {
                     id: 'my-route-layer',
                     source: 'my-route',
                     type: 'line',
+                    layout: {
+                        'line-cap': "round",
+                        'line-join': "round"
+                    },
+                    paint: {
+                        'line-color': "#6084eb",
+                        'line-width': 8
+                    }
                 });
             }
-            map.on('load', visualizeRoute(this.itineraryRoute));
-        }
+        },
     },
+
     created() {
         this.getItinerary();
         this.getStartingAddressCoordinates();
