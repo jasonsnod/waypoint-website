@@ -45,7 +45,7 @@
                 </div>
             </form>
 
-        <button class="delete-button" v-if="!showDeleteNotification" @click="flipDeleteAlert">Delete</button>
+        <button class="delete-button" v-if="!showDeleteNotification && !showUpdateForm" @click="flipDeleteAlert">Delete</button>
         <container class="delete-box" v-if="showDeleteNotification">
             <h6>Are you sure you want to delete this itinerary?</h6>
             <div class="delete-buttons">
@@ -76,6 +76,7 @@ export default {
             showDeleteNotification: false,
             itineraryLandmarks: [],
             itineraryRoute: {},
+            itineraryWaypointsCoordinates: []
         }
     },
     components: {
@@ -153,6 +154,8 @@ export default {
                 waypointsCoordinatesArray.push({latitude: landmark.landmarkLatitude , longitude: landmark.landmarkLongitude})
             }
 
+            this.itineraryWaypointsCoordinates = waypointsCoordinatesArray;
+
             geoApifyService.getItineraryRoute(waypointsCoordinatesArray)
             .then(response => {
                 this.itineraryRoute = response.data;
@@ -187,11 +190,11 @@ export default {
             
 
             setTimeout(() => {
-                map.on('load', visualizeRoute(this.itineraryRoute.features[0]));
+                map.on('load', visualizeRoute(this.itineraryRoute.features[0], this.itineraryWaypointsCoordinates));
             }, 5000);
 
 
-            function visualizeRoute(routeGeojson) {
+            function visualizeRoute(routeGeojson, waypointsCoordinates) {
 
                 map.addSource('my-route', {
                     type:"geojson",
@@ -208,7 +211,7 @@ export default {
                     },
                     paint: {
                         'line-color': "#6084eb",
-                        'line-width': 4
+                        'line-width': 4,
                     }
                 });
             }
@@ -299,6 +302,31 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
+.form-buttons{
+    display: flex;
+    justify-content: center;
+}
+
+.button-wrapper{
+    margin: 0 30px;
+}
+
+.submit-button, .cancel-button{
+    margin-left: 90px;
+    border: 1px solid transparent;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.submit-button{
+    background-color: #337AB7;
+}
+
+.cancel-button{
+    background-color: #F44336;
+}
+
 .update-button {
     background-color: #4CAF50;
 }
