@@ -7,7 +7,7 @@
             <p class="detail-name">{{landmark.landmarkName}}</p>
             <p class="detail-value">{{landmark.landmarkAddress}}</p>
             <p class="detail-value">{{landmark.landmarkDetails}}</p>
-            <img class="landmark-image" src="https://www.visittheusa.com/sites/default/files/styles/hero_l/public/images/hero_media_image/2023-04/cd6d5f6d-0b19-47cf-93f1-dd16cca640a8.jpeg?h=2935a1aa&itok=mlV8oEZW">
+            <img class="landmark-image" :src="imageBaseUrl + landmark.landmarkId + '.jpg'">
             <!-- <p>{{landmark.landmarkLatitude}}</p>
             <p>{{landmark.landmarkLongitude}}</p> -->
             <router-link v-bind:to="{ name: 'landmarks' }">
@@ -33,7 +33,8 @@ export default {
     },
     data() {
         return {
-            landmark: {}
+            landmark: {},
+            imageBaseUrl: '/src/assets/landmarkImages/'
         }
     },
     computed: {
@@ -102,6 +103,8 @@ export default {
         margin-bottom: 50px;
         /* border: 1px solid antiquewhite; */
         text-decoration: none;
+        height: 88%;
+        width: 88%;
     }
 
     .detail-name{

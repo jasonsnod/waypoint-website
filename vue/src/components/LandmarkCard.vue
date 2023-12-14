@@ -9,7 +9,7 @@
                     <!-- <p class="landmark-details">{{ landmark.landmarkDetails }}</p> -->
                 </div>
                     <!-- <img :src="landmark.imageSrc" alt="Landmark Image" class="landmark-image" /> -->
-                    <img class="landmark-image" src="https://www.visittheusa.com/sites/default/files/styles/hero_l/public/images/hero_media_image/2023-04/cd6d5f6d-0b19-47cf-93f1-dd16cca640a8.jpeg?h=2935a1aa&itok=mlV8oEZW">
+                    <img class="landmark-image" :src="imageBaseUrl + landmark.landmarkId + '.jpg'">
             </div>
             <h1 class="add-landmark-button" v-if="this.$store.state.user.authorities && !this.isInCart" @click="updateCart(landmark)">+</h1>
             <h1 class="remove-landmark-button" v-if="this.$store.state.user.authorities && this.isInCart" @click="updateCart(landmark)">-</h1>
@@ -20,17 +20,18 @@
 <script>
     export default{
         props: {
-            landmark: Object
+            landmark: Object,
         },
         components: {
 
-         },
-         data() {
+        },
+        data() {
             return{
-            isInCart: false
-            }
-         },
-         methods: {
+                isInCart: false,
+                imageBaseUrl: 'src/assets/landmarkImages/'
+        }
+        },
+        methods: {
             checkCart() {
                 if(this.$store.state.landmarkCart.contains(this.landmark)) {
                     this.isInCart = true;
@@ -38,19 +39,19 @@
             },
             updateCart(landmark) {
                 if (this.$store.state.landmarkCart.includes(landmark) === true) {
-                this.$store.state.landmarkCart = this.$store.state.landmarkCart.filter(id => id != landmark)
-                this.isInCart = !this.isInCart
+                    this.$store.state.landmarkCart = this.$store.state.landmarkCart.filter(id => id != landmark)
+                    this.isInCart = !this.isInCart
                 
-            } else {
-                this.$store.state.landmarkCart.push(landmark)
-                this.isInCart = !this.isInCart
+                } else {
+                    this.$store.state.landmarkCart.push(landmark)
+                    this.isInCart = !this.isInCart
+                }
+                console.log(this.$store.state.landmarkCart)
             }
-            console.log(this.$store.state.landmarkCart)
-            }
-         },
-         created() {
+        },
+        created() {
             this.checkCart
-         }
+        }
     }
 </script>
 

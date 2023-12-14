@@ -7,6 +7,7 @@ public class Image {
     private int id;
     private byte[] data;
     private String mediatype;
+    private int landmarkId;
 
 
     public Image(int id, byte[] data, String mediatype) {
@@ -29,6 +30,22 @@ public class Image {
 
     public void setData(byte[] data) {
         this.data = data;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setMediatype(String mediatype) {
+        this.mediatype = mediatype;
+    }
+
+    public int getLandmarkId() {
+        return landmarkId;
+    }
+
+    public void setLandmarkId(int landmarkId) {
+        this.landmarkId = landmarkId;
     }
 
     public boolean hasId() {

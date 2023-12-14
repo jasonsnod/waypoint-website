@@ -46,12 +46,10 @@ CREATE SEQUENCE seq_images_id
 CREATE TABLE images (
 	image_id int DEFAULT nextval('seq_images_id'::regclass) NOT NULL,
 	user_id int,
-	landmark_id int NOT NULL,
 	mediatype varchar(100) NULL,
 	data BYTEA NULL,
 	CONSTRAINT PK_images PRIMARY KEY (image_id),
-	CONSTRAINT FK_images_users FOREIGN KEY (user_id) REFERENCES users (user_id),
-	CONSTRAINT FK_images_landmarks FOREIGN KEY (landmark_id) REFERENCES landmarks (landmark_id)
+	CONSTRAINT FK_images_users FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
 
 

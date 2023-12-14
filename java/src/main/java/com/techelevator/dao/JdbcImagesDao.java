@@ -56,7 +56,7 @@ public class JdbcImagesDao implements ImagesDao {
     }
     @Override
     public Image saveNew(Image image, int userId) {
-        final String query = "INSERT INTO images (data, mediatype, user_id, landmark_id) VALUES (?,?,?,?) RETURNING image_id;";
+        final String query = "INSERT INTO images (data, mediatype, user_id) VALUES (?,?,?) RETURNING image_id;";
         Integer newId = this.jdbcTemplate.queryForObject(query,
                 Integer.class,
                 (Object) image.getData(),
