@@ -2,7 +2,7 @@
     <div class="imagePreviewWrapper">
       <img v-if="image" v-bind:src="image" />
       <input type="file" v-on:change="loadImage" />
-      <!-- <button v-on:click="saveImage" class="btn btn-primary mr-3 mt-3">Save Image</button> -->
+      <button v-on:click="saveImage" class="btn btn-primary mr-3 mt-3">Save Image</button>
     </div>
   </template>
   

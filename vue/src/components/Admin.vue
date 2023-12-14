@@ -10,6 +10,8 @@
   
               <label for="landmarkDetails" class="mt-2">Landmark Details: </label>
               <input type="textarea" class="form-control" v-model="landmark.landmarkDetails" id="landmarkDetails" placeholder="Enter landmark details">
+
+              
   
               <button type="submit" class="btn btn-primary mr-3 mt-3">Submit</button>
               <button type="reset" class="btn btn-secondary mt-3">Reset</button>
@@ -28,7 +30,12 @@
   import LandmarkService from "../services/LandmarkService";
   
   
+  
   export default {
+
+      components : {
+       
+      },
   
       data() {
           return {
