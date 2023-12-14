@@ -1,72 +1,104 @@
 <template>
   <div class="home">
     <global-header />
-    <!-- <h1 class="homeview-header">
-      <div class="word-group">
-        <span>Welcome</span> <span>to </span>
-        <span> Waypoint </span>
-        <span>where </span>
-        <span>to </span>
-        <span>next?</span>
-      </div>
-    </h1> -->
     <img
       class="homeview-image fade-in"
       src="src\assets\img\logo-large.png"
       @load="handleImageload"
     />
-    <!-- <hr class="line-under-image" /> -->
-    <h1 class="homeview-header">
+   
+    <h2 class="homeview-header">
       <div class="word-group">
-        <span>Welcome</span> <span>to </span>
-        <span> Waypoint </span>
-        <span>where </span>
-        <span>to </span>
-        <span>next?</span>
+        <span>UNCOVER,</span> <span>PLAN, </span>
+        <span class="mb-5"> EXPERIENCE. </span>
+        <!-- <span>and </span>
+        <span>adventure </span>
+        <span>on</span> -->
+        <!-- <hr class="line-under-image mt-5 mb-5" /> -->
       </div>
-    </h1>
-    <!-- <div class="gif-container">
-      <img src="../assets/cincyPhotos/cincyBridge.gif" />
-    </div> -->
-
-    <div class="image-with-paragraphs">
-      <div class="image-container mx-auto mb-4">
-        <router-link v-bind:to="{ name: 'itineraries' }">
-          <img
-            src="img\itinerary-logo.png"
-            alt="Image 1"
-            class="rounded mr-3"
-            id="itinerary-photo"
-          />
-        </router-link>
-        <router-link v-bind:to="{ name: 'landmarks' }"
-          data-aos="fade-down-left"
-          data-aos-duration="1000"
+    </h2>
+            
+    <div 
+      
+      style="background-color: #2e52a4"
+      >
+      <img 
+        src="src\assets\img\super-hero.png"
+        alt="super-hero"
+        class="rounded img-fluid height:auto mx-auto d-block image"
         >
-          <img
-            src="img\landmarks-logo.png"
-            alt="Image 2"
-            class="rounded mr-3"
-            id="landmarks-photo"
-          />
-        </router-link>
-
-        <p data-aos="zoom-in" data-aos-duration="1000">
-          Explore Cincinnati's hidden gems with Waypoint! Create your
-          personalized itinerary effortlessly and share it with friends.
-          Discover the must-see landmarks and make the most of your Cincinnati
-          visit!
-        </p>
-      </div>
+        <div class="overlay-text">
+          <h4>Feel like a super hero</h4>
+          <span>Use our travel guide and take off.</span>
+        
+        
+        </div>
     </div>
+      
+      <div class="container mt-5">
+        
+        <div class="d-flex flex-col align-items-center justify-content-center mb-5">
+          <div class="p-2">
+            <router-link v-bind:to="{ name: 'itineraries' }">
+            <img
+              src="src\assets\img\itinerary-logo.png"
+              alt="itineraries"
+              class="rounded img-fluid"
+              id="itinerary-photo"
+            />
+          </router-link>
+          </div>
+          <div class="col-md-6">
+            <h4 class=" mb-1">Build an itinerary and share with family and friends:</h4>
+            <p>
+            Create your personalized itinerary effortlessly and share it with friends.
+            
+          </p>
+          </div>
+        </div>
+        
+        <div class="d-flex flex-col align-items-center justify-content-center mb-5">
+          <div class="p-2">
+            <router-link v-bind:to="{ name: 'landmarks' }"
+          >
+            <img
+              src="src\assets\img\landmarks-logo.png"
+              alt="landmarks"
+              class="rounded img-fluid"
+              id="landmarks-photo"
+            />
+          </router-link>
+          </div>
+          <div class="col-md-6">
+            <h4 class="mb-1">Look at suggested landmarks around Cincinnati:</h4>
+            <p class="mb-0 text-md-lg">
+              Discover the must-see landmarks and make the most of your Cincinnati
+            visit!
+          </p>
+          </div>
+        </div>
+      </div>
+      <div style="background-color: #08c076">
+      <h3>Meet the team</h3>
+      <p>Meet the brilliant minds behind our success! Our dedicated team brings 
+        diverse talents and expertise to the table, working collaboratively 
+        to turn ideas into reality. With passion as our driving force, 
+        we strive for excellence in every endeavor. Get to know the faces 
+        behind the brand and discover the unique skills and perspectives 
+        that make our team an unstoppable force. Together, 
+        we're not just a team; we're a family, united by a shared 
+        commitment to innovation and success.</p>
+      </div>
+</div>
     <global-footer />
-  </div>
+  
 </template>
 
 <script>
 import GlobalHeader from "../components/GlobalHeader.vue";
 import GlobalFooter from "../components/GlobalFooter.vue";
 import landmarkService from "../services/LandmarkService";
+
 export default {
   components: {
     GlobalHeader,
@@ -99,18 +131,18 @@ export default {
 <style scoped>
 .homeview-header {
   text-align: center;
-  margin-top: 50px;
+  /* margin-top: 50px; */
   font-family: "Roboto", sans-serif;
   font-size: 50px;
-  color: #e2ecf7;
+  color: #08c076;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   letter-spacing: 2px;
 }
 
 .homeview-image {
   display: block;
-  margin: 30px auto;
-  margin-top: 30px;
+  margin: auto;
+  margin-top: 5%;
   border-radius: 30px;
 }
 
@@ -123,43 +155,48 @@ export default {
   opacity: 1;
 }
 
-.line-under-image {
-  width: 40%;
-  margin: 20px auto;
-  border-bottom: 2px solid #234d80;
+.overlay-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10;
+  
+}
+
+.container {
+  position: relative;
+  width: 100%;
 }
 
 /* Styles for itinerary and graphic */
 
-.image-with-paragraphs {
+/* .image-with-paragraphs {
   display: flex;
   justify-content: space-between;
   margin-top: 40px;
-}
+} */
 
-.image-container {
+/* .image-container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: row;
   padding: 20px;
-}
+} */
 
 img {
   max-width: 100%;
   height: auto;
+  display: block;
 }
 
 #itinerary-photo {
-  border: 1px solid antiquewhite;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 #landmarks-photo {
-  width: 100%;
-  width: 250px;
-  border: 1px solid antiquewhite;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.gif-container {
+/* .gif-container {
   display: flex;
   justify-content: center;
   margin-top: 100px;
@@ -172,16 +209,16 @@ img {
   height: auto;
   border: 2px solid rgb(232, 228, 229);
   border-radius: 10px;
-}
+} */
 
-p {
+/* p {
   font-size: 1.2rem;
   max-width: 300px;
   color: white;
   margin: 0 auto;
   line-height: 1.6;
   font-family: "Roboto", sans-serif;
-}
+} */
 
 @keyframes scale {
   100% {
@@ -281,7 +318,7 @@ span:nth-child(18) {
 /* Media Queries for Mobile */
 @media only screen and (max-width: 600px) {
   .homeview-header {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   .homeview-image {
@@ -305,9 +342,9 @@ span:nth-child(18) {
     padding: 10px;
   }
 
-  #itinerary-photo {
+  /* #itinerary-photo {
     margin-bottom: 40px;
-  }
+  } */
 
   p {
     max-width: 80%;
@@ -324,7 +361,7 @@ span:nth-child(18) {
 /* Media Queries for Larger Screens */
 @media only screen and (min-width: 601px) {
   #landmarks-photo {
-    max-width: none;
+    /* max-width: none; */
   }
 }
 </style>

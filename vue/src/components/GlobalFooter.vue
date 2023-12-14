@@ -128,11 +128,7 @@ span {
   color: white;
 }
 
-.line-under-image {
-  width: 40%;
-  margin: 20px auto;
-  border-bottom: 2px solid #234d80;
-}
+
 
 /* Media Queries for Mobile Design */
 

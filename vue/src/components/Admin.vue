@@ -1,5 +1,5 @@
 <template>
-  <h1 class="ml-5">Add a Landmark</h1>
+  <h1 class="text-center bg-primary mt-5">Add a Landmark</h1>
       <form class="login-form" v-on:submit.prevent="submitForm">
           <div class="form-group ml-5">
               <label for="landmarkName">Landmark Name: </label>

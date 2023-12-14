@@ -1,14 +1,9 @@
 <template>
   <!-- Bootstrap navbar -->
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg shadow 5">
     <div class="container-fluid">
-      <router-link class="navbar-brand" :to="{ name: 'home' }">
-        <img src="@/assets/img/logo-small.png" alt="Logo" class="navbar-logo mr-2" />
-       
-        <!-- <img src="img\logo-small.png" alt="Logo" class="navbar-logo ml-2 mr-2" /> -->
-        <!-- <span class="brand-text"
-          ><span class="city-tours-text">Waypoint</span></span
-        > -->
+      <router-link class="navbar-brand mx-auto" :to="{ name: 'home' }">
+        <img src="@/assets/img/logo-small.png" alt="Logo" class="navbar-logo" />
       </router-link>
       <button
         class="navbar-toggler"
@@ -91,7 +86,7 @@ export default {
 <style scoped>
 .brand-text {
   font-size: 1.2em;
-  color: #4267b9;
+  color: #08c076;
   transition: color 0.3s ease-in-out;
 }
 
@@ -101,12 +96,12 @@ export default {
 
 .nav-link {
   font-weight: bold;
-  color: #333;
+  color: white;
   transition: color 0.3s ease-in-out;
 }
 
 .nav-link:hover {
-  color: #4267b9;
+  color: #08c076;
 }
 /* .navbar-logo {
   max-height: 60px;

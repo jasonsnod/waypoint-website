@@ -10,7 +10,7 @@ export default {
     addLandmark(landmark){
         return axios.post("/landmark", landmark)
     },
-    deleteLandmark(landmarkId) {
-        return axios.delete(`/landmark/${landmarkId}`)
-    }
+    // deleteLandmark(landmarkId) {
+    //     return axios.delete(`/landmark/${landmarkId}`)
+    // }
 }
