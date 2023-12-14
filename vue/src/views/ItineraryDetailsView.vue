@@ -151,23 +151,25 @@ export default {
             .then(response => {
                 this.itineraryRoute = response.data;
 
-                this.getMapStyle();
+                this.createItineraryMap();
             })
             .catch(error => {
                 console.log(error);
             });
         },
-        createItineraryMap(mapStyle) {
+        createItineraryMap() {
+
+            const mapStyle = 'https://maps.geoapify.com/v1/styles/osm-carto/style.json';
 
             const initialState = {
-                lng: -84.51233126586305,
-                lat: 39.10162530373483,
-                zoom: 12
+                lng: this.itineraryStartingCoordinates.lon,
+                lat: this.itineraryStartingCoordinates.lat,
+                zoom: 11
             };
 
             const map = new maplibre.Map({
                 container: this.$refs.myMap,
-                style: mapStyle,
+                style: `${mapStyle}?apiKey=${import.meta.env.VITE_GEOAPIFY_API_KEY}`,
                 center: [initialState.lng, initialState.lat],
                 zoom: initialState.zoom
             });
@@ -175,9 +177,11 @@ export default {
             const markerPopup = new maplibre.Popup().setText('Some marker');
             new maplibre.Marker().setLngLat([initialState.lng, initialState.lat]).setPopup(markerPopup).addTo(map);
 
+            
+            map.on('load', visualizeRoute(this.itineraryRoute.features[0]));
+
             function visualizeRoute(routeGeojson) {
 
-                console.log(routeGeojson)
                 map.addSource('my-route', {
                     type:"geojson",
                     data: routeGeojson // <= add data here!
@@ -187,20 +191,17 @@ export default {
                     id: 'my-route-layer',
                     source: 'my-route',
                     type: 'line',
+                    layout: {
+                        'line-cap': "round",
+                        'line-join': "round"
+                    },
+                    paint: {
+                        'line-color': "#6084eb",
+                        'line-width': 8
+                    }
                 });
             }
-            map.on('load', visualizeRoute(this.itineraryRoute));
         },
-        getMapStyle() {
-            geoApifyService.getGeoapifyMapStyle()
-            .then(response => {
-                const mapStyle = response.data
-                this.createItineraryMap(mapStyle);
-            })
-            .catch(error => {
-                console.log(error + ' Could not get style.')
-            });
-        }  
     },
 
     created() {
