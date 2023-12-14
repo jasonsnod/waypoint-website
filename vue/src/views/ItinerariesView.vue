@@ -46,12 +46,15 @@ import GlobalFooter from '../components/GlobalFooter.vue';
 import GlobalHeader from '../components/GlobalHeader.vue';
 import ItineraryCard from '../components/ItineraryCard.vue';
 import itineraryService from '../services/ItineraryService.js';
+//import { GeocoderAutocomplete } from "@geoapify/geocoder-autocomplete";
+
 
 export default {
     components: {
     GlobalFooter,
     GlobalHeader,
     ItineraryCard
+
 },
     data() {
         return {
@@ -114,7 +117,25 @@ export default {
     },
     created() {
         this.getItineraries();
-    }
+    },
+//     mounted: function () {
+//     const autocomplete = new GeocoderAutocomplete(
+//       this.$refs.autocomplete,
+//       import.meta.env.VITE_GEOAPIFY_API_KEY,
+//       {
+//         /* Geocoder options */
+//       }
+//     );
+
+//     autocomplete.on("select", (location) => {
+//       // check selected location here
+//       this.results = location.properties;
+//     });
+
+//     autocomplete.on("suggestions", (suggestions) => {
+//       // process suggestions here
+//     });
+//   }
 }
 
 </script>

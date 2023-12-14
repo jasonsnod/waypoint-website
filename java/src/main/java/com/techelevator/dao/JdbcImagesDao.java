@@ -19,7 +19,7 @@ public class JdbcImagesDao implements ImagesDao {
 
     @Override
     public Image getById(int id) {
-        final String query = "SELECT image_id, data, mediatype FROM images WHERE image_id = ?";
+        final String query = "SELECT image_id, data, mediatype FROM images WHERE landmark_id = ?";
         SqlRowSet srs = this.jdbcTemplate.queryForRowSet(query, id);
         Image image = null;
         if (srs.next()) {

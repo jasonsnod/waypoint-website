@@ -42,9 +42,9 @@ public class ImagesController {
         return ResponseEntity.created(selfLink).build();
     }
 
-    @GetMapping(path = "/{id}", name = "getImage")
-    public ResponseEntity<byte[]> getImage(@PathVariable int id) {
-        Image image = dao.getById(id);
+    @GetMapping(path = "/{landmarkId}", name = "getImage")
+    public ResponseEntity<byte[]> getImage(@PathVariable int landmarkId) {
+        Image image = dao.getById(landmarkId);
         if (null == image) return ResponseEntity.notFound().build();
 
         return ResponseEntity

@@ -73,7 +73,7 @@ export default {
             showUpdateForm: false,
             showDeleteNotification: false,
             itineraryLandmarks: [],
-            itineraryRoute: {}
+            itineraryRoute: {},
         }
     },
     components: {
@@ -167,7 +167,7 @@ export default {
             const initialState = {
                 lng: this.itineraryStartingCoordinates.lon,
                 lat: this.itineraryStartingCoordinates.lat,
-                zoom: 11
+                zoom: 12
             };
 
             const map = new maplibre.Map({
@@ -179,9 +179,14 @@ export default {
 
             const markerPopup = new maplibre.Popup().setText('Some marker');
             new maplibre.Marker().setLngLat([initialState.lng, initialState.lat]).setPopup(markerPopup).addTo(map);
-
             
+<<<<<<< HEAD
             map.once('idle', visualizeRoute(this.itineraryRoute.features[0]));
+=======
+            setTimeout(() => {
+                map.on('load', visualizeRoute(this.itineraryRoute.features[0]));
+            }, 5000);
+>>>>>>> a7aeb4f0436798ff3b3d68c38cbb84d904567ade
 
             function visualizeRoute(routeGeojson) {
 
@@ -200,24 +205,25 @@ export default {
                     },
                     paint: {
                         'line-color': "#6084eb",
-                        'line-width': 8
+                        'line-width': 4
                     }
                 });
             }
         },
     },
-
     created() {
         this.getItinerary();
         this.getStartingAddressCoordinates();
         this.getItineraryLandmarks();
-    },
+    }
 }
 
 </script>
 
 <style scoped>
+
 /* Import Maplibre styles */
+
 @import '../../node_modules/maplibre-gl/dist/maplibre-gl.css';
 
 body{
