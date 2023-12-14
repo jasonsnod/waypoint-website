@@ -35,7 +35,7 @@ import SearchLandmarks from "../components/SearchLandmarks.vue";
 import MapOfLandmarks from "../components/MapOfLandmarks.vue";
 import LandmarkCard from "../components/LandmarkCard.vue";
 import geoApifyService from "../services/GeoApifyService.js";
-import Admin from "../components/Admin.vue";
+import Admin from "../components/admin.vue";
 import axios from 'axios';
 
 export default {
