@@ -299,6 +299,31 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
+.form-buttons{
+    display: flex;
+    justify-content: center;
+}
+
+.button-wrapper{
+    margin: 0 30px;
+}
+
+.submit-button, .cancel-button{
+    margin-left: 90px;
+    border: 1px solid transparent;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.submit-button{
+    background-color: #337AB7;
+}
+
+.cancel-button{
+    background-color: #F44336;
+}
+
 .update-button {
     background-color: #4CAF50;
 }
