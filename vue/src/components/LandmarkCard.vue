@@ -11,8 +11,6 @@
                     <!-- <img :src="landmark.imageSrc" alt="Landmark Image" class="landmark-image" /> -->
                     <img class="landmark-image" :src="imageBaseUrl + landmark.landmarkId + '.jpg'">
             </div>
-            <h1 class="add-landmark-button" v-if="this.$store.state.user.authorities && !this.isInCart" @click="updateCart(landmark)">+</h1>
-            <h1 class="remove-landmark-button" v-if="this.$store.state.user.authorities && this.isInCart" @click="updateCart(landmark)">-</h1>
         </div>
     </div>
 </template>
@@ -105,7 +103,7 @@
 }
 
 .landmark-image{
-    max-width: 80%;
+    width: 40rem;
     border-radius: 8px;
     display: block;
     margin: 0 auto;
