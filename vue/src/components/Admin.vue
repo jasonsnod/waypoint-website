@@ -8,10 +8,6 @@
               <div ref="autocomplete" class="autocomplete-container autocomplete-input"></div>
               <label for="landmarkDetails" class="mt-2">Landmark Details: </label>
               <textarea class="form-control" v-model="landmark.landmarkDetails" id="landmarkDetails" placeholder="Enter landmark details" rows="2" required></textarea>
-              <input type="textarea" class="form-control" v-model="landmark.landmarkDetails" id="landmarkDetails" placeholder="Enter landmark details">
-
-              
-  
               <button type="submit" class="btn btn-primary mr-3 mt-3">Submit</button>
               <button type="reset" class="btn btn-secondary mt-3">Reset</button>
           </div>

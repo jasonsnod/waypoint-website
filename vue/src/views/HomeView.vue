@@ -18,10 +18,8 @@
       </div>
     </h2>
             
-    <div 
-      
-      style="background-color: #2e52a4"
-      >
+    <!-- <div class="full-width-div" style="background-color: #2e52a4">
+      <div class="container" id="sh-container" >
       <img 
         src="src\assets\img\super-hero.png"
         alt="super-hero"
@@ -31,10 +29,14 @@
           <h4>Feel like a super hero</h4>
           <span>Use our travel guide and take off.</span>
         
-        
         </div>
-    </div>
+        </div>
+    </div> -->
       
+
+
+
+
       <div class="container mt-5">
         
         <div class="d-flex flex-col align-items-center justify-content-center mb-5">
@@ -78,9 +80,9 @@
           </div>
         </div>
       </div>
-      <div style="background-color: #08c076">
-      <h3>Meet the team</h3>
-      <p>Meet the brilliant minds behind our success! Our dedicated team brings 
+      <div style="background-color: #08c076" class="">
+      <h3 class="ml-5 pl-5 mt-5">Meet the team</h3>
+      <p class="ml-5 pl-5 pb-3">Meet the brilliant minds behind our success! Our dedicated team brings 
         diverse talents and expertise to the table, working collaboratively 
         to turn ideas into reality. With passion as our driving force, 
         we strive for excellence in every endeavor. Get to know the faces 
@@ -88,6 +90,8 @@
         that make our team an unstoppable force. Together, 
         we're not just a team; we're a family, united by a shared 
         commitment to innovation and success.</p>
+
+        <router-link class="rounded-button" :to="{ name: 'about' }">About Us</router-link> 
       </div>
 </div>
     <global-footer />
@@ -146,6 +150,10 @@ export default {
   border-radius: 30px;
 }
 
+.sh-container {
+  position: relative;
+}
+
 .fade-in {
   opacity: 0;
   transition: opacity 2.5s ease-in-out;
@@ -160,12 +168,29 @@ export default {
   bottom: 0;
   left: 0;
   padding: 10;
+  z-index: 1;
   
 }
 
 .container {
   position: relative;
   width: 100%;
+}
+
+.rounded-button {
+  display: inline-block;
+  padding: 10px 20px; /* Adjust padding as needed */
+  font-size: 16px; /* Adjust font size as needed */
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 20px; /* Adjust border radius for roundness */
+  background-color: #ffffff; /* Button background color */
+  color: #000000; /* Button text color */
+  cursor: pointer;
+
+  margin-left: 6%
+
 }
 
 /* Styles for itinerary and graphic */
