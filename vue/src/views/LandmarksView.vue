@@ -121,6 +121,7 @@ export default {
 .landmark-card-list {
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 
 
